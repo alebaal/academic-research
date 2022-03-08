@@ -1,0 +1,14 @@
+#!/bin/bash              
+
+if [ ${1} ]
+   then
+      mv ./8pk$1/moviment-6/forceASbridgeLargeWall1k$1-mov4.out ./8pk$1/moviment-6/forceASbridgeLargeWall1k$1-mov6.out
+      mv ./8pk$1/moviment-6/forceASbridgeLargeWall2k$1-mov4.out ./8pk$1/moviment-6/forceASbridgeLargeWall2k$1-mov6.out
+
+      mv ./8pk$1/moviment-7/forceASbridgeLargeWall1k$1-mov5.out ./8pk$1/moviment-7/forceASbridgeLargeWall1k$1-mov7.out
+      mv ./8pk$1/moviment-7/forceASbridgeLargeWall2k$1-mov5.out ./8pk$1/moviment-7/forceASbridgeLargeWall2k$1-mov7.out
+   else
+       echo "      arg 1  surface polarity: 0.0, ..., 0.6" 
+fi
+
+

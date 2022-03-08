@@ -1,0 +1,74 @@
+#!/bin/bash
+
+#Fixed variables###########
+SizeBox=278.6             #
+InitialHeight=50.0        #
+NumAtomsH2O=3375          #
+###########################
+
+if [ ${10} ] 
+   then
+       pol=`echo " scale = 0 ; ( $1*100 )/1" | bc` #set the number of atoms in the wall	
+       if [ $pol -lt 5 ]
+           then	
+           NumAtomsWall=93184
+           else
+           NumAtomsWall=100352
+       fi
+#        #Calculating the rdf 
+#
+#       cp ./programs/MDprofile-rdf-v13-slab ./8pk$1/moviment-${5}/
+#       cd ./8pk$1/moviment-${5}/
+#       mkdir -p rdf profile wholeProfile 
+#      
+#       for (( j = $6; $j <= $7; j++ )); do
+#           if [ ${5} -le 2 ]
+#              then
+#              HalfHeight=`echo " scale = 3 ; ((($InitialHeight - 10*${5}))/2)" | bc` 
+#              else
+#                 if [ ${5} -eq 3 ] || [ ${5} -eq 4 ]
+#                     then          
+#                    HalfHeight=`echo " scale = 3 ; ((($InitialHeight - 10*2 - 5*(${5} - 2)))/2)" | bc`
+#                    else #j > 4
+#                    HalfHeight=`echo " scale = 3 ; ((($InitialHeight - 10*2 - 5*2 - (${5} - 4)))/2)" | bc`
+#                 fi          
+#           fi                              
+#           ./MDprofile-rdf-v13-slab $2 $3 $4 $8 $SizeBox $HalfHeight $NumAtomsH2O $NumAtomsWall ${j}
+#        done 
+#       cd ../../
+#       mkdir -p ./analysis/checkSlab/8pk$1/moviment-${5}/
+#       cp -r ./8pk$1/moviment-${5}/profile         ./analysis/checkSlab/8pk$1/moviment-${5}
+#       cp -r ./8pk$1/moviment-${5}/rdf             ./analysis/checkSlab/8pk$1/moviment-${5}
+#       cp -r ./8pk$1/moviment-${5}/wholeProfile    ./analysis/checkSlab/8pk$1/moviment-${5}
+#  
+#       #Performing the fitting
+#        
+       mkdir -p ./analysis/checkSlab/8pk$1/moviment-${5}/fitting/
+       for (( j = $6; $j <= $7; j++ )); do
+           if [ ${5} -le 2 ]
+              then
+              HalfHeight=`echo " scale = 3 ; ((($InitialHeight - 10*${5}))/2)" | bc` 
+              else
+                 if [ ${5} -eq 3 ] || [ ${5} -eq 4 ]
+                     then          
+                     HalfHeight=`echo " scale = 3 ; ((($InitialHeight - 10*2 - 5*(${5} - 2)))/2)" | bc`
+                     else #j > 4
+                     HalfHeight=`echo " scale = 3 ; ((($InitialHeight - 10*2 - 5*2 - (${5} - 4)))/2)" | bc`
+                 fi          
+           fi                              
+           python  ./MDfitting-ASbridge-v1.1-vSlab.py $1 $5 $8 $HalfHeight ${j} $9 ${10}
+       done
+   else 
+       echo "      arg 1  surface polarity: 0.0, ..., 0.6"        
+       echo "      arg 2  first file .pos for the total average"   
+       echo "      arg 3  last  file .pos"                        
+       echo "      arg 4  deltat for the files .pos"               
+       echo "      arg 5  AS bridge height (num directiory)"                                                                          
+       echo "      arg 6  first  num points "        
+       echo "      arg 7  last   num points "                        
+       echo "      arg 8  tave total average "                                   
+       echo "      arg 9  R2 fitting parameter "                                   
+       echo "      arg 10 N points on profile to avoid "                                   
+       echo "      Note:  "
+       echo "      From 0 to 2, displaciment of 10A. From 3 to 4, displaciment of 5A. From 5 to ...., displaciment of 1A"
+fi

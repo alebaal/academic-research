@@ -1,0 +1,8 @@
+#!/bin/bash
+
+find ./8pk0.0/ -name '*-wall.pos' -exec cp --parents \{\} ./forceWallsCalculation/ \;
+find ./8pk0.1/ -name '*-wall.pos' -exec cp --parents \{\} ./forceWallsCalculation/ \;
+find ./8pk0.2/ -name '*-wall.pos' -exec cp --parents \{\} ./forceWallsCalculation/ \;
+find ./8pk0.3/ -name '*-wall.pos' -exec cp --parents \{\} ./forceWallsCalculation/ \;
+find ./8pk0.4/ -name '*-wall.pos' -exec cp --parents \{\} ./forceWallsCalculation/ \;
+find ./8pk0.5/ -name '*-wall.pos' -exec cp --parents \{\} ./forceWallsCalculation/ \;

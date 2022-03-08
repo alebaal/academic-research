@@ -1,0 +1,313 @@
+%%%%%%%%%%%%%%%%%
+% This is an sample CV template created using altacv.cls
+% (v1.3, 10 May 2020) written by LianTze Lim (liantze@gmail.com). Now compiles with pdfLaTeX, XeLaTeX and LuaLaTeX.
+% This fork/modified version has been made by Nicolás Omar González Passerino (nicolas.passerino@gmail.com, 15 Oct 2020)
+%
+%% It may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%    http://www.latex-project.org/lppl.txt
+%% and version 1.3 or later is part of all distributions of LaTeX
+%% version 2003/12/01 or later.
+%%%%%%%%%%%%%%%%
+
+%% If you need to pass whatever options to xcolor
+\PassOptionsToPackage{dvipsnames}{xcolor}
+\usepackage{hyperref}
+
+%% If you are using \orcid or academicons
+%% icons, make sure you have the academicons
+%% option here, and compile with XeLaTeX
+%% or LuaLaTeX.
+% \documentclass[10pt,a4paper,academicons]{altacv}
+
+%% Use the "normalphoto" option if you want a normal photo instead of cropped to a circle
+% \documentclass[10pt,a4paper,normalphoto]{altacv}
+
+\documentclass[10pt,a4paper,ragged2e,withhyper]{altacv}
+
+%% AltaCV uses the fontawesome5 and academicons fonts
+%% and packages.
+%% See http://texdoc.net/pkg/fontawesome5 and http://texdoc.net/pkg/academicons for full list of symbols. You MUST compile with XeLaTeX or LuaLaTeX if you want to use academicons.
+
+% Change the page layout if you need to
+\geometry{left=1.2cm,right=1.2cm,top=1cm,bottom=1cm,columnsep=0.75cm}
+
+% The paracol package lets you typeset columns of text in parallel
+\usepackage{paracol}
+
+% Change the font if you want to, depending on whether
+% you're using pdflatex or xelatex/lualatex
+\ifxetexorluatex
+  % If using xelatex or lualatex:
+  \setmainfont{Roboto Slab}
+  \setsansfont{Lato}
+  \renewcommand{\familydefault}{\sfdefault}
+\else
+  % If using pdflatex:
+  \usepackage[rm]{roboto}
+  \usepackage[defaultsans]{lato}
+  % \usepackage{sourcesanspro}
+  \renewcommand{\familydefault}{\sfdefault}
+\fi
+
+% ----- LIGHT MODE -----
+\definecolor{SlateGrey}{HTML}{2E2E2E}
+\definecolor{LightGrey}{HTML}{666666}
+\definecolor{PrimaryColor}{HTML}{001F5A}
+\definecolor{SecondaryColor}{HTML}{0039AC}
+\definecolor{ThirdColor}{HTML}{F3890B}
+\definecolor{BackgroundColor}{HTML}{E2E2E2}
+\colorlet{name}{PrimaryColor}
+\colorlet{tagline}{PrimaryColor}
+\colorlet{heading}{PrimaryColor}
+\colorlet{headingrule}{ThirdColor}
+\colorlet{subheading}{SecondaryColor}
+\colorlet{accent}{SecondaryColor}
+\colorlet{emphasis}{SlateGrey}
+\colorlet{body}{LightGrey}
+\pagecolor{BackgroundColor}   
+% ----- DARK MODE -----
+%\definecolor{BackgroundColor}{HTML}{242424}
+%\definecolor{SlateGrey}{HTML}{6F6F6F}
+%\definecolor{LightGrey}{HTML}{ABABAB}
+%\definecolor{PrimaryColor}{HTML}{3F7FFF}
+%\colorlet{name}{PrimaryColor}
+%\colorlet{tagline}{PrimaryColor}
+%\colorlet{heading}{PrimaryColor}
+%\colorlet{headingrule}{PrimaryColor}
+%\colorlet{subheading}{PrimaryColor}
+%\colorlet{accent}{PrimaryColor}
+%\colorlet{emphasis}{LightGrey}
+%\colorlet{body}{LightGrey}
+%\pagecolor{BackgroundColor}
+
+% Change some fonts, if necessary
+\renewcommand{\namefont}{\Huge\rmfamily\bfseries}
+\renewcommand{\personalinfofont}{\small\bfseries}
+\renewcommand{\cvsectionfont}{\LARGE\rmfamily\bfseries}
+\renewcommand{\cvsubsectionfont}{\large\bfseries}
+
+% Change the bullets for itemize and rating marker
+% for \cvskill if you want to
+\renewcommand{\itemmarker}{{\small\textbullet}}
+\renewcommand{\ratingmarker}{\faCircle}
+
+%% sample.bib contains your publications
+%% \addbibresource{sample.bib}
+
+\begin{document}
+    \name{Alexandre B. de Almeida}
+    \tagline{Physicist}
+    %% You can add multiple photos on the left or right
+    \photoL{4cm}{foto285}
+    
+    \personalinfo{
+        \email{alexandre.almeida@alumni.usp.br}\smallskip
+        \phone{+55 19 991984533}
+        \location{Sao Joao da Boa Vista-SP, Brazil}\\
+        \linkedin{alexandre-b-almeida-37aa7212a}
+        \github{alebaal}
+        %\dev{johnDoe}
+        %\homepage{nicolasomar.me}
+        %\medium{nicolasomar}
+        %% You MUST add the academicons option to \documentclass, then compile with LuaLaTeX or XeLaTeX, if you want to use \orcid or other academicons commands.
+        % \orcid{0000-0000-0000-0000}
+        %% You can add your own arbtrary detail with
+        %% \printinfo{symbol}{detail}[optional hyperlink prefix]
+        % \printinfo{\faPaw}{Hey ho!}[https://example.com/]
+        %% Or you can declare your own field with
+        %% \NewInfoFiled{fieldname}{symbol}[optional hyperlink prefix] and use it:
+        % \NewInfoField{gitlab}{\faGitlab}[https://gitlab.com/]
+        % \gitlab{your_id}
+    }
+    
+    \makecvheader
+    %% Depending on your tastes, you may want to make fonts of itemize environments slightly smaller
+    % \AtBeginEnvironment{itemize}{\small}
+    
+    %% Set the left/right column width ratio to 6:4.
+    \columnratio{0.3}
+
+    % Start a 2-column paracol. Both the left and right columns will automatically
+    % break across pages if things get too long.
+    \begin{paracol}{2}
+        % ----- STRENGTHS -----
+        \cvsection{Skills}
+            {\bf Hard}\\
+            \vspace{0.2cm}
+            \cvtag{Linux}
+            \cvtag{Windows}
+            \cvtag{Matlab}
+            \cvtag{Mathematica}
+            \cvtag{Visual Studio}
+            \cvtag{PyCharm}
+            \cvtag{Jupyter}
+            \cvtag{Vim}
+            \cvtag{Git}           
+            \cvtag{C++}
+            \cvtag{C\#}
+            \cvtag{Bash}
+            \cvtag{Batch}
+            \cvtag{\LaTeX}
+            \cvtag{Python}
+            \cvtag{TensorFlow}
+            \cvtag{SQL}
+            \cvtag{Machine Learning}
+            \cvtag{Time series}
+            \cvtag{Scientific writing}
+            \medskip
+            
+            {\bf Soft}\\
+            \vspace{0.2cm}
+            \cvtag{Communication}\\
+            \cvtag{Creativity}
+            \cvtag{Critical thinking}\\
+            \cvtag{Thinking outside the box}\\
+            \cvtag{Desire to learn}
+            \cvtag{Honesty}\\
+            \cvtag{Respectability}
+            \cvtag{Cooperation}\\
+            \cvtag{Resilience}
+            \cvtag{Independent}\\
+            %\cvtag{Patience}
+            
+            
+            
+            
+        % ----- STRENGTHS -----
+        
+        % ----- LEARNING -----
+        \cvsection{Certifications}
+            \begin{itemize}
+                \item Coursera
+                \begin{itemize}
+                    \item[-] Machine Learning, Deep Learning and TensorFlow (see following links (L): \href{https://coursera.org/share/50d1bfc2462e11112bc420d82f6eb622}{L1},
+                    \href{https://coursera.org/share/e33debfdd7f6a2a39568d602dd7e50d3}{L2},
+                    \href{https://coursera.org/share/0ac1fe62db824f63021bf5cbadc8effa}{L3},
+                    \href{https://coursera.org/share/8efbea3377ef5eb01b909351d7c0f93c}{L4},
+                    \href{https://coursera.org/share/d0e1636b353a300204e807db06b4f543}{L5},
+                    \href{https://coursera.org/share/475e3f7e1c47e1dd90e153842b19823d}{L6} and
+                    \href{https://coursera.org/share/a672fdfb0b627c56cbfad49b453e4be3}{L7})
+                \end{itemize}
+                \item Udemy
+                \begin{itemize}
+                    \item[-] 
+                    \href{http://ude.my/UC-1e3f10fa-527a-4820-af92-9fdb1c4bc619}{Python 3: Deep Dive (Part 1)}
+                    \item[-] Machine Learning A-Z ({\it in progress})
+                \end{itemize}
+                \item National Research University
+                \begin{itemize}
+                    \item[-] \href{https://coursera.org/share/88323987bae341a22c72dde06a326c6b}{Introduction to Deep Learning}
+                \end{itemize}
+            \end{itemize}
+                    
+                    
+                
+        % ----- LEARNING -----
+        
+        % ----- LANGUAGES -----
+        \cvsection{Languages}
+            \cvlang{Portuguese}{Native}\\
+            \cvlang{English}{Advanced}
+            %% Yeah I didn't spend too much time making all the
+            %% spacing consistent... sorry. Use \smallskip, \medskip,
+            %% \bigskip, \vpsace etc to make ajustments.
+            \smallskip
+        % ----- LANGUAGES -----
+            
+        % ----- REFERENCES -----
+   %     \cvsection{References}
+%            \cvref{Ref 1}{ref-1}
+%            \divider
+%            
+%            \cvref{Ref 2}{ref-2}
+%            \divider
+            
+%            \cvref{Ref 3}{ref-3}
+%            \smallskip
+        % ----- REFERENCES -----
+        
+        % ----- MOST PROUD -----
+        %\cvsection{Most Proud of}
+        %\cvachievement{\faTrophy}{Fantastic Achievement}{and some details about it}\\
+        %\divider
+        %\cvachievement{\faHeartbeat}{Another achievement}{more details about it of course}\\
+        % \divider
+        % \cvachievement{\faHeartbeat}{Another achievement}{more details about it of course}
+        % ----- MOST PROUD -----
+        
+        %\cvsection{A Day of My Life}
+        
+        %Adapted from @Jake's answer from http://tex.stackexchange.com/a/82729/226
+        %\wheelchart{outer radius}{inner radius}{
+        %comma-separated list of value/text width/color/detail}
+        % \wheelchart{1.5cm}{0.5cm}{%
+        %   6/8em/accent!30/{Sleep,\\beautiful sleep},
+        %   3/8em/accent!40/Hopeful novelist by night,
+        %   8/8em/accent!60/Daytime job,
+        %   2/10em/accent/Sports and relaxation,
+        %   5/6em/accent!20/Spending time with family
+        % }
+        
+        % use ONLY \newpage if you want to force a page break for
+        % ONLY the current column
+        \newpage
+        
+        %% Switch to the right column. This will now automatically move to the second
+        %% page if the content is too long.
+        \switchcolumn
+        
+        % ----- ABOUT ME -----
+        \cvsection{About me}
+            \begin{quote}
+                Passionate for science and interdisciplinary problems, I have been working in the financial market since 2018 developing quantitative trading strategies for Brazilian and US stock markets. I have a solid academic background with publications in prestigious scientific journals, and one year of experience abroad at Yeshiva University, New York--NY, EUA, performing research in physics field.
+            \end{quote}
+        % ----- ABOUT ME -----
+        
+        % ----- EXPERIENCE -----
+        \cvsection{Experience}
+            \cvevent{Quantitative researcher}{| Saires Capital}{March 2018 -- Present}{Sao Paulo-SP, Brazil}
+            \begin{itemize}
+                \item I work on the development of equity trading strategies for Brazilian and US stock market. The strategies are developed by using machine learning algorithms, time series analysis and fundamentalist data. I care about to avoid look-ahead and survivorship bias. The main programming languages I use are Python and C\#. I create automated reports to follow up the strategies in papertrade and in production.
+            \end{itemize}
+            %\divider
+                
+            \cvevent{Postdoctoral Scientist}{| University of Sao Paulo}{2017 -- 2019}{Sao Paulo-SP, Brazil}
+            %\divider
+                
+            \cvevent{Text reviewer}{| SOMOS Educação}{2018}{Sao Paulo-SP, Brazil}
+        
+        % ----- EDUCATION -----
+        \cvsection{Eduation}
+            \cvevent{Ph.D., Physics}{| University of Sao Paulo}{2012 -- 2017}{Sao Paulo, Brazil}
+            \begin{itemize}
+                % \item Thesis: Capillary drops and bridges at the nanoscale (CAPES scholarship)
+                \item Scientific internship at {\it Yeshiva University}, New York -- NY, EUA
+            \end{itemize}
+            %\divider
+            
+            \cvevent{Master's degree, Physics}{| University of Sao Paulo}{2010 -- 2012}{Sao Paulo, Brazil}
+            \begin{itemize}
+                % \item Dissertation: Analysis and thermodynamic modeling of liquid bridge ruptures: Application to lung fluids (FAPESP scholarship)
+            \end{itemize}
+            %\divider
+            
+            \cvevent{Bachelor's degree, Physics}{| University of Sao Paulo}{2005 -- 2010}{Sao Paulo, Brazil}
+        % ----- EDUCATION -----
+        
+        % ----- PROJECTS -----
+        \cvsection{Publications}
+            \begin{itemize}
+                \item J. Phys. Chem. C 125, 5335–-5348 (2021)
+                \item J. Phys. Chem. C 122, 1556–-1569 (2018)
+                \item J. Phys. Chem. C 120, 1597–-1608 (2016)
+                \item Physica A 392, 3409–-3416 ({2013})
+
+            \end{itemize}
+%            \cvevent{Artigos }{1}
+
+        % ----- PROJECTS -----
+    \end{paracol}
+\end{document}

@@ -1,0 +1,67 @@
+#!/bin/bash
+
+#./ASbridge-analisis-STEP1.shell 0.0   0 3000000 1000 1000000 1 1 100000 2000000 2 &
+#./ASbridge-analisis-STEP1.shell 0.1   0 3000000 1000 1000000 1 1 100000 2000000 2 &
+#./ASbridge-analisis-STEP1.shell 0.2   0 3000000 1000 1000000 1 1 100000 2000000 2 &
+#./ASbridge-analisis-STEP1.shell 0.3   0 3000000 1000 1000000 1 1 100000 2000000 2 &
+#./ASbridge-analisis-STEP1.shell 0.346 0 3000000 1000 1000000 1 1 100000 2000000 2 &
+#./ASbridge-analisis-STEP1.shell 0.4   0 3000000 1000 1000000 1 1 100000 2000000 2 &
+#./ASbridge-analisis-STEP1.shell 0.5   0 3000000 1000 1000000 1 1 100000 2000000 2 & 
+                                                                              
+#./ASbridge-analisis-STEP1.shell 0.0   0 3000000 1000 1000000 2 2 100000 2000000 2 &
+#./ASbridge-analisis-STEP1.shell 0.1   0 3000000 1000 1000000 2 2 100000 2000000 2 &
+#./ASbridge-analisis-STEP1.shell 0.2   0 3000000 1000 1000000 2 2 100000 2000000 2 &
+#./ASbridge-analisis-STEP1.shell 0.3   0 3000000 1000 1000000 2 2 100000 2000000 2 &
+#./ASbridge-analisis-STEP1.shell 0.346 0 3000000 1000 1000000 2 2 100000 2000000 2 &
+#./ASbridge-analisis-STEP1.shell 0.4   0 3000000 1000 1000000 2 2 100000 2000000 2 &
+#./ASbridge-analisis-STEP1.shell 0.5   0 3000000 1000 1000000 2 2 100000 2000000 2 & 
+                                                                               
+#./ASbridge-analisis-STEP1.shell 0.0   0 3000000 1000 1000000 3 3 100000 2000000 2 &
+#./ASbridge-analisis-STEP1.shell 0.1   0 3000000 1000 1000000 3 3 100000 2000000 2 &
+#./ASbridge-analisis-STEP1.shell 0.2   0 3000000 1000 1000000 3 3 100000 2000000 2 &
+#./ASbridge-analisis-STEP1.shell 0.3   0 3000000 1000 1000000 3 3 100000 3000000 2 & 
+#./ASbridge-analisis-STEP1.shell 0.346 0 3000000 1000 1000000 3 3 100000 2000000 2 &
+#./ASbridge-analisis-STEP1.shell 0.4   0 3000000 1000 1000000 3 3 100000 2000000 2 &
+#./ASbridge-analisis-STEP1.shell 0.5   0 3000000 1000 1000000 3 3 100000 2000000 2 & 
+                                                                            
+#./ASbridge-analisis-STEP1.shell 0.0   0 3000000 1000 1000000 4 4 100000 2000000 2 &
+#./ASbridge-analisis-STEP1.shell 0.1   0 3000000 1000 1000000 4 4 100000 2000000 2 &
+#./ASbridge-analisis-STEP1.shell 0.2   0 3000000 1000 1000000 4 4 100000 2000000 2 &
+#./ASbridge-analisis-STEP1.shell 0.3   0 3000000 1000 1000000 4 4 100000 2000000 2 &
+#./ASbridge-analisis-STEP1.shell 0.346 0 3000000 1000 1000000 4 4 100000 2000000 2 &
+#./ASbridge-analisis-STEP1.shell 0.4   0 3000000 1000 1000000 4 4 100000 2000000 2 &
+#./ASbridge-analisis-STEP1.shell 0.5   0 3000000 1000 1000000 4 4 100000 2000000 2 & 
+
+#./ASbridge-analisis-STEP1.shell 0.0   0 3000000 1000 1000000 5 5 100000 2000000 2 &
+#./ASbridge-analisis-STEP1.shell 0.1   0 3000000 1000 1000000 5 5 100000 2000000 2 &
+#./ASbridge-analisis-STEP1.shell 0.2   0 3000000 1000 1000000 5 5 100000 2000000 2 &
+#./ASbridge-analisis-STEP1.shell 0.3   0 3000000 1000 1000000 5 5 100000 2000000 2 &
+#./ASbridge-analisis-STEP1.shell 0.346 0 3000000 1000 1000000 5 5 100000 2000000 2 &
+#./ASbridge-analisis-STEP1.shell 0.4   0 3000000 1000 1000000 5 5 100000 2000000 2 &
+#./ASbridge-analisis-STEP1.shell 0.5   0 3000000 1000 1000000 5 5 100000 2000000 2 & 
+                                                              
+#./ASbridge-analisis-STEP1.shell 0.0   0 3000000 1000 1000000 6 6 100000 2000000 2 &
+#./ASbridge-analisis-STEP1.shell 0.1   0 3000000 1000 1000000 6 6 100000 2000000 2 &
+#./ASbridge-analisis-STEP1.shell 0.2   0 3000000 1000 1000000 6 6 100000 2000000 2 &
+#./ASbridge-analisis-STEP1.shell 0.3   0 3000000 1000 1000000 6 6 100000 2000000 2 &
+#./ASbridge-analisis-STEP1.shell 0.346 0 3000000 1000 1000000 6 6 100000 2000000 2 &
+#./ASbridge-analisis-STEP1.shell 0.4   0 3000000 1000 1000000 6 6 100000 2000000 2 &
+#./ASbridge-analisis-STEP1.shell 0.5   0 3000000 1000 1000000 6 6 100000 2000000 2 & 
+
+./ASbridge-analisis-STEP1.shell 0.0   0 3000000 1000 1000000 11 11 100000 2000000 2 &
+./ASbridge-analisis-STEP1.shell 0.1   0 3000000 1000 1000000 11 11 100000 2000000 2 &
+./ASbridge-analisis-STEP1.shell 0.2   0 3000000 1000 1000000 11 11 100000 2000000 2 &
+./ASbridge-analisis-STEP1.shell 0.3   0 3000000 1000 1000000 11 11 100000 2000000 2 &
+./ASbridge-analisis-STEP1.shell 0.346 0 3000000 1000 1000000 11 11 100000 2000000 2 &
+./ASbridge-analisis-STEP1.shell 0.4   0 3000000 1000 1000000 11 11 100000 2000000 2 &
+./ASbridge-analisis-STEP1.shell 0.5   0 3000000 1000 1000000 11 11 100000 2000000 2 & 
+#./ASbridge-analisis-STEP1.shell 0.6   0 3000000 1000 1000000 11 11 100000 2000000 1 & 
+
+./ASbridge-analisis-STEP1.shell 0.0   0 3000000 1000 1000000 9 9 100000 2000000 2 &
+./ASbridge-analisis-STEP1.shell 0.1   0 3000000 1000 1000000 9 9 100000 2000000 2 &
+./ASbridge-analisis-STEP1.shell 0.2   0 3000000 1000 1000000 9 9 100000 2000000 2 &
+./ASbridge-analisis-STEP1.shell 0.3   0 3000000 1000 1000000 9 9 100000 2000000 2 &
+./ASbridge-analisis-STEP1.shell 0.346 0 3000000 1000 1000000 9 9 100000 2000000 2 &
+./ASbridge-analisis-STEP1.shell 0.4   0 3000000 1000 1000000 9 9 100000 2000000 2 &
+./ASbridge-analisis-STEP1.shell 0.5   0 3000000 1000 1000000 9 9 100000 2000000 2 & 
+#./ASbridge-analisis-STEP1.shell 0.6   0 3000000 1000 1000000 9 9 100000 2000000 1 & 

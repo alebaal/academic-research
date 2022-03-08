@@ -1,0 +1,495 @@
+\documentclass[a0,portrait,16pt]{a0poster}
+\usepackage{alltt}
+\usepackage{color}
+\usepackage{times}
+\usepackage{a0poster}
+\usepackage{graphicx,amsmath,amsfonts,amssymb,amscd,bezier,amstext,makeidx,bm}
+\usepackage[brazil]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{psfrag}
+\usepackage[normalem]{ulem}
+\renewcommand{\baselinestretch}{1.2}         % DIST\^{A}NCIA ENTRE LINHAS
+\usepackage{subcaption} 
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{makecell}
+\usepackage{bm}
+
+
+\usepackage{amsmath}
+\usepackage{color}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{rotating}
+\usepackage{float}
+
+\usepackage{multirow}
+\newcommand{\angstrom}{\mbox{\normalfont\AA}}
+
+\setlength{\topmargin}{1.0cm}
+
+\newcommand{\awfhline}{\rule{\textwidth}{1.25pt}}
+\newcommand{\pr}{\hspace*{2em}}
+\newcommand{\xx}{{\mbox{\hspace{.2cm}{\LARGE -\kern -.47em $x$}}}}
+\newcommand{\x}{\protect {\rm \xx}}
+\newcommand{\dis}{\displaystyle}
+
+
+\newcommand{\rn}[1]{\mathbb{R}^{#1}}
+\newcommand{\xpt}[1]{\dot{#1}}
+\newcommand{\en}[1]{\textbf{e}_#1}
+\newcommand{\zz}{\mathbb{Z}_{2}}
+\newcommand{\dd}{\mathbb{D}_{4}}
+
+
+\def\bq{\begin{equation}}
+\def\eq{\end{equation}}
+\newcommand{\Fix}{\mathrm{Fix}}
+
+
+\newtheorem{definicao}{Defini\c c\~ao}%[chapter]
+\newtheorem{definicao_}{Defini\c c\~ao}
+\newtheorem{propriedade_}{Propriedade}
+\newtheorem{lema}[definicao]{Lemma}%[section]
+\newtheorem{proposicao}[definicao]{Proposio}%[section]
+\newtheorem{observacoes}[definicao]{Remarks}%[section]
+\newtheorem{obs}[definicao]{Remark}%[section]
+\newtheorem{observacao}[definicao]{Remark}%[section]
+\newtheorem{teorema}[definicao]{Teorema}%[section]
+\newtheorem{teointro}{Theorem}%[section]
+\newtheorem{conjectura}{Conjecture}%[section]
+\newtheorem{corolario}[definicao]{Corollary}%[section]
+\newtheorem{exemplo}[definicao]{Example}%[section]
+\newtheorem{exemplo_alg}[definicao]{Example}%[section]
+\newtheorem{exemplos}[definicao]{Examples}%[section]
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\fimdem}{\hfill\rule{0.25cm}{0.25cm}}
+\newcommand{\seta}{\longrightarrow}
+\newcommand{\opbra}{\left\{}
+\newcommand{\clbra}{\right\}}
+\newcommand{\denomi}{z\bar{z}+1}
+\newcommand{\dem}{\noindent \textbf{Demonstrao:}\quad}
+\newcommand{\gotico}{\mathfrak}
+\def \Z {\mathbb Z}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% CABEALHO %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\graphicspath{{./Figures/}}
+\begin{document}
+
+\title{\textcolor[RGB]{0,0,0}{Validation of Capillarity Theory at the Nanometer-Scale III: How Small is Too Small?}}
+\author{\underline{Alexandre B. Almeida$^{1}$}, Nicolas Giovambattista$^{2}$, Sergey V. Buldyrev$^3$, Adriano M. Alencar$^{1}$}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% OS NOMES DAS INSTITUIES DEVEM FICAR NO ESPAO RESERVADO, INDICADO UM POUCO ABAIXO
+
+
+\makeheader
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% COLUNA 1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%AZUL {98,203,221}
+%AMARELO {215,223,49} 
+%ROSA 
+
+\col{{\vspace{0.1cm}
+
+\begin{center}
+\textsf{\LARGE{\textbf{\textcolor[RGB]{77,134,66}{INTRODUCTION}}}}
+\end{center}
+
+The capillarity phenomena at the macroscopic scale is well described by capillary theory (CT) that uses continuum surfaces to model the interface between two mediums\,[3,5]. 
+However, this approach may not be adequate at nanoscale, where molecular details and thermal fluctuations are relevant.
+This have been the focus of our research in recent years, and we have shown that CT explains satisfactorily several properties of droplets and capillary bridges with different geometries\,[1], see Fig.\,1, and the rupture of axis-symmetric (AS) capillary bridges\,[2,3], see Fig.\,2. 
+Now, we will find the smallest height of AS bridges, where CT can be applied\,[4]. 
+
+\begin{center}
+	\includegraphics[width=0.85\textwidth]{./AllSnapshots2.pdf}	
+\end{center}
+\small{\textbf{Figure 1:} Snapshots showing droplets and bridges with axial (AS) and translational (TS) geometries\,[1].}
+
+
+\begin{center}
+	\includegraphics[width=0.85\textwidth]{./TOC_Graphic.pdf}
+\end{center}
+\small{\textbf{Figure 2:} Phase diagram of AS bridges rupture\,[2].}
+ 
+
+\vspace{1.65cm}
+\begin{center}
+\textsf{\LARGE{\textbf{\textcolor[RGB]{77,134,66}{MOLECULAR DYNAMICS}}}}
+\end{center}
+
+The molecular dynamics (MD) procedure is the same adopted on Ref.\,[2].  
+Briefly, we have performed MD simulations of AS bridges, formed by $3375$ SPC/E water molecules, attached to hydrophilic/hydrophobic silica walls, see Fig.\,3.
+The walls are composed by four layers of SiO$_{\rm 2}$. 
+The SiOH group on the walls surface, which is in contact with AS bridges, has partial charges forming a dipole moment $\overrightarrow{p}_{\rm 0} = \overrightarrow{p}_{\rm SiO} + \overrightarrow{p}_{\rm OH}$.
+$\overrightarrow{p}_{\rm 0}$ can be re-scaled by a factor $k$ ($\overrightarrow{p} = k\times \overrightarrow{p}_{\rm 0}$).
+The silica wall can be hydrophilic (hydrophobic) for $k>0.346$ ($k<0.346$).
+The simulation is performed using the LAMMPS software package. 
+To find the smallest height that we can apply the CT, 
+we decrease the distance between the silica walls by 	$\Delta h = 5.0$\,\AA. Each movement follows three steps: 
+i) the walls are linearly displaced by $0.005$\,\AA~ for $100$\,fs; 
+ii) run $0.02$\,ns of equilibration;
+iii) repeat steps i) and ii) $5\times$ resulting in $\Delta h = 5.0$\,\AA.
+After the walls movement, we perform $1$\,ns of thermalization and more $2$\,ns to calculate the averages.  
+
+
+\begin{center}
+			\includegraphics[width=0.9\textwidth]{./ConfigFigPaper/bridgePlusSnapshop.pdf}
+\end{center}
+\small{\textbf{Figure 3:}
+Snapshot from AS bridge attached to the silica walls, separated by $h_{\rm 1} = 20$\,\AA~ and $h_{\rm 2} = 50$\,\AA, which are hydrophobic ($k=0.0$)  and hydrophilic ($k=0.5$). The snapshot top and side views are shown, respectively, on panels (a) and (c), and (b) and (d). The wall side length is given by $L=277.2$\,\AA, which coincide to simulation box side length. Note that there is no Hydrogen atom attached to the wall, since $k=0.0$. (e) Schematic diagram of AS bridge.}
+
+
+\vspace{1.65cm}
+\begin{center}
+	\textsf{\LARGE{\textbf{\textcolor[RGB]{77,134,66}{CAPILLARY THEORY}}}}
+\end{center}
+
+\vspace{0.75cm}
+\begin{minipage}{0.495\textwidth}
+	\begin{center}
+		\textsf{\large{\textit{\textcolor[RGB]{77,134,66}{MEAN CURVATURE}}}}
+	\end{center}
+	$$r_K = \left ( \frac{1}{R_1} + \frac{1}{R_2} \right )^{-1}$$ 
+\end{minipage}
+\begin{minipage}{0.495\textwidth}
+	\begin{center}
+		\textsf{\large{\textit{\textcolor[RGB]{77,134,66}{CONTACT ANGLE}}}}
+	\end{center}
+	$$\cos \theta_c = \frac{ \gamma_{GS} - \gamma_{LS}}{\gamma_{GL}}$$
+\end{minipage}
+
+\vspace{0.75cm}
+\begin{center}
+	\textsf{\large{\textit{\textcolor[RGB]{77,134,66}{YOUNG-LAPLACE EQUATION}}}}
+\end{center}
+\begin{equation}
+\frac{\Delta P}{\gamma_{LG}} = \frac{1}{r_K}=-\frac{r{}''(z)}{(1+r{}'(z)^2)^{3/2}}+\frac{1}{r(z)(1+r{}'(z)^2)^{1/2}}
+\end{equation}
+
+\vspace{0.75cm}
+\begin{center}
+	\textsf{\large{\textit{\textcolor[RGB]{77,134,66}{AS BRIDGE PROFILE}}}}
+\end{center}
+\begin{equation}
+\frac{\rm{d}z}{\rm{d}r} = \pm\frac{|H(r^2 - r_0^2) + r_0 |}{\sqrt{r^2 - [H(r^2 - r_0^2) + r_0]^2}},
+\end{equation}
+
+\vspace{0.75cm}
+\begin{center}
+	\textsf{\large{\textit{\textcolor[RGB]{77,134,66}{FORCE ON BASE AND NECK}}}}
+\end{center}
+\begin{equation}
+F_{z} = F_{\gamma} + F_{P}
+\end{equation}
+\begin{equation}
+F_{z,base} = 2\pi r_B\gamma\sin\theta_c - 2\gamma H\pi r^2_B
+\end{equation}
+\begin{equation}
+F_{z,neck} = 2\pi\gamma C =2\pi\gamma r_0 - 2\pi\gamma H r_0^2
+\end{equation}
+ 
+}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% COLUNA 2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\col{ \vspace{0.1cm} {
+
+\begin{center}
+\textsf{\LARGE{\textbf{\textcolor[RGB]{77,134,66}{RESULTS}}}}
+\end{center}
+
+\begin{center}                                        
+	\textsf{\large{\textit{\textcolor[RGB]{77,134,66}{PROFILES OF AXISYMMETRIC BRIDGES OBTAINED BY USING SLABS THICKNESS OF $\bm{5}$\AA}}}}
+\end{center}
+
+\begin{figure}
+	% Fig1
+	\centerline{\includegraphics[width=8.5cm]{./rm0/profileDMandFittingk00mov0to6-rm0.pdf}
+		\includegraphics[width=8.5cm]{./rm0/profileDMandFittingk01mov0to6-rm0.pdf}
+		\includegraphics[width=8.5cm]{./rm0/profileDMandFittingk02mov0to6-rm0.pdf}
+	}
+	\centerline{\includegraphics[width=8.5cm]{./rm0/profileDMandFittingk03mov0to6-rm0.pdf}
+		\includegraphics[width=8.5cm]{./rm0/profileDMandFittingk0346mov0to6-rm0.pdf}
+		\includegraphics[width=8.5cm]{./rm0/profileDMandFittingk04mov0to6-rm0.pdf}
+	}
+	\centerline{\includegraphics[width=8.5cm]{./rm0/profileDMandFittingk05mov0to6-rm0.pdf}
+		\includegraphics[width=8.5cm]{./rm0/profileDMandFittingk06mov0to6-rm0.pdf}
+	}
+\end{figure}
+\small{\textbf{Figure 4: }Average profiles of the stable AS bridges formed between walls of surface polarity $k$, separated by a distance $h$. The dashed gray lines are the theoretical profiles obtained by using the contact angle calculated on Ref.[2]. The slabs thickness $t_{\rm S}$ used was $t_{\rm S}=5.0$\AA.}
+
+\begin{figure}
+	\centerline{
+		\includegraphics[width=8.5cm]{./figsPaper/ThetaXheight-rm0.pdf}
+		\includegraphics[width=8.5cm]{./figsPaper/cosThetaXheight-rm0.pdf}
+		\includegraphics[width=8.5cm]{./figsPaper/ThetaXk-rm0.pdf}
+	}
+\end{figure}
+\small{\textbf{Figure 5: }(a) Water contact angle $\theta(h)$ calculated from AS bridges formed between walls separated by a distance $h$, for all surface polarities $k$. The dashed lines are the contact angle averaged for $h\geq 35$\,\AA. (b) $\cos\theta(h)$ of data shown on Figure\,(a). The grey circles are $\cos\theta(h)$ obtained on Ref.\,[2]. The dashed lines are the fitting using the equation $\cos\theta(h)= a/h^2 + b/h +  \cos\theta_{\infty}$. (c) Contact angles averaged over $h\geq35$\AA~ as a function of the surface polarity $k$.
+The closed circle symbol represents second simulation runs.}
+
+\begin{figure}
+	\centerline{
+		\includegraphics[width=8.5cm]{./graphicRhoZmov0.pdf}
+		\includegraphics[width=8.5cm]{./graphicRhoZmov1.pdf}
+		\includegraphics[width=8.5cm]{./graphicRhoZmov2.pdf}
+	}
+	\centerline{
+		\includegraphics[width=8.5cm]{./graphicRhoZmov3.pdf}
+		\includegraphics[width=8.5cm]{./graphicRhoZmov4.pdf}
+		\includegraphics[width=8.5cm]{./graphicRhoZmov5.pdf}
+	}
+	\centerline{
+		\includegraphics[width=8.5cm]{./graphicRhoZmov6.pdf}
+		\includegraphics[width=8.5cm]{./graphicRhoZmov9.pdf}
+		\includegraphics[width=8.5cm]{./graphicRhoZmov11.pdf}
+	}	
+\end{figure}		
+\small{\textbf{Figure 6: }Density profiles on the $z$-axis of the stable AS bridges formed between walls of surface polarity $k$, separated by a distance $h$. 
+Dashed line shows the density of bulk SPCE water at $T=300$\,K and $P=0.1$\,MPa. }
+
+\vspace{1cm}
+\begin{center}                                        
+	\textsf{\large{\textit{\textcolor[RGB]{77,134,66}{PROFILES OF AXISYMMETRIC BRIDGES OBTAINED BY USING SLABS THICKNESS OF $\bm{2.5}$\AA, AND REMOVING THE CLOSEST TWO  POINTS FROM THE WALL}}}}
+\end{center}
+
+
+
+\begin{figure}
+	% Fig1
+	\centerline{\includegraphics[width=8.5cm]{./rm2/profileDMandFittingk00mov0to11-rm2.pdf}
+		\includegraphics[width=8.5cm]{./rm2/profileDMandFittingk01mov0to11-rm2.pdf}
+		\includegraphics[width=8.5cm]{./rm2/profileDMandFittingk02mov0to11-rm2.pdf}
+	}
+	\centerline{\includegraphics[width=8.5cm]{./rm2/profileDMandFittingk03mov0to11-rm2.pdf}
+		\includegraphics[width=8.5cm]{./rm2/profileDMandFittingk0346mov0to6-rm2.pdf}
+		\includegraphics[width=8.5cm]{./rm2/profileDMandFittingk04mov0to11-rm2.pdf}
+	}
+	\centerline{\includegraphics[width=8.5cm]{./rm2/profileDMandFittingk05mov0to11-rm2.pdf}
+		\includegraphics[width=8.5cm]{./rm2/profileDMandFittingk06mov0to6-rm2.pdf}
+	}	
+\end{figure}
+\small{\textbf{Figure 7: } Average profiles of the stable AS bridges formed between walls of surface polarity $k$, separated by a distance $h$. The dashed gray lines are the theoretical profiles obtained from contact angle calculated on Ref.\,2. The slabs thickness $d$ used was $t_{\rm S}=2.5$\AA, and we have removed the closest two point from the wall.}
+
+
+%\vspace{1.75cm}
+%\begin{figure}
+%	\begin{center}
+%		\includegraphics[width=1\textwidth]{figSI1.pdf}\\
+%	\end{center}
+%\end{figure}
+%\small{\textbf{Figure 2: }Average profiles of stable AS bridges, height $z$ as a function of radius $r$, calculated from MD simulations (circles), for different wall--wall separations $h$. Only the upper half ($z>0$) of the AS bridge is shown for clarity. The lines are the best fits obtained from CT using Eq.\,2. The Figures\,a--j correspond, respectively, to surfaces with polarity $k=0.0$ to $0.67$.}
+%
+%\vspace{1.75cm}
+%\begin{figure}
+%	\begin{center}
+%		\includegraphics[width=1\textwidth]{fig3.pdf}
+%	\end{center}
+%\end{figure}
+%\small{\textbf{Figure 3: }(a) Water contact angle $\theta(h)$ calculated from AS bridges formed between walls separated by a distance $h$, for all surface polarities $k$. (b) Contact angles averaged over $h$ as a function of the surface polarity $k$. For comparison, we include the water contact angles from Ref.\,1 (red circles) for the same surfaces considered here. Black solid (dotted) line indicates $\theta=90^{\rm o}$ ($\theta=31^{\rm o}$).}
+%
+%\vspace{1.75cm}
+%\begin{figure}
+%	\begin{center}
+%		\includegraphics[width=1\textwidth]{fig4.pdf}
+%	\end{center}
+%\end{figure}
+%\small{\textbf{Figure 4: }(a) Total liquid-solid interface area $A_{\rm LS}$ and (b) liquid-gas interface area $A_{\rm LG}$ of AS bridges formed between walls of surface polarity $k$ as a function the walls separation $h$. (c) Volume $\Omega$ of AS bridges considered in (a) and (b). (d) Surface free energy $\mathcal F$ calculated from Eq.\,7 (circles) using results shown on panels (a) and (b).
+%The dashed lines in (c) are the volumes averaged over $h$. The dashed lines in (a), (b) and (d) are the analytical predictions from CT, see Refs.\,2 and 3.}
+%
+%\vspace{1.75cm}
+%\begin{figure}
+%	\begin{center}
+%		\includegraphics[width=1\textwidth]{fig5.pdf}
+%	\end{center}
+%\end{figure}
+%\small{\textbf{Figure 5: } Forces induced by AS bridges formed between parallel walls as function of (a) the neck parameter (see Eq.\,5) and (b) the walls separations $h$, for all surface polarities $k$. In (a), the dashed line is the best linear regression intercepting the origin ($y = \alpha\,x$). The slope of the line is $\alpha=2\pi\gamma$ with $\gamma=0.053\pm0.002$\,N/m.
+%In (b), circles represent results from MD simulations; squares are CT predictions from  Eq\,4. Panels (c) and (d) are, respectively, the contributions to the total force due to the liquid-vapor interface $F_{\gamma}$ and Laplace pressure $F_{\rm P}$, see Eq.\,3. The dashed lines in (b), (c) and (d) are the analytical predictions from CT, see Refs.\,2 and 3}
+
+
+
+
+
+
+}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% COLUNA 3 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\col{ { \vspace{0.1cm}
+
+\begin{figure}     
+	\centerline{
+		\includegraphics[width=8.5cm]{./figsPaper/ThetaXheight-rm2.pdf}
+		\includegraphics[width=8.5cm]{./figsPaper/cosThetaXheight-rm2.pdf}
+		\includegraphics[width=8.5cm]{./figsPaper/ThetaXk-rm2.pdf}
+	}
+\end{figure}		
+\small{\textbf{Figure 8: } Same as \textbf{Figure 5} by using slabs thickness of $2.5$\AA, and removing the closest two points from the wall.}
+
+
+\vspace{1cm}
+\begin{center}                                        
+	\textsf{\large{\textit{\textcolor[RGB]{77,134,66}{ COMPARISON OF CONTACT ANGLE, SURFACE TENSION AND CAPILLARY ADHESION FORCES FOR ALL METHODOLOGIES USED}}}}
+\end{center}
+
+\begin{figure}
+	\centerline{
+		\includegraphics[width=8.5cm]{./figsPaper/cosThetaXinvRadius-rm0.pdf}
+		\includegraphics[width=8.5cm]{./figsPaper/cosThetaXinvRadius-rm1.pdf}
+		\includegraphics[width=8.5cm]{./figsPaper/cosThetaXinvRadius-rm2.pdf}		
+	}
+\end{figure}
+\small{\textbf{Figure 9: }
+$\cos\theta(r_{\rm b})$ (open circles) as a function of the inverse of base radius $r_{\rm b}^{-1}$. 
+The continuous lines are the fitting of equation $\cos\theta(r_{\rm b}) = -a/r_{\rm b}^2 -b/r_{\rm b} + \cos\theta_{\infty}$. 
+Figures (a) and (c) correspond to the contact angle calculated, respectively, on Figures\,5 (a) and 8 (a). The data for the analysis of Figure (b) is not shown here.
+The closed circle symbol represents second simulation runs. 
+Error bars are smaller than the symbol sizes.
+}
+
+
+\begin{figure}
+	\centerline{
+		\includegraphics[width=8.5cm]{./figsPaper/ForceXC-rm0wWW.pdf}		
+		\includegraphics[width=8.5cm]{./figsPaper/ForceXC-rm1wWW.pdf}
+		\includegraphics[width=8.5cm]{./figsPaper/ForceXC-rm2wWW.pdf}
+	}
+\end{figure}
+\small{\textbf{Figure 10: }Forces induced by AS bridges formed between parallel walls as function of the neck parameter $C = r_{\rm 0} - H r_{\rm 0}^2$ for all surface polarities $k$. Here, we are subtracting the wall-wall forces calculated in vacuum. The gray (black) dashed line is the best linear regression intercepting the origin for $h\geq 25$\AA ~($h\geq 15$\AA). 	 The surface tension $\gamma$ on Table\, 1. On Figure (a) it is used a slab thickness of $t_{\rm S} = 5$\,\AA. On Figures (b) and (c) we have used a slab thickness $t_{\rm S} = 2.5$\,\AA, and we have removed one (b) and two (c) points from AS bridge profile close to the silica wall. The open circles (closed triangles)  represents the AS bridges with $h > 20$\AA ~($h \leq 20$\AA).
+Error bars are smaller than the symbol sizes.
+}
+
+
+\begin{center}
+		\begin{tabular}{ccr}
+		\hline
+		\hline
+		& For all heights & \\
+		Figure      &  &       $\gamma$ (N/m)  \\
+		\hline          
+		10 (a)  &         &       $ 0.055	(0.001)$        \\
+		10 (b)  &         &       $ 0.052	(0.001)$        \\
+		10 (c)  &         &       $ 0.053	(0.001)$        \\
+
+		& For $h\geq 25$\AA & \\
+		Figure      &  &       $\gamma$ (N/m)  \\		
+		\hline		
+		10 (a)  &         &       $ 0.056	(0.001)$        \\
+		10 (b)  &         &       $ 0.054  (0.001)$        \\ 
+		10 (c)  &         &       $ 0.054  (0.001)$        \\ 		
+		\hline		
+		\hline		
+		\end{tabular}
+\end{center}
+\small{\textbf{Table 1: } Results from surface tension calculation. }
+
+
+\begin{figure}
+	\centerline{
+		\includegraphics[width=8.5cm]{./figsPaper/ForceTotXheight-rm0.pdf}		
+		\includegraphics[width=8.5cm]{./figsPaper/ForceTotXheight-rm1.pdf}
+		\includegraphics[width=8.5cm]{./figsPaper/ForceTotXheight-rm2.pdf}		
+	}
+\end{figure}
+\small{\textbf{Figure 11:} Forces induced by AS bridges formed between parallel walls as function of height $h$ for all surface polarities $k$. Here, we are subtracting the wall-wall forces calculated in vacuum. The circle and square symbols are the forces measured from MD simulation and CT, respectively. The dashed line is the analytical solution, see Ref.\,2, in which we have corrected $\cos\theta$ with the equation $\cos\theta(h)= a/h^2 + b/h +  \cos\theta_{\infty}$.
+On Figure (a) it is used a slab thickness of $t_{\rm S} = 5$\,\AA.	
+On Figures (b) and (c) we have used a slab thickness $t_{\rm S} = 2.5$\,\AA, and we have removed one (b) and two (c) points from AS bridge profile close to the silica wall. The open circles (closed triangles) represents the AS bridges with $h > 20$\AA ~($h \leq 20$\AA).
+Error bars are smaller than the symbol sizes.
+}
+
+
+
+Alexandre B. Almeida 
+Nicolas Giovambattista 
+Sergey V. Buldyrev
+Adriano M. Alencar
+ 
+ Alexandre B. Almeida, Adriano M. Alencar, Sergey V. Buldyrev
+
+
+%\vspace{0.75cm}
+\begin{center}   
+\textsf{\LARGE{\textbf{\textcolor[RGB]{77,134,66}{REFERENCES}}}}
+\end{center}
+%\small{[1]\,N. Giovambattista {\it et al.}, The Journal of Physical Chemistry C {\bf 120}, 1597 (2016).}\\
+%\small{[2]\,A. B. Almeida     {\it et al.}, The Journal of Physical Chemistry C {\bf 122}, 1556 (2018).}\\
+%\small{[3]\,A. M. Alencar     {\it et al.}, Physical Review E {\bf 74}, 026311 (2006).}\\
+\small{[1]\,N. Giovambattista, Alexandre B. Almeida, Adriano M. Alencar, and Sergey V. Buldyrev, The Journal of Physical Chemistry C {\bf 120}, 1597 (2016).}\\
+\small{[2]\,A. B. Almeida, N. Giovambattista, Sergey V. Buldyrev, and Adriano M. Alencar, The Journal of Physical Chemistry C {\bf 122}, 1556 (2018).}\\
+\small{[3]\,Adriano M. Alencar, Elie Wolfe, and Sergey V. Buldyrev, Physical Review E {\bf 74}, 026311 (2006).}\\
+\small{[4]\,A. B. Almeida, N. Giovambattista, Sergey V. Buldyrev, and Adriano M. Alencar, \textit{ to be submitted in July}.}\\
+\small{[5]\,A. B. Almeida, Sergey V. Buldyrev, and Adriano M. Alencar, Physica A: Statistical Mechanics and its Applications {\bf 392}, 3409 (2013).}\\
+
+
+
+\begin{center}   
+	\textsf{\LARGE{\textbf{\textcolor[RGB]{77,134,66}{ACKNOWLEDGEMENTS:}}}}
+\end{center}
+\vspace{1cm}
+	\begin{center}
+		\includegraphics[width=0.25\textwidth]{fapesp.pdf}\\
+		\includegraphics[width=0.25\textwidth]{cine.png}	
+		\includegraphics[width=0.25\textwidth]{logo_capes.pdf}		
+	\end{center}
+
+
+%\hline
+
+}}
+%\vspace{0.1cm}
+%%\Xhline{7\arrayrulewidth}
+%%\hline
+%\vspace{0.3cm}
+%\begin{minipage}{0.67\textwidth}
+%		\includegraphics[width=0.03\textwidth]{./fmusp-logo-novo.pdf}
+%\end{minipage}
+%\begin{minipage}{0.152\textwidth}
+%	\textsf{\large{\textcolor[RGB]{77,134,66}{ACKNOWLEDGEMENTS:}}}
+%\end{minipage}
+%~~                                        
+%\begin{minipage}{0.15\textwidth}
+%	\includegraphics[width=1.05\textwidth]{ACKNOWLEDGEMENTS.png}
+%\end{minipage}
+
+\end{document}
+
+
+
+%%%\vspace{0.1cm}
+%%%%\Xhline{7\arrayrulewidth}
+%%%%\hline
+%%%\vspace{0.3cm}
+%%%\begin{minipage}{0.6\textwidth}
+%%%	\includegraphics[width=0.03\textwidth]{./fmusp-logo-novo.pdf}
+%%%\end{minipage}
+%%%\begin{minipage}{0.152\textwidth}
+%%%	\textsf{\large{\textcolor[RGB]{77,134,66}{ACKNOWLEDGEMENTS:}}}
+%%%\end{minipage}
+%%%~~                                        
+%%%\begin{minipage}{0.1\textwidth}
+%%%	\includegraphics[width=1.05\textwidth]{supportedby.pdf}
+%%%\end{minipage}
+%%%~~
+%%%\begin{minipage}{0.1\textwidth}
+%%%	\includegraphics[width=0.4\textwidth]{logo_capes.pdf}
+%%%\end{minipage}
+%%%\hspace{-5cm}
+%%%\begin{minipage}{0.1\textwidth}
+%%%	\includegraphics[width=0.3\textwidth]{INCTlogo.png}
+%%%\end{minipage}
+%%%\makefooter

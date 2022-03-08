@@ -1,0 +1,8 @@
+#!/bin/bash
+
+python graphicProfilesMDandFitting-slab.py 0.0 0 &
+python graphicProfilesMDandFitting-slab.py 0.0 3 &
+python graphicProfilesMDandFitting-slab.py 0.0 4 &
+python graphicProfilesMDandFitting-slab.py 0.5 0 &
+python graphicProfilesMDandFitting-slab.py 0.5 3 &
+python graphicProfilesMDandFitting-slab.py 0.5 4 &

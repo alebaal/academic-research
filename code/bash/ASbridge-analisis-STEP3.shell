@@ -1,0 +1,19 @@
+#!/bin/bash
+
+mkdir -p ./analysis/graphicsThermodynamic/
+mkdir -p ./analysis/graphicsGeometry/
+#1) Contact angle
+python graphicThetaXheight.py 
+python graphicThetaXk.py
+python graphicCosThetaXinvRadius.py
+#2) Interface areas and volume
+python graphicVolumeXheight.py
+python calcTheoreticalSolution.py
+python graphicAreaLSxheight.py 
+python graphicAreaLGxheight.py 
+#3) Interface rho(z) profile
+python graphicRhoZ.py
+#4) Surface Tension Calculation
+python graphicForceXC.py 
+#5) Wall-wall force calculation
+python graphicForceWallWallxheight.py 

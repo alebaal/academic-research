@@ -1,0 +1,36 @@
+#!/bin/bash
+#Modified on 01192018
+#Fixed variables###########
+SizeBox=278.6             #
+InitialHeight=50.0        #
+NumAtomsH2O=3375          #
+###########################
+
+if [ $6 ]
+   then
+       #1) MD profiles and fitting as a funciont of height
+       ##python graphicProfilesMDandFitting.py  $1 $2 $3 $6 ##uncheck here later
+       ##python graphicProfilesMDandFitting.py  $1 $4 $5 $6
+       python graphicProfilesMDandFitting.py  $1 $2 $5 $6
+       #2) Criating file with the parameters from fitting as a function of height	
+       mkdir -p ./analysis/8pk$1/MeasurementsXheight
+       echo "#1-TouchHeight	2-TouchtRho	3-ErrTouchtRho	4-Theta	5-ErrTheta	6-Volume	7-ErrVolume	8-AreaRev	9-ErrAreaRev	10-AreaBase	11-ErrAreaBase	12-rhoNeck	13-ErrrhoNeck	14-RadiusProfile	15-ErrRadiusProfile	16-H	17-ErrH	18-ForceNeckOverGamma	19-ErrForceNeckOverGamma	20-ForceBaseOverGamma	21-ErrForceBaseOverGamma	22-ErrorFitting" > ./analysis/8pk$1/MeasurementsXheight/parameters-ASbridge-fitting-AllHeight.dat
+       for (( j = $2; $j <= $5 ; j++ )); do  
+         cat ./analysis/8pk$1/moviment-$j/fitting/parameters-ASbridge-fitting-k$1-moviment$j-$6-0.dat | tail -n1 >> ./analysis/8pk$1/MeasurementsXheight/parameters-ASbridge-fitting-AllHeight.dat
+       done
+       #3) Criating file with the parameters of average force as a function of height	
+       echo "2-<Fx(nN)>	3-STD[Fx(nN)]	4-<Fy(nN)>	5-STD[Fy(nN)]	6-<Fz(nN)>	7-STD[Fz(nN)]" > ./analysis/8pk$1/MeasurementsXheight/AveForceLammps-AllHeight.dat	
+       for (( j = $2; $j <= $5; j++ )); do  #change the moviment directories
+          cat ./analysis/8pk${1}/moviment-$j/forceWallMD/AveForceMoviment${j}Wallk${1}.dat | tail -n1 >> ./analysis/8pk${1}/MeasurementsXheight/AveForceLammps-AllHeight.dat	
+       done
+       cut -f1 ./analysis/8pk$1/MeasurementsXheight/parameters-ASbridge-fitting-AllHeight.dat | tail -n$(( ${3} + 2 )) | paste ./analysis/8pk${1}/MeasurementsXheight/AveForceLammps-AllHeight.dat - | awk '{print $7"\t"$1"\t"$2"\t"$3"\t"$4"\t"$5"\t"$6}' > ./analysis/8pk${1}/MeasurementsXheight/AveForceLammps-AllHeight-temp.dat 
+       mv ./analysis/8pk${1}/MeasurementsXheight/AveForceLammps-AllHeight-temp.dat ./analysis/8pk${1}/MeasurementsXheight/AveForceLammps-AllHeight.dat
+   else
+       echo "OBS: run ASbridge-analisis-STEP1.shell first"
+       echo "arg1 Polarization k = 0.0, 0.1, 0.2, 0.3"
+       echo "arg2 First moviment"
+       echo "arg3 Mid1 moviment"
+       echo "arg4 Mid2 moviment"
+       echo "arg5 Last moviment"
+       echo "arg6 tave total averave"
+fi

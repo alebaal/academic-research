@@ -1,0 +1,537 @@
+\documentclass[8pt]{beamer} 
+\usetheme{Darmstadt}
+
+
+
+\usepackage[absolute,overlay]{textpos} 		
+\usepackage{caption}
+\usepackage{pifont}
+\usepackage[utf8]{inputenc}
+\usepackage{pxfonts}
+\usepackage{txfonts}
+\usepackage{color}
+\usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage{graphicx}
+\usepackage{rotating}
+\usepackage{mwe,lmodern}
+\usepackage{multimedia}
+\usepackage{multirow}
+
+\definecolor{LABM2green}{RGB}{101,135,47} 
+\definecolor{LABM2greenDark}{RGB}{76,103,34} 
+\definecolor{LABM2greenItem}{RGB}{134,177,66} 
+
+
+\setbeamercolor{palette quaternary}{bg=black,fg=white} %section
+\setbeamercolor{subsection in head/foot}{bg=LABM2greenDark,fg=white} %subsection
+\setbeamercolor{palette primary}{bg=LABM2green,fg=white}  %frametitle/
+\setbeamercolor{structure}{fg=LABM2greenItem} % itemize, enumerate, etc
+
+
+\setbeamercolor{palette secondary}{bg=LABM2green,fg=white}
+\setbeamercolor{palette tertiary}{bg=LABM2green,fg=white}
+\setbeamercolor{section in toc}{fg=LABM2greenItem} % TOC sections
+
+
+
+%\usepackage{flashmovie} %video
+\setbeamertemplate{footline}[frame number] %numerar slides
+\beamertemplatenavigationsymbolsempty % desativar botoes de navegacao
+\newcommand{\angstrom}{\mbox{\normalfont\AA}}
+\usepackage{appendixnumberbeamer}
+
+
+\let\ctg\centering
+\title[]{Validation of Capillarity Theory at the Nanometer Scale. II: Stability and Rupture of Water Capillary Bridges in Contact with Hydrophobic and Hydrophilic Surfaces}
+\author{\\Dr. Alexandre B. de Almeida$^1$\\
+          (Postdoc)\\
+%       \vspace{0.1cm}					
+       Prof. Dr. Nicolas Giovambattista$^2$\\ 
+%       \vspace{0.1cm}				     
+       Prof. Dr. Sergey V. Buldyrev$^3$\\  
+%       \vspace{0.1cm}				     
+       Prof. Dr. Adriano M. Alencar$^1$\\ 
+%       \vspace{0.1cm}					
+ 	   } 
+\institute{
+\vspace{-0.5cm}
+	\begin{center}
+		$^1$ Laboratório de Microrreologia e Fisiologia Molecular (LabM$^2$) - Instituto de Física - USP - SP - Brasil \\
+		$^2$ Department of Physics - Brooklyn College of the City University of New York\\ 
+		$^3$ Department of Physics - Yeshiva University\\
+	\end{center} 
+
+    \begin{minipage}[c]{0.31\textwidth}
+    	\begin{center}
+        	\includegraphics[width=0.4\linewidth]{labm2Vertical2.png}
+    	\end{center}
+ 	\end{minipage}
+    \begin{minipage}{0.31\textwidth}
+    	\begin{center}
+        	\includegraphics[width=0.55\linewidth]{ifusp-logo-bw.pdf}
+    	\end{center}    
+ 	\end{minipage} 		
+	\begin{minipage}{0.31\textwidth}
+    	\begin{center}
+    	 	\includegraphics[width=0.4\linewidth]{usp_pro_cultura.pdf}
+    	\end{center}	
+	\end{minipage}
+} 
+
+
+\date{2018}
+
+\graphicspath{{./figuras/}} 
+
+\begin{document}
+\frame{\titlepage}
+
+\subsection{}
+
+
+
+\section{Introduction}
+\subsection{Capillarity at the nanoscale}
+
+\addtobeamertemplate{frametitle}{}{%
+\begin{textblock*}{100mm}(12.12cm,8.5cm)
+\includegraphics[width=0.06\linewidth]{labm2Vertical2.png}
+\end{textblock*}}
+
+\begin{frame}
+\frametitle{Capillarity occurs due to the \textbf{cohesion and adhesion forces} between the surface of a liquid and another medium, and it is evidenced when this liquid is subjected to the confinement.}
+	\begin{minipage}{0.47\textwidth}
+		\begin{block}{Capillary bridges in lung physiology}
+		    \begin{center}
+		    	\includegraphics[width=0.5\linewidth]{lungbridge.png}\\
+		    	\tiny{[Alencar, Phys. Rev. Lett. (2001)]}
+	    	\end{center} 
+			\begin{itemize}
+			    \item The capillary bridges can block the small airways in a diseased lung.
+			    \item The bridge rupture generates the crackle sounds, which can be used as a qualitative diagnostic tool.
+			\end{itemize}	    	
+		\end{block}
+	\end{minipage}
+	~~~~~
+	\begin{minipage}{0.47\textwidth}
+		\begin{block}{Capillary bridges at the nanoscale}
+			\begin{itemize}
+			    \item Ink transport in the Dip-pen nanolithography
+			    \item The capillary adhesion force causes instability and damage on the substrate when making images with AFM.
+			\end{itemize}
+			\begin{minipage}{0.48\textwidth}
+				\begin{center}
+					\includegraphics[width=0.9\linewidth]{ponte_MFA.pdf}\\
+		    		\tiny{[Weeks, Langmuir ($2005$)]}			
+				\end{center}		
+			\end{minipage}
+		    \begin{minipage}{0.48\textwidth}
+				\begin{center}
+					\includegraphics[width=0.9\linewidth]{Urtizberea2015.pdf}\\
+					\tiny{[Urtizberea, Nanoscale ($2015$)]}		
+				\end{center}		
+			\end{minipage}			
+		\end{block}
+	\end{minipage}	
+\end{frame}
+
+\subsection{On this work}
+\begin{frame}
+\frametitle{Evaluate the macroscopic capillary theory (CT) at the nanoscale by studying the stability of water axisymmetric capillary bridges (AS bridges).}
+   		\begin{minipage}{0.48\textwidth}
+   			\begin{itemize}
+   			    \item \small \textbf{Phase diagram:} dependence of height and contact angle on the rupture of capillary bridges.
+   			\end{itemize}
+		\begin{center}
+	          \includegraphics[width=0.85\linewidth]{exemplosEtapa3.pdf}   			
+		\end{center}
+		\vspace{0.75cm}
+   		\end{minipage}   		   				
+   		~
+   		\begin{minipage}{0.48\textwidth}
+        {\small{\textbf{Molecular dynamics simulation} of water AS bridges attached to silicon dioxide walls.}}
+			\begin{center}
+				\includegraphics[width=0.7\linewidth]{fig8new.png}\\
+			\end{center}
+   		\end{minipage}   		
+        \vspace{0.5cm}   		
+		\begin{center}
+			\includegraphics[width=0.7\linewidth]{coverPageAlmeida2018.png}
+		\end{center}
+   		
+\end{frame}
+
+
+\section{Methodology}
+\subsection{Capillary theory}
+
+
+\begin{frame}
+\frametitle{Theoretical profiles $r(z)$ of stable AS bridges, and its main properties. }
+    \vspace{-0.2cm}
+
+		\begin{minipage}{0.45\textwidth}   
+				\begin{center}
+				 	\includegraphics[width=0.9\linewidth]{AS-bridge.pdf}\\
+			 		$$\frac{{\rm d}z}{{\rm d}r} = \pm \frac{\left | H(r^{\rm 2} - r_{\rm 0}^{\rm 2}) + r_{\rm 0} \right |}{\sqrt{r^{\rm 2} -[H(r^{\rm 2} - r_{\rm 0}^{\rm 2}) + r_{\rm 0}]^{\rm 2}}}$$					 	
+			 		$$r_{\rm 0} = R_{\rm 1} $$ 
+			 		$$H = \frac{1}{2}  \left( \frac{1}{R_{\rm 1}} + \frac{1}{R_{\rm 2}} \right)  $$
+				\end{center}
+		\end{minipage}
+		\begin{minipage}{0.5\textwidth}
+  	   		\begin{block}<2->{Contact angle}
+                   $$\theta_{\rm c}\rightarrow \frac{{\rm d}z}{{\rm d}r} \Big|_{r_{\rm B}}$$
+	  	   	\end{block}	
+		    \vspace{-0.3cm}	  	   	
+	  	   	\begin{block}<2->{Adhesion forces and surface tension}
+	  	   		   $$F = F_{\rm \gamma} +  F_{\rm P}$$
+	   	           $$F_{\rm{z,base}}= 2\pi\gamma r_{\rm B}\sin\theta_{\rm c} -2\pi \gamma H r_{\rm B}^{\rm 2}$$
+	   	           $$F_{\rm{z,neck}}=2\pi\gamma \mathcal C = 2\pi\gamma(r_{\rm 0} - Hr_{\rm 0}^{\rm 2})$$
+                   $$F_{\rm{z,base}}=F_{\rm z,neck}$$					
+	  	   	\end{block}	
+		    \vspace{-0.3cm}	  	   		  	   	
+	  	   	\begin{block}<2->{Laplace pressure}
+		           $$P_{\rm L} =  \frac{F_{\rm \gamma} -\left\langle  F_{\rm{z,base}} \right\rangle }{A_{\rm base}}$$ 
+		           $$P_{\rm L} =  2\gamma H$$
+	  	   	\end{block}		  	   	
+		    \vspace{-0.3cm}	  	   		  	   	
+	  	   	\begin{block}<2->{Surface free energy}
+			       $$\mathcal F(h) = \gamma (A_{\rm LG}(h) - \cos\theta_{\rm c} A_{\rm LS}(h))$$
+	  	   	\end{block}		  	   		
+		\end{minipage}		
+\end{frame}		
+
+\begin{frame}
+\frametitle{Analytical solution of AS bridge}
+   		\begin{center}
+       			\includegraphics[width=0.77\linewidth]{diagraFase.pdf}\\   		
+   		\end{center}   		
+   			\begin{itemize}
+   				\item $h_{\rm max, s}$ ($h_{\rm max, a}$) is the maximum height for symmetrical (asymmetrical) rupture.
+   				\item For $h_{\rm max, s} < h_{\rm max, a}$, we can analytically calculate the $F_{\rm{z,base}}$, $\mathcal F(h)$ and $P_{\rm L}$ from the parameters $h$, $\theta_{\rm c}$ and volume $\Omega$. 
+   			\end{itemize}   				
+		\rule{\textwidth}{0.5pt}
+        A. M. Alencar, E. Wolfe and Sergey V. Buldyrev, Phys. Rev. E \textbf{74}, 026311 (2006)\\   			
+\end{frame}		
+
+\subsection{Simulation}
+
+\begin{frame}
+	\frametitle{Molecular dynamics and atomistic model.}
+	    \vspace{-0.25cm}
+		\begin{block}{Silicon dioxide walls, water model and simulation parameters}
+			    \vspace{-0.2cm}
+				\begin{minipage}{0.23\textwidth}
+						\includegraphics[width=1.15\linewidth]{schemeWall.pdf}
+				\end{minipage}
+				\begin{minipage}{0.34\textwidth}
+   				 	\begin{itemize}
+   				 		\item \small Four layers of SiO$_2$
+   				 		\item \small Partial charges on silanol group  
+   				     	\item \small Si and O fixed
+   				     	\item \small H can move in a circle
+						\item \small Changing $\theta_{\rm c}$:\\
+						~~~~~~~~$\overrightarrow{p} = k\times \overrightarrow{p}_{0}$\\
+						~~~~~~~~$\overrightarrow{p}_0 = \overrightarrow{p}_{SiO} + \overrightarrow{p}_{OH}$\\   				     	
+   				 	\end{itemize} 	
+				 \end{minipage}
+				 \hspace{-0.1cm}
+         		\begin{minipage}{0.41\textwidth}
+                    \uncover<2->{
+         			\begin{center}
+	  					\includegraphics[width=0.26\linewidth]{water.pdf}\\
+   					 	    \small SPC/E water model
+         			\end{center}
+         			}
+     		        \vspace{-0.2cm} 
+			    	\begin{minipage}{0.4\textwidth}
+         		        \uncover<2->{
+						\begin{center}
+					    	\includegraphics[width=1.1\linewidth]{LAMMPS.png}\\
+					    	\includegraphics[width=0.8\linewidth]{bridge.png}
+						\end{center}
+						}
+				    \end{minipage}
+                    \hspace{-0.25cm}				    
+					\begin{minipage}{0.58\textwidth}
+         		        \uncover<2->{
+						\begin{itemize}
+							\item \small $r_{\rm c}=10$\,\AA
+							\item \small PPPM: $10^{-5}$
+							\item \small \textit{velocity}-Verlet
+							\item \small Nos\'{e}-Hoover
+							\item \small SHAKE
+						\end{itemize}		
+						}
+					\end{minipage}
+      		   \end{minipage}			 
+	    \vspace{-0.1cm}	   
+		\end{block}
+		\vspace{-0.1cm}
+  	   \begin{minipage}{0.46\textwidth}
+  	   	    \vspace{-0.2cm}	   
+  	   		\begin{block}<3->{Simulations procedure:}
+				\begin{itemize}
+					\item<3-> \small Total water molecules: $3375$
+					\item<3-> \small Polarity: $0<k<0.67$
+  				\end{itemize}	
+			    \vspace{-0.1cm}	   
+  				\uncover<4->{\textbf{\small Stable heights ($h_{\rm S}$)}}
+				\begin{itemize}	
+					\item<4-> \small $h_f=h_i+5$\,\AA~ ($0.01\hat{k}$\,\AA for $250$\,fs)
+					\item<4-> \small $1$\,ns to equilibrate  					
+					\item<4-> \small $2$\,ns for the averages					
+  				\end{itemize}										
+  				\uncover<5->{\small \textbf{Critical heights ($h_{\rm C'}$ and $h_{\rm C}$)}}
+				\begin{itemize}	
+					\item<5-> \small First rupture: $h_{\rm C{}'} = h_{\rm S} + 5$\,\AA
+          			\item<5-> \small Second rupture: $h_{\rm C}= h_S + 2.5$\,\AA
+                    \item<5-> \small $\Delta t_{\rm sim}=20$\,ns:  $h = (h_{S} +2.5) + 1.25$\,\AA
+  				\end{itemize}	  	   		      
+		    \end{block}  	   		
+	   \end{minipage}		
+	   ~~
+  	   \begin{minipage}{0.505\textwidth}
+  	   		\begin{block}<6->{Calculation of the average profile $r_{\rm p}(z)$}
+	    	\includegraphics[width=1.02\linewidth]{Ajuste.pdf}	    	
+			\begin{itemize}	
+				\item \small \hspace{-0.2cm} $r_{\rm 0}$, $r_{\rm B}$, $\theta_{\rm c}$, $H$, $\Omega$,\hspace{-0.025cm} $A_{\rm R}$ and $A_{\rm B}$
+	        \end{itemize}	  	   		
+			\end{block} 
+	   \end{minipage}			   			 
+\end{frame}
+
+
+
+\section{Results}
+
+\subsection{Stable AS bridges}
+
+
+\begin{frame}
+\frametitle{\textbf{Numerical fitting of the profiles $\mathbf{r(z)}$} (---) to the average profiles $r_{\rm p}(z)$ ($\circ$) obtained from the $2$\,ns simulation.}
+ 		\hspace{-1.cm}
+	 	\begin{center}
+        	\includegraphics[width=1\columnwidth]{./profiles.pdf}   
+		\end{center}
+        \begin{center}
+        \resizebox{0.9\textwidth}{!}{ %	
+		\begin{tabular}{ccccccccccc}
+              & \multicolumn{10}{c}{{\bf Polarity (k)}}\\
+              &       $0$ & $0.1$   & $0.2$   & $0.3$  & $0.4$  & $0.5$  & $0.6$  & $0.65$ & $0.66$ & $0.67$ \\ 
+              \cline{2-11}
+              $\theta_{\rm c}$[$^{\rm o}$] &   $105.6$ & $104.8$ & $100.8$ & $94.3$ & $84.4$ & $70.8$ & $50.4$ & $32.8$ & $28.3$ & $25.8$ \\ 
+		\end{tabular} 
+		} %
+	\end{center}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Contact angle as a function of (a) height and  (b) polarity $k$.}
+  	  \begin{center}
+		\includegraphics[width=0.95\columnwidth]{./fig3.pdf}
+	  \end{center}
+	  \vspace{0.5cm}
+      \begin{minipage}{0.2\textwidth}
+		\begin{center}
+			\includegraphics[width=0.6\linewidth]{silanol.pdf}\\
+     	    {\small \bf Silanol group}
+		\end{center}
+      \end{minipage}				
+      \begin{minipage}{0.33\textwidth}
+	 	 $$\overrightarrow{p} = k\times \overrightarrow{p}_{0}$$ 
+	     $$\overrightarrow{p}_0 = \overrightarrow{p}_{SiO} + \overrightarrow{p}_{OH}$$ 	
+      \end{minipage}		
+      \begin{minipage}{0.45\textwidth}
+      	\textbf{Wetting criteria:}
+ 	     \begin{itemize}
+            \item $k > 0.35$: Hydrophilic surface;
+	        \item $k < 0.35$: Hydrophobic surface.
+	     \end{itemize}		
+      \end{minipage}
+
+\vspace{0.75cm}
+\rule{\textwidth}{0.5pt}
+\footnotesize{Ref.: N. Giovambattista, A. B. Almeida, A. M. Alencar and S. V. Buldyrev, \textit{J. Phys. Chem. C } \textbf{120}, 1597 (2016)}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Capillary adhesion force = Surface tension force + Laplace force.}
+	\begin{center}
+		\textbf{The dashed lines are the analytical solution based on $\theta$, $\Omega$ and $h$. }
+	\end{center}	
+	\begin{center}
+		\includegraphics[width=0.95\columnwidth]{./fig5.pdf}   
+	\end{center}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Laplace pressure and surface free energy.}
+	\begin{center}
+		\includegraphics[width=1.025\columnwidth]{./FreeEnergyAndPressure.pdf}   
+	\end{center}
+\end{frame}
+
+
+\subsection{Instability of AS bridges}
+
+\begin{frame}
+\frametitle{Snapshots of water configurations at the rupture time $\tau_{\rm R}$ and at the critical height $h_{\rm C'}=h_{\rm S}+5$\,\AA.}
+	\begin{center}
+  	   \includegraphics<1>[width=1.0\columnwidth]{./AllSnap1.pdf}   
+%  	   \includegraphics<2->[width=1.0\columnwidth]{./AllSnap1_2.pdf}
+	\end{center}
+	\begin{center}
+      \resizebox{0.9\textwidth}{!}{ %	
+		\begin{tabular}{ccccccccccc}
+					             & \multicolumn{10}{c}{{\bf Polarity (k)}}\\
+                                 &       $0$ & $0.1$   & $0.2$   & $0.3$  & $0.4$  & $0.5$  & $0.6$  & $0.65$ & $0.66$ & $0.67$ \\ 
+    \cline{2-11}
+    $\theta_{\rm c}$[$^{\rm o}$] &   $105.6$ & $104.8$ & $100.8$ & $94.3$ & $84.4$ & $70.8$ & $50.4$ & $32.8$ & $28.3$ & $25.8$ \\ 
+    $\tau_{\rm R}$ (ps)          &    $1234$ & $1332$  & $881$   & $2094$ & $2514$ & $1402$ & $262$  & $334$  & $3341$ & $2159$ \\ 
+		\end{tabular} 
+		} %
+	\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{Phase diagram ($\theta_{\rm c},h$) of AS bridges rupture.}
+      \begin{minipage}{0.5\textwidth}
+          	\includegraphics[width=1\columnwidth]{./TOC_Graphic.pdf}      	
+      \end{minipage}	
+      ~~			
+      \begin{minipage}{0.45\textwidth}
+      	  	\includegraphics[width=1\columnwidth]{./fig9.pdf}
+      \end{minipage}
+
+      \begin{minipage}{0.43\textwidth}
+           	\includegraphics[width=1\columnwidth]{./PRE2006pd.pdf}
+      \end{minipage}	
+      \begin{minipage}{0.52\textwidth}
+            $$\frac{\Delta N_{\rm d}}{N} = \left| \frac{N_{\rm droplet 1} - N_{\rm droplet 2}}{3375} \right|  $$ 
+			\begin{itemize}
+				\item {\color{red}$\times$}$\rightarrow$ First rupture: $h_{\rm C{}'} = h_{\rm S} + 5$\,\AA
+				\vspace{0.2cm}
+				\item {\color{black}$\times$}$\rightarrow$ Second rupture: $h_{\rm C}= h_S + 2.5$\,\AA \\
+				 $\Delta t_{\rm sim}=20$\,ns: $h = (h_{S} +2.5) + 1.25$\,\AA      
+			\end{itemize}
+      \end{minipage}
+      
+
+\end{frame}
+
+\section{Conclusions}
+\begin{frame}
+\frametitle{Conclusions}
+	\vspace{-0.3cm}
+	\begin{block}<1->{Stable AS bridges}
+ 		\begin{itemize}
+			\item The macroscopic CT predicts the profile of nanometric capillary bridges.
+			\item The contact angle is independent of the height.
+			\item The surface tension calculation based on CT concepts is in agreement with literature. 
+			\item The analytical solution ($\Omega$, $\theta_{\rm c}$ and $h$) of AS bridges predicts the forces and pressures at the nanoscale.			
+		\end{itemize}
+	\end{block}
+	\begin{block}<2->{Unstable AS bridges}
+ 		\begin{itemize}
+			\item The rupture heights $h_{\rm C'}$ and $h_{\rm C}$ are in agreement with analytical solution $h_{\rm max,a}$ and $h_{\rm max,s}$.			
+%			\item We observed fluctuations on the profile of AS bridges which are not described by macroscopic CT, and it is subject of our future work.
+		\end{itemize}
+	\end{block}	
+ 	\begin{block}<3->{Main conclusion}
+	\textbf{The macroscopic capillary theory is able to predict the properties of capillary bridges with volumes in the order of  $\mathbf{100}$\,nm$\boldsymbol{^3}$.}
+ 	\end{block}
+
+\end{frame}
+
+
+
+\begin{frame}
+	\frametitle{Acknowledgements}
+	\vspace{-0.13cm}
+    \begin{minipage}{0.42\textwidth}
+		\begin{center}
+   			\includegraphics[width=0.99\linewidth]{labm2grupo.png}
+    	\end{center}	   		
+    \end{minipage}    
+	\begin{minipage}{0.57\textwidth}
+		\begin{minipage}{0.49\textwidth}
+		  	\begin{center}
+		   		\includegraphics[width=0.9\linewidth]{agradecimentos.png}    
+		   	\end{center}	    	
+		\end{minipage}    
+		\begin{minipage}{0.49\textwidth}
+		   	\begin{center}
+		   		\includegraphics[width=0.6\linewidth]{INCTlogo.png}\\
+		   		\textbf{\LARGE INCT-Fcx}
+		   	\end{center}	       	
+		\end{minipage}
+		\begin{center}
+			\includegraphics[width=0.6\linewidth]{fapesp.pdf}    
+		\end{center}		            
+	\end{minipage}
+
+    \begin{minipage}{0.44\textwidth}
+       \begin{itemize}
+	    	\item Prof. Dr. Adriano M. Alencar
+			\item Prof. Dr. Sergey V. Buldyrev
+			\item Prof. Dr. Nicolas Giovambattista				
+	   \end{itemize}							
+    \end{minipage}
+	\begin{minipage}{0.175\textwidth}
+			\begin{center}
+		   	 	\includegraphics[width=0.7\linewidth]{usp_pro_cultura.pdf}
+    		\end{center}		   	 	
+	\end{minipage}
+	\begin{minipage}{0.175\textwidth}	
+			\begin{center}
+				\includegraphics[width=0.85\linewidth]{Yeshiva_University.pdf}
+    		\end{center}				
+	\end{minipage}
+	\begin{minipage}{0.175\textwidth}	
+			\begin{center}
+				\includegraphics[width=1\linewidth]{brooklynCollege.pdf}
+    		\end{center}				
+	\end{minipage}
+	\vspace{-0.1cm}
+	\begin{block}{Main references}
+		\begin{itemize}
+			\item \footnotesize{A. B. Almeida, N. Giovambattista, S. V. Buldyrev and A. M. Alencar, J. Phys. Chem. C \textbf{122}, 1556 (2018)}
+			\item \footnotesize{N. Giovambattista, A. B. Almeida, A. M. Alencar and S. V. Buldyrev, J. Phys. Chem. C \textbf{120}, 1597 (2016)}
+		    \item \footnotesize{A. M. Alencar, E. Wolfe and S. V. Buldyrev, Phys. Rev. E \textbf{74}, 026311 (2006)}						
+			\item \footnotesize A. B. Almeida, Gotas e pontes capilares na escala nanométrica. 2016, Thesis (Doctorate in Physics). Available from: http://www.teses.usp.br/teses/disponiveis/43/43134/tde-10072017-094009/.
+		\end{itemize}
+	\end{block}
+	\begin{center}
+	    \pause
+		\textbf{\LARGE Thank you!!~~~~~~~~ Questions?!}
+	\end{center}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Liquid-solid and liquid-gas interface areas, volume and surface free energy.}
+	\begin{center}
+		\textbf{The dashed lines are the analytical solution based on $\theta$, $\Omega$ and $h$. }
+	\end{center}	
+	\begin{center}
+		\includegraphics[width=0.95\columnwidth]{./fig4.pdf}   
+	\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{Validation of capillary theory for $h\leq50.0$\AA.}
+	\begin{center}
+		\includegraphics[width=0.49\linewidth]{ThetaXheight.pdf}\\
+		\includegraphics[width=0.49\linewidth]{cosThetaXheight.pdf}
+		\includegraphics[width=0.49\linewidth]{FreeEnergyTotXheight.pdf}\\		
+	\end{center}
+\end{frame}
+
+\end{document}
+
+
+
+
+

@@ -1,0 +1,28 @@
+#!/bin/bash              
+                          #  old    new      heght  
+mv moviment-9   moviment-11  # 9    11       15
+mv moviment-8   moviment-10  # 8    10       16
+mv moviment-7   moviment-9   # 7    9        17
+mv moviment-6   moviment-8   # 6    8        18
+mv moviment-5   moviment-7   # 5    7        19
+mv moviment-4   moviment-6   # 4    6        20
+mv moviment-3   moviment-5   # 3    5        25
+mv moviment-2   moviment-4   # 2    4        30
+mv moviment-1   moviment-2   # 1    2        40
+mv moviment-45  moviment-1   #      1        45
+mv moviment-35  moviment-3   #      3        35
+
+                                
+#mv moviment-8to9   moviment-10to11 
+#mv moviment-7to8   moviment-9to10
+#mv moviment-6to7   moviment-8to9 
+#mv moviment-5to6   moviment-7to8 
+#mv moviment-4to5   moviment-6to7 
+#mv moviment-3to4   moviment-5to6 
+#mv moviment-2to3   moviment-4to5 
+#mv moviment-1to2   moviment-2to3
+#mv moviment-0to1      moviment-1to2
+#mv moviment-moveTo35  moviment-2to3
+#mv moviment-moveTo45  moviment-0to1
+
+

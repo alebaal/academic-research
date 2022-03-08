@@ -1,0 +1,29 @@
+#!/bin/bash
+
+#./ASbridge-analisis-STEP2.shell 0.0   0 4 5 7 2000000 &
+#./ASbridge-analisis-STEP2.shell 0.1   0 4 5 6 2000000 & 
+#./ASbridge-analisis-STEP2.shell 0.2   0 4 5 6 2000000 & 
+#./ASbridge-analisis-STEP2.shell 0.3   0 4 5 6 2000000 & 
+#./ASbridge-analisis-STEP2.shell 0.346 0 4 5 5 2000000 & 
+#./ASbridge-analisis-STEP2.shell 0.4   0 4 5 6 2000000 & 
+#./ASbridge-analisis-STEP2.shell 0.5   0 4 5 6 2000000 &
+#./ASbridge-analisis-STEP2.shell 0.0   0 0 4 4 2000000 &
+#./ASbridge-analisis-STEP2.shell 0.1   0 0 4 4 2000000 & 
+#./ASbridge-analisis-STEP2.shell 0.2   0 0 4 4 2000000 & 
+#./ASbridge-analisis-STEP2.shell 0.3   0 0 4 4 2000000 & 
+#./ASbridge-analisis-STEP2.shell 0.346 0 0 4 4 2000000 & 
+#./ASbridge-analisis-STEP2.shell 0.4   0 0 4 4 2000000 & 
+#./ASbridge-analisis-STEP2.shell 0.5   0 0 4 4 2000000 &
+
+
+#./ASbridge-analisis-STEP2.shell 0.0   0 0 6 6 2000000 &
+#./ASbridge-analisis-STEP2.shell 0.1   0 0 6 6 2000000 & 
+#./ASbridge-analisis-STEP2.shell 0.2   0 0 6 6 2000000 & 
+#./ASbridge-analisis-STEP2.shell 0.346 0 0 6 6 2000000 & 
+#./ASbridge-analisis-STEP2.shell 0.4   0 0 6 6 2000000 & 
+#./ASbridge-analisis-STEP2.shell 0.5   0 0 6 6 2000000 &
+#./ASbridge-analisis-STEP2.shell 0.3   0 0 6 6 2000000 & 
+./ASbridge-analisis-STEP2.shell  0.6   0 0 6 6 2000000 & 
+
+
+

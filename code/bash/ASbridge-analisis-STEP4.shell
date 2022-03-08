@@ -1,0 +1,18 @@
+#!/bin/bash
+
+if [ $2 ]
+   then
+   #1) Free Energy
+   python graphicFreeEnergyxheight.py $1 $2 
+   python graphicFreeEnergyxBaseRadius.py $1 $2
+   #2) Force Total, Force gamma and Force pressure calculation
+   python graphicForceTotxheight.py $1 $2 
+   python graphicForceGammaxheight.py $1 $2 
+   python graphicForcePressurexheight.py $1 $2 
+   #3)Laplace Pressure calculation
+   python graphicPressurexheight.py $1 $2 
+   else
+       echo "      arg 1  Gamma" 
+       echo "      arg 2  Error Gamma" 
+fi
+

@@ -1,0 +1,150 @@
+#!/bin/bash
+#This script make the calculation of the average profile of all configuration and make the CT fitting.
+#Last modified: 11012018
+#Fixed variables###########
+SizeBox=278.6             #  
+#SizeBox=277.2            #
+InitialHeight=50.0        #
+NumAtomsH2O=3375          #
+###########################
+
+if [ ${10} ] 
+   then
+       pol=`echo " scale = 0 ; ( $1*100 )/1" | bc` #set the number of atoms in the wall	
+       if [ $pol -lt 5 ]
+           then	
+           NumAtomsWall=93184
+           else
+           NumAtomsWall=100352
+       fi
+       #Calculating the rdf 
+       for (( j = $6; $j <= $7; j++ )); do   
+           cp ./programs/MDprofile-rdf-v13 ./8pk$1/moviment-${j}/
+           cp ./programs/MDprofile-zdf-v2    ./8pk$1/moviment-${j}/
+           cp ./programs/MDprofile-zdf-v2ave ./8pk$1/moviment-${j}/
+           cd ./8pk$1/moviment-${j}/
+           mkdir -p rdf profile wholeProfile 
+           mkdir -p  zdf
+           mkdir -p  zdfave
+           if [ ${j} -le 6 ]
+              then
+                 HalfHeight=`echo " scale = 3 ; ((($InitialHeight - 5*${j}))/2)" | bc` 
+              else
+                 if [ ${j} -eq 7 ]
+                    then
+                       HalfHeight=9.5
+                    else
+                       if [ ${j} -eq 8 ]
+                          then
+                             HalfHeight=9.0 
+                          else
+                             if [ ${j} -eq 9 ]
+                                then
+                                   HalfHeight=8.5 
+                                else
+                                   if [ ${j} -eq 10 ]
+                                      then
+                                         HalfHeight=8.0 
+                                      else
+                                         if [ ${j} -eq 11 ]
+                                            then
+                                               HalfHeight=7.5 
+                                         fi
+                                   fi
+                             fi     
+                       fi
+                 fi 
+           fi                              
+           taveIntervalEND=$(( (($3 - $2)/$4 - 1) ))          
+           if [ ${j} -le 6 ]         
+              then                            
+                 Slab=`echo " scale = 6 ; (5.0)" | bc`            
+                 #Slab=`echo " scale = 6 ; (2.5)" | bc`            
+                 halfSlab=`echo " scale = 6 ; ((($Slab))/2)" | bc`
+              else            
+                 if [ ${j} -ge 7 ] && [ ${j} -le 11 ]
+                    then
+                       Slab=`echo " scale = 6 ; (2.5)" | bc`            
+                       halfSlab=`echo " scale = 6 ; ((($Slab))/2)" | bc`
+                 fi
+           fi
+           ./MDprofile-rdf-v13    $2 $3 $4 $8 $SizeBox $HalfHeight $NumAtomsH2O $NumAtomsWall $halfSlab $Slab 
+           ./MDprofile-rdf-v13    $5 $3 $4 $9 $SizeBox $HalfHeight $NumAtomsH2O $NumAtomsWall $halfSlab $Slab 
+           ./MDprofile-zdf-v2     $5 $3 $4 $9 $SizeBox $HalfHeight $NumAtomsH2O $NumAtomsWall  
+           ./MDprofile-zdf-v2ave     $5 $3 $4 $9 $SizeBox $HalfHeight $NumAtomsH2O $NumAtomsWall  
+
+           cd ../../
+           mkdir -p ./analysis/8pk$1/moviment-${j}/
+           cp -r ./8pk$1/moviment-${j}/profile       ./analysis/8pk$1/moviment-${j}
+           cp -r ./8pk$1/moviment-${j}/rdf           ./analysis/8pk$1/moviment-${j}
+           cp -r ./8pk$1/moviment-${j}/zdf           ./analysis/8pk$1/moviment-${j}
+           cp -r ./8pk$1/moviment-${j}/zdfave           ./analysis/8pk$1/moviment-${j}
+           cp -r ./8pk$1/moviment-${j}/wholeProfile  ./analysis/8pk$1/moviment-${j}
+       done 
+       #Performing the fitting
+       for (( j = $6; $j <= $7; j++ )); do   
+           if [ ${j} -le 6 ]
+              then
+                 HalfHeight=`echo " scale = 3 ; ((($InitialHeight - 5*${j}))/2)" | bc`
+              else
+                 if [ ${j} -eq 7 ]
+                    then
+                       HalfHeight=9.5
+                    else
+                       if [ ${j} -eq 8 ]
+                          then
+                             HalfHeight=9.0
+                          else
+                             if [ ${j} -eq 9 ]
+                                then
+                                   HalfHeight=8.5
+                                else
+                                   if [ ${j} -eq 10 ]
+                                      then
+                                         HalfHeight=8.0
+                                      else
+                                         if [ ${j} -eq 11 ]
+                                            then
+                                               HalfHeight=7.5
+                                         fi
+                                   fi
+                             fi
+                       fi
+                 fi
+           fi
+           mkdir -p ./analysis/8pk$1/moviment-${j}/fitting/
+           python ./MDfitting-ASbridge-v1.2.py  $1 ${j} $9 $HalfHeight ${10}                                  
+       done 
+       #Performing force average and analysis
+       for (( j = $6; $j <= $7; j++ )); do   
+            mkdir -p ./analysis/8pk$1/moviment-${j}/forceWallMD/
+            cp ./8pk$1/moviment-${j}/forceASbridgeLargeWall1k$1-mov${j}.out ./analysis/8pk$1/moviment-${j}/forceWallMD/forceASbridgeLargeWall1k$1-mov${j}.dat
+            cp ./8pk$1/moviment-${j}/forceASbridgeLargeWall2k$1-mov${j}.out ./analysis/8pk$1/moviment-${j}/forceWallMD/forceASbridgeLargeWall2k$1-mov${j}.dat
+            numSkip=`echo " scale = 0 ; ( $5/$4 )/1" | bc`
+            maxSample=`echo " scale = 0 ; ( $9/$4/2 )/1" | bc`
+            python timeSerieForceWallMD.py $1 ${j}
+            python calcWallWallForce.py    $1 ${j}
+            python analysisForceWallMD.py  $1 ${j} $numSkip $maxSample
+       done
+       #Performing log averages and analysis
+       for (( j = $6; $j <= $7; j++ )); do   
+           mkdir -p ./analysis/8pk$1/moviment-${j}/logAnalysis
+           python log2txt.py ./8pk$1/moviment-${j}/log.lammps ./analysis/8pk$1/moviment-${j}/logAnalysis/logk${1}.dat
+           python logTimeSeries.py $1 ${j} 
+       done 
+
+   else 
+       echo "      arg 1  surface polarity: 0.0, ..., 0.6" 
+       echo "      arg 2  first file .pos"        
+       echo "      arg 3  last  file .pos"  
+       echo "      arg 4  deltat for the files .pos"  
+       echo "      arg 5  first file .pos for the total average"  
+       echo "      arg 6  first height (num directiory)"        
+       echo "      arg 7  last height  (num directiory)"  
+       echo "      arg 8  tave termalization average"  
+       echo "      arg 9  tave total average"  
+       echo "      arg 10 Avoid N nearst points close to the wall"  
+       echo "      Note:"
+       echo "      From 0 to 2, displaciment of 10A. From 3 to 4, displaciment of 5A. From 5 to ...., displaciment of 1A"
+fi
+

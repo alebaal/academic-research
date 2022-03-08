@@ -1,0 +1,428 @@
+\documentclass[a4paper,12pt,openany,twoside]{article} 
+
+\usepackage{color}
+\usepackage[usenames,svgnames,dvipsnames]{xcolor}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage[a4paper,top=3cm,bottom=2.5cm,left=2.5cm,right=2.5cm]{geometry}
+
+%Figures and caption
+\usepackage{float}
+\usepackage[pdftex]{graphicx}
+\usepackage{wrapfig}
+\usepackage{subcaption}
+\usepackage{subfig}
+\usepackage[font=small,format=plain,labelfont=bf]{caption}
+%\usepackage[pdftex]{graphicx} %compilar com pdflatex
+
+%Math symbols
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{bm}
+\usepackage{amstext}
+
+%1.5 space
+\renewcommand{\baselinestretch}{1.5} 
+
+%Font
+\usepackage{mathptmx}%Times New Roman
+%\fontsize{60}{62}\usefont{OT1}{cmr}{m}{n}{\selectfont}
+\usepackage[brazil]{babel} %Portuguese
+\usepackage[T1]{fontenc}
+
+%recuar o primeiro parágrafo
+\usepackage{indentfirst}                        
+
+%Referências
+\usepackage[fixlanguage]{babelbib}
+\usepackage[sort&compress]{natbib}
+
+%Hyperref
+%\usepackage[pdftex,plainpages=false,pdfpagelabels,colorlinks=true,citecolor=DarkGreen,linkcolor=NavyBlue,urlcolor=Black,filecolor=green,bookmarksopen=true]{hyperref}
+
+%cabeçalho
+\usepackage[bf,small,compact]{titlesec} 
+\usepackage{fancyhdr}
+
+
+
+\graphicspath{{../TextFAPESP-Shell3/figuras/}}
+
+
+
+
+\begin{document}
+%capa Portugues
+\input{titlepagePort}
+\mbox{}
+\thispagestyle{empty}
+\newpage
+
+%capa Ingles
+\input{titlepageIng}
+\mbox{}
+\thispagestyle{empty}
+\newpage
+
+\pagenumbering{roman}
+%Sumario
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[RO,RO]{\textit{Alexandre B. de Almeida}}
+\fancyhead[LE,LE]{\includegraphics[width=1.6cm]{labm2Horizontal.png}}
+\fancyfoot[LE,RO]{\thepage}
+
+%\tableofcontents
+%\mbox{}
+%\thispagestyle{empty}
+%\newpage
+%\mbox{}
+%\thispagestyle{empty}
+
+
+\newpage
+\pagenumbering{arabic}
+
+\section{Enunciado do problema}
+\label{secEnunProb}
+\vspace{-0.3cm}
+As pontes capilares constituem de um pequeno volume de líquido confinado entre duas superfícies e são descritas pela Teoria Capilar (TC) macroscópica\,\cite{DeGennes2004}.
+A TC macroscópica fundamenta-se no tratamento da interface como uma superfície contínua, uma vez que a razão do tamanho dos átomos com a da interface é muito pequena.
+Entretanto, essa aproximação pode não valer se considerarmos o formato da interface de um líquido na escala nanométrica.
+Uma das linhas de pesquisa do Grupo de Microrreologia e Fisiologia em Multiescala envolve pontes capilares\,\cite{Alencar2001,Alencar2006,Almeida2012,Almeida2013}, e foi assunto de projeto de doutorado do candidato, que fez sanduíche na {\it Yeshiva University}, sob a supervisão do Prof. Dr. Sergey V. Buldyrev, e com colaboração do Prof. Dr. Nicolas Giovambattista, do {\it City University of New York - Brooklyn College}.
+Nesse projeto mostramos que a TC macroscópica descreve satisfatoriamente gotas e de pontes capilares de água na escala $2$--$10$\,nm\,\cite{Giovambattista2015,Almeida2016}.
+Em um trabalho recém publicado mostramos que a solução analítica das pontes capilares pode descrever sistemas com volumes da ordem de $100$\,nm$^3$ prevendo com precisão as medidas de força, pressão, energia livre e o diagrama de fase, que descreve a altura de ruptura e a maneira como a ponte capilar se rompe\,\cite{Almeida2018}.
+Além disso, observamos flutuações no perfil das pontes capilares que não são previstas pela TC.
+Vale ressaltar que a Ref.\,\cite{Almeida2018} foi parte da tese do candidato e só foi publicado recentemente durante o pós-doutoramento, período em que iniciamos o estudo do confinamento das pontes capilares. 
+Nesse projeto expandiremos os trabalhos anteriores avaliando as pontes capilares para $h<50$\,\AA~e utilizaremos as oscilações observadas como um novo mecanismo para coleta de energia, complementando os métodos já existentes na literatura\,\cite{Krupenkin2011, Moon2013, Kong2014}.
+Estudaremos, utilizando simulações computacionais, as pontes capilares simétricas de água aderida a superfícies hidrofílicas/hidrofóbicas com diferentes separações.
+Avaliaremos as anomalias que surgem na capilaridade e o limite da aplicabilidade dessa, e também as mudanças nas propriedades termodinâmicas da água em ambiente confinado.
+Os resultados obtidos serão comparados com as previsões da TC macroscópica e com as propriedades já conhecidas da água. Esse projeto faz parte do projeto temático vigente FAPESP/SHELL 2017/11631-2w.
+
+\vspace{-0.1cm}
+\begin{wrapfigure}{r}{0.3\textwidth}
+\vspace{-1cm}
+    \begin{center}
+		\includegraphics[width=0.28\columnwidth]{ponte_MFA.pdf}
+	\end{center}
+\vspace{-0.7cm}
+%	\caption{Ponte capilar observada no MFA; $UR=99\%$\,\cite{Weeks2005}.}
+	\caption{Ponte capilar\,\cite{Weeks2005}.}
+\vspace{-0.5cm}	
+\label{FigMFA}
+\end{wrapfigure}
+As pontes capilares são encontradas em diversas situações, como na nanolitografia DIP-Pen\,\cite{Piner1999}.
+Nesse caso, essas permitem a difusão das moléculas de tinta da ponta do {\it cantilever} do microscópio de força atômica (MFA) até o substrato\,\cite{Kim2010}; a Fig.\,\,\ref{FigMFA} mostra uma ponte capilar condensada na ponta do {\it cantilever} do MFA com umidade relativa de $99\%$\,\cite{Weeks2005}.
+Em outra situação, as pontes capilares estão presentes quando o MFA é utilizado para fazer imagens do substrato.
+Essas exercem uma força de adesão capilar\,\cite{Yang2014a} que pode alterar a resoluções das imagens\,\cite{Zarate2013} ou até causar danos no substrato\,\cite{Yu2013}. 
+
+%Aplicação da TC macroscópica no cálculo da força de adesão capilar e pressão negativa
+A força de adesão medida pelo MFA possui três componentes: van der Walls, eletromagnética e adesão capilar.
+Em geral, a medida experimental da força de adesão capilar é realizada indiretamente utilizando a TC macroscópica, em que a interface da ponte capilar é aproximada por uma superfície contínua utilizando a estimativa da curvatura média, que é calculada pela equação de Kelvin através medida da UR\,\cite{Pakarinen2005}.
+Nessas medidas, a superfície que aproxima a ponte SA pode ser um toroide\,\cite{Yang2014a}, ou pode ser utilizado as superfícies de  Delaunay\,\cite{Alencar2006} que descrevem exatamente o formato das interfaces das pontes capilares (ver Eq.\,\ref{eqCompForce5} da Sec.\,\ref{cap:metodos}).
+
+Analogamente à força de adesão, a pressão no interior das pontes capilares também é calculada utilizando essas aproximações contínuas, e experimentos com MFA indicam pressão negativa da ordem de $-160$\,MPa\,\cite{Yang2008,Yang2008a,Caupin2008a}.
+Por conta desse valor observado, um diagrama de fase da água dependente da escala é até proposto, uma vez que a pressão negativa no interior das pontes capilares poderia levar à ebulição a baixas temperaturas ou a formação de gelo a temperaturas superiores a $0$\,$^{\rm o}$C \,\cite{Nosonovsky2008}.
+
+%Problemas da aproximação contínua
+A aproximação da interface por uma superfície contínua não leva em consideração os detalhes moleculares, que, em uma condição de confinamento na escala nanométrica, faz com que as moléculas de água se organizem em estruturas cristalinas\,\cite{Giovambattista2006}.
+Por conta disso, os modelos atomísticos são necessários para estudar esses sistemas.
+
+%Simulações de Ponte líquida  ,Honschoten2010a Honschoten2010a
+Nos últimos $30$ anos encontramos na literatura trabalhos sobre as pontes capilares realizados com modelos atomísticos e com simulações de dinâmica molecular (DM).
+Mais recentemente, um trabalho utilizando modelo de líquido não volátil mostra que a TC macroscópica consegue prever a medida da força de adesão na escala $5$--$10$\,nm, mas para valores inferiores são observadas oscilações devido à formação de camadas moleculares\,\cite{Cheng2014}.
+Outro estudo sobre pontes capilares de água aderida a dois substratos planos mostra que a força de adesão capilar possui oscilações tornando-se descontínua e repulsiva para distâncias menores do que $1$\,nm\,\cite{Valenzuela2016}.
+Nós mostramos que a TC macroscópica descreve satisfatoriamente a interface de gotas e pontes capilares de água aderidas a superfícies hidrofílicas e hidrofóbicas, assim como as medidas da força de adesão e da pressão  na escala $2$--$10$\,nm\,\cite{Giovambattista2015}.
+Além disso, nós observamos valores negativos da pressão na ordem de $-15$\,MPa.
+Taherian {\it et. al.} estudaram pontes capilares aderidas a superfícies de grafeno e constituídas de um líquido iônico, e observaram a formação de ângulos de contatos assimétricos devido à assimetria do tamanho e anisotropia no formato dos íons\,\cite{Taherian2016}.
+
+\begin{figure}[htb]
+	\begin{center}
+		\includegraphics[width=0.99\columnwidth]{bridgeHarverster.png}
+	\end{center}
+	\caption{(a) Ilustração do fenômeno da eletromolhabilidade em que o ângulo de contato inicial $\theta_{\rm 0}$ da gota é alterado para $\theta$ devido à atuação do potencial externo $V_{\rm 0}$ que induz cargas elétricas na superfície dielétrica. (b) Ilustração do circuito que representa o mecanismo para coleta de energia pela eletromolhabilidade reversa. $R_{\rm c}$ é o resistor representado um dispositivo consumindo energia gerada, $R_{\rm p}$ é a resistência da ponte líquida e $C_{\rm i}$ ($C_{\rm s}$) é o capacitor de dupla camada elétrica formado na placa  inferior (superior). (c) Ilustração da ponte capilar sujeita à vibração mecânica representada pelas setas. A vibração causa uma alteração da área da interface líquido-sólido e, consequentemente, o transporte de cargas. (d) Ilustração da ponte capilar nanométrica mostrando vibrações no perfil devido à flutuação térmica.}
+\label{FigBridgeHarvest}
+\end{figure}
+%Mecanismos de extração de energia
+
+Em outra aplicação, as pontes capilares são utilizadas como mecanismo de conversão de energia.  
+Krupenkin {\it et al.} desenvolveu um dispositivo de conversão de energia mecânica em elétrica baseando-se no fenômeno da eletromolhabilidade reversa\,\cite{Krupenkin2011}.
+Basicamente, a eletromolhabilidade é a habilidade de um líquido se espalhar sobre uma superfície carregada devido à aplicação de um potencial $V_{\rm 0}$, como ilustrado na Fig.\,\ref{FigBridgeHarvest}(a). 
+Assim, a alteração do ângulo de contato $\theta$ dessa gota é dada por:
+\begin{equation}
+\cos\theta = \cos\theta_{\rm 0} - \frac{CV_{\rm 0}^2}{2\gamma_{\rm LG}}~,
+\end{equation}
+em que $\theta_{\rm 0}$ é o ângulo de contato na ausência de $V_{\rm 0}$, $C$ é a capacitância e $\gamma_{\rm LG}$ é a tensão superficial da interface líquido-gás. 
+Assim, a energia potencial fornecida por $V_{\rm 0}$ é convertida em energia mecânica para a interface da gota, o que faz com que o ângulo contanto $\theta_{\rm 0}$ seja alterado para $\theta$.
+Krupenkin {\it et al.} utilizou esse mecanismo para converter vibrações mecânicas em corrente elétrica.
+Em seu aparato experimental utilizou gotas de Galinstan e de Hg em contato com um dielétrico e conectadas a um potencial externo constante $V_{\rm 0}$, formando o circuito elétrico ilustrado na Fig.\,\ref{FigBridgeHarvest}(b), em que $R_{\rm p}$ é a resistência da ponte capilar e $C_{\rm S}$ ($C_{\rm i}$) é o capacitor elétrico de camada dupla formado nas placas superior (inferior). 
+Quando um trabalho mecânico é exercido sobre a ponte capilar, a área de contato formada com o dielétrico é alterada, fazendo com que uma corrente elétrica seja induzida.  
+
+Moon {\it et al.} desenvolveu outro esquema experimental em que removeu o potencial externo $V_{\rm 0}$, e substituiu o líquido condutor por água\,\cite{Moon2013, Moon2015}; os íons na solução aquosa atuam como carregadores de cargas.
+Dessa forma, o contato entre a solução aquosa e a superfície dielétrica faz com que a interface líquido-sólido fique carregada formando, assim, capacitores de camada dupla elétrica\,\cite{Gonzalez2016}.
+Além disso, eles utilizaram materiais diferentes nos dielétricos, o que torna a ponte capilar assimétrica. 
+Assim, como mostrado na Fig.\,\ref{FigBridgeHarvest}(c), as interfaces líquido-sólido formadas nas placas superior e inferior possuem áreas diferentes e, consequentemente, capacitâncias diferentes.
+Quando esse dispositivo é submetido a uma vibração mecânica, as áreas das interfaces líquido-sólido são alteradas gerando a corrente elétrica. 
+Kong {\it et al.} utilizou o mesmo aparato experimental, mas substituiu a água por líquido iônico\,\cite{Kong2014,Kong2015}.  
+Ele observou que o líquido iônico operado a $100$\,$^{\rm o}$C possui a mesma eficiência que a água a $25$\,$^{\rm o}$C e que os líquidos iônicos não precisam ser operados em condições hermeticamente isoladas.
+
+Atualmente, exite uma busca para maximizar a coleta de energia nesses dispositivos. 
+Yang {\it et al.} observaram que camadas de  Al$_{\rm 2}$O$_{\rm 3}$ de $100$\,nm de espessura é eficiente na coleta de energia para um valor de $V_{\rm 0}$ pequeno e a baixas frequências de vibração mecânica\,\cite{Yang2017}.
+Janssen {\it et al.} estudaram teoricamente esses diferentes arranjos experimentais discutidos anteriormente, e verificaram que há um aumento da eficiência se for utilizado um potencial externo variante no tempo\,\cite{Janssen2016}. 
+Nós iremos explorar, em um dos objetivos do nosso projeto, um novo mecanismo baseado nas vibrações térmicas para coleta de energia nesses dispositivos.
+
+Nesse projeto cumpriremos as atividades M1--M3 do projeto temático  FAPESP/SHELL.
+Avançaremos os nossos trabalhos anteriores\,\cite{Alencar2006,Giovambattista2015,Almeida2013,Almeida2018,Almeida2016}, e estudaremos pontes capilares com simetria axial (pontes SA) nanométricas aderidas a duas placas planas, paralelas e separadas por uma distância $h$.  
+Nós mostramos que essas pontes SA nanométricas, com volumes da ordem de $100$\,nm$^3$, podem ser descritas pela TC macroscópica\,\cite{Giovambattista2015}.
+A solução analítica da ponte SA obtida por essa teoria fornece todas as propriedades, como força de adesão, pressão e energia livre da superfície, e também o diagrama de fase ($h,\theta$)\,\cite{Alencar2006}.
+Nesse diagrama as regiões de estabilidade e instabilidade são separadas pela altura máxima $h_{\rm max}(\theta)$.
+Para uma atura $h_{\rm S}$, tal que $h_{\rm S} < h_{\rm max}$, a ponte SA se encontra em condição estável.
+Para uma altura crítica $h_{\rm C}$, tal que $h_{\rm C} > h_{\rm max}(\theta)$, a ponte SA pode romper simetricamente formando gotas com volumes iguais, se $\theta\leq31^{\rm \circ}$, ou assimetricamente formando gotas com volumes diferentes, se $\theta>31^{\rm \circ}$.
+Desse modo, nosso projeto será dividido em três metas nas quais exploraremos as regiões estáveis e instáveis desse diagrama para pontes capilares de água.
+
+Na primeira meta M1 estudaremos todo o diagrama ($h,\theta$) da ponte SA nanométricas de água com volumes da ordem de $100$\,nm$^3$ utilizando simulações de dinâmica molecular (DM), como feito com modelo gás de rede na Ref.\,\cite{Alencar2006}. Parte do estudo desse diagrama já esta concluído e foi publicado na Ref.\,\cite{Almeida2018}.
+Neste trabalho estudamos o diagrama de fase para $h\geq50$\AA~ e considerando placas hidrofóbicas $\theta>90^{\rm \circ}$ e hidrofílicas $\theta<90^{\rm \circ}$. Nós comparamos as medidas da força de adesão, pressão e energia livre, dentre outras grandezas, medidas a partir da DM com a solução da TC na região ($h_{\rm S},\theta$), e também as alturas de ruptura ($h_{\rm C},\theta$) com a previsão analítica $h_{\rm max}(\theta)$ e observamos que a TC macroscópica descreve satisfatoriamente pontes capilares nanométricas.
+Agora, avaliaremos as pontes SA confinadas na região estável do diagrama de fase ($h_{\rm S},\theta$), tal que $10<h_{\rm S} < 45$\,\AA, com o objetivo de encontrar o limite de validade da TC macroscópica.
+Essa prevê que os valores da pressão para $h_{\rm S}=10$\,\AA~ podem variar de $-800$\,atm até $400$\,atm, dependendo de $\theta$, ver Fig.\,\ref{figFluctuationPressure}(b). 
+Nessa região esperamos observar cavitação, formação de camadas de líquido e gelo, como observado por Giovambattista {\it et at.} em estudos sobre água confinada em superfícies finitas de $\beta$-cristobalita\,\cite{Giovambattista2006, Giovambattista2009a}.
+Agora, avaliaremos também como a presença da interface líquido-gás pode afetar esses sistemas.
+
+Na segunda meta M2 estudaremos as flutuações no perfil da ponte SA com alturas $10$\AA$<h_{\rm S} < h_{\rm C}$ e com diferentes valores de $\theta$. 
+No trabalho que realizamos na Ref.\,\cite{Almeida2018} observamos que existem oscilações no perfil das pontes capilares nanométricas. Agora iremos caracterizar essas flutuações, e associar essas com a ruptura das pontes capilares.
+
+Finalmente, na terceira meta M3 introduziremos o material dielétrico ao qual a ponte líquida será aderida.
+
+\section{Resultados Esperados}
+\label{secResultEsp}
+
+O foco do nosso projeto é entender as propriedades das pontes SA de água confinada em escalas nanométricas.
+Para isso, as pontes SA serão simuladas com modelos atomísticos utilizando DM, e os resultados serão comparados com as soluções contínuas da TC macroscópica, que nos permitirá compreender a dimensão mínima da aplicabilidade dessa. 
+Nossa hipótese é que para alturas pequenas $h_{\rm S}\approx10$\,\AA~ a TC apresentará falhas ao descrever os resultados das simulações da água com modelo atomístico.
+Esperamos que haja cavitação, formação de camadas de líquido e gelo no caso de pontes SA de água\,\cite{Giovambattista2006, Giovambattista2009a}.
+
+Exploraremos também as oscilações no perfil das pontes SA de água [ver Figs.\,\ref{figFluctuationPressure} (c) e (d)] que ainda não estão bem documentadas na literatura.
+Nossos resultados sobre pontes capilares de água indicam que essas oscilações são mais evidentes para $h_{\rm S}\gtrsim65.0$\,\AA~ e em superfícies hidrofóbicas\,\cite{Almeida2018}.
+Uma vez caracterizadas, exploraremos essas oscilações como um mecanismo para coleta de energia estudando as pontes capilares aderidas a uma superfície dielétrica.
+
+Nossa pesquisa se dividirá nas metas organizadas abaixo, todas aplicadas às simulações com modelos atomísticos de água:
+\begin{itemize}
+%	\item[M1]   \textbf{Estudar o diagrama de fase ($h,\theta$) na região estável $h_{\rm S} < h_{\rm max}(\theta)$ e instável $h_{\rm C} > h_{\rm max}(\theta)$; }
+%    \item[M2]  \textbf{Avaliar as flutuações nas pontes capilares;}
+%	\item[M3] \textbf{Introduzir o substrato dielétrico;}
+%    \item[M4]  \textbf{Repetir as etapas (i)--(ii) para as pontes capilares aderidas ao substrato dielétrico}.
+\item[M1]  Estabelecer o diagrama de fase, molhabilidade versus volume relativo, de pontes líquidas simétricas de água na escala manométricas. 
+\item[M2] Quantificar o efeito da flutuação térmica no perfil de pontes líquidas simétricas com diferentes molhabilidades. 
+\item[M3] Introduzir um substrato dielétrico no modelo atual das pontes líquidas.
+\end{itemize}
+Essas metas referem-se às atividades M1--M3 do projeto temático vigente FAPESP/SHELL 2017/11631-2.
+Esperamos publicar no mínimo um artigo relativo a cada uma das metas.
+Além disso, apresentaremos os resultados em conferências e seminários.
+
+\section{Desafios científicos e tecnológicos e os meios e métodos para superá-los}
+\label{cap:metodos}
+
+A seguir descreveremos os meios e as metodologias necessárias para o estudo da flutuação das pontes capilares como mecanismo para a coleta de energia na escala nanométrica.
+Primeiramente, descreveremos todas as colaborações envolvidas para o desenvolvimento do projeto, depois a TC macroscópica e os métodos de dinâmica molecular. 
+
+\subsection{Pesquisadores envolvidos, infraestrutura e possibilidades experimentais}
+
+O candidato já possui experiência sobre o fenômeno da capilaridade, quando no mestrado estudou as pontes SA por meio de simulações de Monte Carlo para abordar um tema da fisiologia pulmonar\,\cite{Almeida2012}.
+Esse trabalho, contou com a parceria do Prof. Dr. Sergey V. Buldyrev, professor da {\it Yeshiva University} e pesquisador do {\it Center for Polymer Studies} da {\it Boston University}, resultou em uma publicação\,\cite{Almeida2013}.
+
+Durante o doutorado, nós avançamos o estudo da capilaridade das pontes SA por meio de simulações de Monte Carlo e começamos a estudar a capilaridade na escala nanométrica por meio de simulações de DM.
+Com relação às simulações de Monte Carlo, nós analisamos as pontes SA aderidas a outras geometrias e trabalhamos com o método de {\it umbrella} para calcular a energia livre.
+Já os estudos com DM foram iniciados durante um estágio de doutorado sanduíche, no qual o objetivo foi validar a TC macroscópica na escala nanométrica por meio de simulações de gotas e pontes capilares.
+Esse estágio foi realizado na {\it Yeshiva University} sob a supervisão do Prof. Dr. Sergey V. Buldyrev, e também contou com a colaboração do Prof. Dr. Nicolas Giovambattista, professor do {\it City University of New York - Brooklyn College}.
+O trabalho realizado teve como resultado a publicação de dois artigos\,\cite{Giovambattista2015,Almeida2018}, e um resumo expandido\,\cite{Almeida2016} aceito na conferência {\it 6th International Conference on Nonlinear Science and Complexity}.
+
+Nesse projeto com duração de $12$ meses, o Prof. Dr. Adriano M. Alencar continuará sendo o supervisor e nós continuaremos as colaborações com o Prof. Dr. Sergey V. Buldyrev e com Prof. Dr. Nicolas Giovambattista.
+
+Com relação ao estudo teórico, as simulações serão realizadas no {\it cluster} computacional da {\it Yeshiva University} no qual o candidato possui conta vigente, e no \textit{cluster} computacional que será adquirido no projeto FAPESP/SHELL.
+Além disso, temos acesso aos {\it clusters} do Departamento de Física Geral do IFUSP e do {\it City University of New York - Brooklyn College}
+e ao \textit{High Performance Computing} da USP.
+
+\subsection{Teoria capilar macroscópica e pontes capilares com simetria axial}
+\label{secTCmacro}
+
+São denominadas pontes capilares com simetria axial (pontes SA) um certo volume de líquido $\Omega$ aderido a duas superfícies planas e paralelas, cujos materiais podem ser iguais ou diferentes.
+A Figura\,\ref{fig:EsquemaPonte}(a) mostra a ponte SA aderida a superfícies iguais, cujas soluções já são bem estabelecidas\,\cite{Alencar2006, Langbein2002}.
+O perfil que descreve a interface líquido-gás das pontes SA é dada pela rotação de uma função $r(z)$ em torno do eixo $z$ e que é definido no intervalo $-h/2 \leq z \leq h/2$, onde se localiza as superfícies planas.
+O ponto $r{}'(0) = 0$ é definido como o ``pescoço'' com raio $r(0) = r_{\rm 0}$, e os raios da base são definidos nos pontos $r(h/2) =r(-h/2) = r_{\rm B}$.
+A interface líquido-gás da ponte SA forma um ângulo de contato $\theta$ com as interfaces líquido-sólido, e também possui curvatura média $H(\Omega,h,\theta_{\rm c})$ constante em qualquer altura $h$.
+Devido a esta característica, essas superfícies são denominadas denominadas superfícies de Delaunay.
+A superfície formada pela revolução do perfil $r(z)$ possui três formas, que são distintas pelo valor de $H$.
+Se $H>0$ a superfície é conhecida como \textit{unduloid}, e é obtida pela revolução da trajetória do foco de uma seção cônica arbitrária ao longo do eixo $z$; se $H<0$ a superfície é conhecida como \textit{nodoid} e é obtida pela revolução da trajetória do foco de uma hipérbole; se $H = 0$ a superfície é conhecida como \textit{catenoid} e é obtida pela revolução da trajetória do foco de uma catenária\,\cite{Alencar2006}.
+
+As principais equações que descrevem a ponte SA são as equações de Young e de Young-Laplace.
+A primeira relaciona $\theta$ com a tensão superficial de cada uma das interfaces ($\gamma_{\rm LG}\cos\theta_{\rm c} =\gamma_{\rm SG} - \gamma_{\rm SL}$)\footnote{Iremos considerar no texto $\gamma_{\rm LG}=\gamma$ por questão de simplicidade.}, ver Fig.\,\ref{fig:EsquemaPonte}(a), e a equação de Young-Laplace relaciona a diferença de pressão ($\Delta P = P_{\rm in} - P_{\rm out}$) que existe entre o interior da ponte SA ($P_{\rm in}$) e o meio exterior ($P_{\rm out}$) devido à tensão da interface $\gamma$, e é dada por:
+\begin{equation}
+\Delta P = \gamma 2 H ~~~~~~~~~~  H = \frac{1}{2}\left ( \frac{1}{R_{\rm 1}} + \frac{1}{R_{\rm 2}} \right );
+\label{eqYL}
+\end{equation}
+em que $R_{\rm 1}$ e $R_{\rm 2}$ são os raios principais de curvatura.
+Como a ponte SA está em equilíbrio, a diferença de pressão será constante em qualquer ponto da superfície.
+\begin{figure}
+\centering
+\includegraphics[width=0.7\columnwidth]{esquemas2.pdf}
+\caption{(a) Ponte capilar com simetria axial (ponte SA) aderida a duas superfícies planas localizadas nas alturas $+h/2$ e $-h/2$, e formando um ângulo de contato $\theta$. A superfície é dada pela rotação da função $r(z)$ em torno do eixo $z$. $R_{\rm 1}$ e $R_{\rm 2}$ sãos os raios principais de curvatura. $r_{\rm B}$ é o raio da base da ponte capilar. (b) Imagem de uma simulação de dinâmica molecular mostrando uma ponte SA formada por moléculas de H$_{\rm 2}$O do modelo SPC/E aderida a duas superfícies de $\beta$-cristobalita.}
+\label{fig:EsquemaPonte}
+\end{figure}
+A equação diferencial que descreve o perfil da ponte SA $r(z)$ em equilíbrio é dada por\,\cite{Giovambattista2015}:
+\begin{equation}
+\frac{\rm{d}z}{\rm{d}r} = \pm \frac{\left | H(r^2 - r_{\rm 0}^2) + r_{\rm 0} \right |}{\sqrt{r^2 -[H(r^2 - r_{\rm 0}^2) + r_{\rm 0}]^2}}.
+\label{eqCompForce5}
+\end{equation}
+e existe solução somente quando a condição $r^2 -[H(r^2 - r_{\rm 0}^2) + r_{\rm 0}]^2 > 0$ é satisfeita.
+A Equação\,\ref{eqCompForce5} pode ser resolvida analiticamente utilizando integrais elípticas\,\cite{Alencar2006}; aqui também trabalharemos com a solução numérica da Eq.\,\ref{eqCompForce5}.
+Uma vez encontrada a solução de Eq.\,\ref{eqCompForce5}, podemos obter todas as demais propriedades das pontes SA, como $r_{\rm b}$, $r_{\rm 0}=R_{\rm 1}$, $\theta$, $\Omega$, $H$ e  as área das interfaces líquido-gás $A_{\rm LG}$, líquido-sólido $A_{\rm LS}$ e gás-sólido $A_{\rm GS}$, respectivamente.	
+Consequentemente, podemos calcular a força de adesão capilar $F_{\rm{z,base}}$:
+\begin{equation}
+F_{\rm{z,base}}= 2\pi\gamma r_{\rm B}\sin\theta_{\rm c} -2\pi \gamma H r_{\rm B}^2~.
+\label{eqForceBase}
+\end{equation}
+Similarmente, a força no ``pescoço'' $F_{\rm{z,neck}}$ da ponte SA pode ser escrita como:
+\begin{equation}
+F_{\rm{z,neck}}=2\pi\gamma C = 2\pi\gamma (r_{\rm 0} - Hr_{\rm 0}^2)~,
+\label{eqForceNeck}
+\end{equation}
+em que $C$ é um parâmetro que expressa a deformação no ``pescoço'' da ponte SA.
+Como a ponte SA está em equilíbrio, tem-se que $F_{\rm{z,neck}} = F_{\rm{z,base}}$, e conhecendo a força de adesão capilar $F_{\rm{z,base}}$ e a deformação $C$, é possível calcular a tensão superficial $\gamma$ a partir de um ajuste linear\,\cite{Giovambattista2015, Almeida2018}.
+
+A pressão de Laplace que a ponte SA exerce nas paredes pode ser calculada de dois modos.
+No primeiro, pode-se utilizar a Eq.\,\ref{eqYL} e no segundo modo podemos utilizar a média da força que a ponte SA exerce sobre a superfície plana medida durante a simulação $F_{\rm{sim}}$. 
+Assim, tem-se:
+
+\begin{equation}
+P = \frac{ 2\pi\gamma r_{\rm B}\sin\theta_{\rm c} - F_{\rm{sim}}}{\pi r_{\rm B}^2}.
+\label{pressure}
+\end{equation}
+Mais detalhes sobre o cálculo das forças $F_{\rm{z,neck}}$ e $F_{\rm{z,base}}$, assim como do cálculo da pressão podem ser encontrados na Ref.\,\cite{Giovambattista2015,Almeida2018}.
+
+Uma equação mais geral à Eq.\,\ref{eqCompForce5} capaz de descrever pontes SA em equilíbrio e fora de equilíbrio pode ser obtida quando se faz a minimização da energia livre utilizando cálculo variacional com restrição no volume. 
+Essa equação é dada por:
+\begin{equation}
+        z(r) = \pm s\int_A^r\frac{dx(AB + x^2)}{\sqrt{(B^2-x^2)(x^2-A^2)}} +z_0
+        \label{eqCompForce5general}
+\end{equation}
+em que $A$ e $B$ são, respectivamente, as distâncias mínimas e máximas do perfil da ponte SA ao eixo $z$ de simetria, $s$ é o sinal da curvatura média $H$, $z_0$ é a altura do pescoço da ponte SA, e os sinais $+$ e $-$ correspondem, respectivamente, à porção do perfil da ponte SA para $z>z_{\rm 0}$ e $z<z_{\rm 0}$. 
+
+
+Analisando a Eq.\,\ref{eqCompForce5general}, pode existir duas soluções para o perfil $r(z)$ da ponte SA: uma solução simétrica para $z_{\rm 0}=0$ e uma solução assimétrica para  $z_{\rm 0}\neq0$.
+De acordo com o teorema de Vogel, somente perfis que são simétricos são estáveis, e perfis assimétrico possuem pontos de inflexão que torna a ponte SA instável, e consequentemente a sua ruptura.
+Análises dos perfis assimétricos com cálculo variacional mostra que o mecanismo de ruptura da ponte SA depende de $\theta_{\rm c}$ e de $h$.
+Acima de uma altura máxima $h_{\rm max}$ a ponte SA se rompe e formando duas gotas com volume aproximado $\Omega/2$ aderidas às superfícies planas se $\theta_{\rm c} < 31^0$, ou formará uma única gota ou gotas com volumes diferentes se $\theta_{\rm c} > 31^0$.
+Desse modo nós utilizaremos a Eq.\,\ref{eqCompForce5general} para estudar com mais detalhe o processo de ruptura das pontes SA e as flutuação nas interfaces que estamos observando durante as simulações. 
+Assim, as  Eqs.\,\ref{eqForceBase} e \ref{eqForceNeck}  serão utilizadas, como descrito anteriormente, para medir a força no pescoço e na base, e as Eqs.\,\ref{eqYL} e \ref{pressure} para medir a pressão de Laplace.
+Mais detalhes sobre essa teoria pode ser encontrado nas Refs.\,\cite{Alencar2006, Langbein2002, Almeida2018}. 
+
+
+\subsection{Dinâmica molecular para o estudo de pontes com simetria axial na escala nanométrica}
+\label{secDMnano}
+
+O estudo da capilaridade com pontes SA na escala nanométrica será baseado no nosso trabalho em que aplicamos a TC para o estudo de pontes capilares e gotas\,\cite{Giovambattista2015}.
+As pontes SA serão compostas por $N=3375$ moléculas de H$_2$O do modelo SPC/E em contato com superfícies de $\beta$-cristobalitas hidrofílicas e hidrofóbicas na temperatura $T=300$\,K, e as simulações de DM serão executadas utilizando o pacote LAMMPS\,\cite{Plimpton1995}.
+A caixa cúbica da simulação possui o mesmo tamanho $D$ das placas, e a condição periódica de contorno é aplicada ao longo dos eixos $x$, $y$ e $z$.
+%As interações de Coulomb e de Lennard-Jones são cortadas na distância $r_{\rm c}=10$\,\AA.
+%As interações eletrostáticas de longo alcance são calculadas utilizando o algoritmo PPPM (\textit{Particle-Particle Particle-Mesh})\,\cite{Hockney1988} com precisão de $10^{-5}$.
+%A temperatura é controlada utilizando o termostato Nos\'{e}-Hoover\,\cite{Nose1984a} empregando as equações de movimento descritas por Shinoda et al.\,\cite{Shinoda2004}.
+As configurações iniciais das pontes SA são construídas a partir de uma simulação independente do \textit{bulk} da água com $\rho=1$\,g/cm$^3$ e $T=300$\,K.
+Então, esta configuração é colocada entre duas superfícies de $\beta$-cristobalita idênticas e separadas por uma distância de $h=50$\,\AA.
+
+Brevemente, a estrutura dessas superfícies é constituída por quatro camadas de SiO$_2$, reproduzindo a face octaédrica $(1,1,1)$ da $\beta$-cristobalita. 
+As paredes são ortogonais ao eixo $z$ e cobrem totalmente o plano $xy$ da caixa de simulação tornando-se infinitas.
+As superfícies de $\beta$-cristobalita hidrofílicas são construídas a partir da superfície hidrofóbica, em que a camada da superfície que fica em contato com as pontes SA são hidroxilizadas pela adesão de um átomo de hidrogênio ao átomo de oxigênio, cujo tamanho das ligações são mantidas fixas de $1$\,\AA, e são livres para rotacionarem em torno da coordenada $z$.
+O grupo silanol da primeira camada possui cargas parciais cujos valores são $q_{\rm 0,Si}=0.31e$, $q_{\rm 0,O}=-0.71e$, e $q_{\rm 0,H}=0.40e$, em que $e$ é a carga do elétron.
+Para alterar a hidrofilicidade da superfície, as cargas do grupo silanol são reescaladas por um fator $k$, tal que $q_{\rm i} \rightarrow k \times q_{\rm 0,i}$ e $0\leq k \leq 1$, onde $i=$O, Si e H.
+Para $k>0.35$ ($k<0.35$) as superfícies são hidrofílicas (hidrofóbicas)\,\cite{Giovambattista2015}.
+A Figura\,\ref{fig:EsquemaPonte}(c) mostra um exemplo da ponte SA aderida às duas superfícies de $\beta$-cristobalita hidrofílicas. 
+Para os estudos das metas M1 e M2 utilizaremos placas de lado $D=138.6$\,\AA~ e $D=277.2$\,\AA, respectivamente.
+Mais detalhes sobre a estrutura da superfície podem ser encontrados nas Refs.\,\cite{Giovambattista2015,Giovambattista2006}. 
+
+O perfil das pontes SA são obtidos das configurações das moléculas de H$_2$O geradas pela simulação, em que para cada configuração define-se um eixo $z$ que é perpendicular às superfícies de $\beta$-cristobalita e passa através do centro de massa da ponte SA.
+Ao longo do eixo $z$, são criadas caixas de dimensões $D\times D\times 5$\,\AA$^3$ paralelas às superfícies hidrofílicas/hidrofóbicas.
+A distância entre os centros de duas caixas consecutivas é de $2.5$\,\AA~para que haja sobreposição. 
+A partir da média da quantidade de moléculas de H$_2$O dentro de cada caixa, considerando um tempo de simulação $\Delta t_{\rm sim}$, obtém-se a densidade média $\rho_{\rm slab}(r)$ como uma função da distância radial $r$ do eixo $z$.
+Definindo uma densidade de corte $\rho_{\rm slab}(r)=\rho_{\rm 0}=0.2$\,g/cm$^3$, é possível obter a média do raio do perfil $r_{\rm sim}(z)$ na altura $z$.
+
+Uma vez determinado $r_{\rm sim}(z)$, nós fazemos o ajuste da Eq.\,\ref{eqCompForce5} para determinar o perfil $r(z)$ das pontes SA  descrito pela TC e todos as demais propriedades como, $r_{\rm b}$, $r_{\rm 0}=R_{\rm 1}$, $\theta$, $\Omega$, $H$, $A_{\rm LG}$, $A_{\rm LS}$ e $A_{\rm GS}$.
+Então, a partir dessas propriedades e da média da força sobre o substrato, podemos medir todas as demais propriedades como $\gamma$, $F_{\rm{z,neck}}$, $F_{\rm{z,base}}$ e $P$.
+Mais detalhes sobre o cálculo podem ser encontrados na Ref.\,\cite{Giovambattista2015, Almeida2018}.
+
+Nesse projeto, avançaremos o trabalho anterior em que a altura da ponte SA foi mantida fixa em $50$\,\AA~ e foi alterado somente ângulo de contato $25^{\rm o}\leq\theta\leq110^{\rm o}$\,\cite{Giovambattista2015}.
+Na meta M1  exploraremos o mesmo intervalo de $\theta_{\rm c}$, mas agora a altura $h$ será variada até atingir a altura crítica $h_{\rm C}$, tal que $h_{\rm S} < h_{\rm max} < h_{\rm C}$. Essa etapa do estudo do diagrama de fase ja foi concluída e publicada na Ref.\cite{Almeida2018}. Agora avançaremos os estudos para as alturas estáveis $h_{\rm S}$ diminuindo a distância entre as placas a partir da altura $50$\,\AA.
+Primeiro, nós diminuiremos a distância entre as placas, movendo cada uma de $5$\,\AA, até a altura de $20$\,\AA, que acreditamos ser a altura limite em que a TC ainda pode ser aplicada.
+Então, a partir de $20$\,\AA~as placas serão movidas de $1$\,\AA~até a altura de $10$\,\AA.
+Para cada altura nós realizaremos $3$\,ns de simulações e a cada $1$\,ps uma configuração será salva. 
+Somente os últimos $2$\,ns serão utilizados para a análise de dados.
+
+
+Na meta M2 utilizaremos os dados gerados da meta M1 para compreender melhor as flutuações na interface da ponte SA nas alturas $h_{\rm S} < h_{\rm max} < h_{\rm C}$ e para diferentes valores de $\theta$ por meio da análise de série temporal, para um exemplo ver Fig.\,\ref{figFluctuationPressure}. 
+Depois, geraremos novos dados em simulações mais longas em que as distâncias entre as superfícies de $\beta$-cristobalita serão incrementadas de $1$\AA~ de modo quasi-estática a partir da última altura estável $h_{\rm S}$.
+
+A meta M3, que trata do estudo das pontes capilares aderidas ao substrato dielétrico, será desenvolvida durante o trabalho de pós-doutoramento, e contar\'{a} com a colabora\c{c}\~{a}o dos v\'{a}rios grupos de pesquisa associados ao projeto temático FAPESP/SHELL.
+Todas as metas M1--M3 contarão com suporte do Prof. Dr. Sergey Buldyrev e do Prof. Dr. Nicolas Giovambattista.
+
+\section{Resultados preliminares}
+\label{secPreRes}
+
+No momento possuímos resultados preliminares referentes às metas M1 e M2.
+Com relação à meta M1, empregando a mesma metodologia do estudo de gotas e pontes capilares\,\cite{Giovambattista2015}, nós estudamos todo o diagrama de fase da ponte SA e comparamos as medidas obtidas nas simulações das pontes nanométricas com a solução analítica que resultou em uma publicação\,\cite{Almeida2018}, ver Fig.\,\ref{figFluctuationPressure}(a). Durante o primeiro ano de pós-doutoramento iniciamos o estudo da região estável do diagrama de fase para alturas $h_{\rm S} < h_{\rm C}$, utilizando a mesma placa de $\beta$-cristobalita, mas com lado $D=277.2$\AA.  A Figura\,\ref{figFluctuationPressure}(b) mostra o resultado parcial obtido para a pressão de Laplace. Os pontos representados por quadrados e círculos são, respectivamente, as medidas da pressão de Laplace utilizando as Eqs.\,\ref{eqYL} e \ref{pressure}. Mais resultados podem ser encontrados no anexo. Podemos observar que para $30\leq h\leq 50$\,\AA~ a solução analítica é capaz de prever satisfatoriamente a pressão medida na simulação. Esperamos que para $h\leq20$\AA~ comecem a ocorrer desvios na previsão da TC. Esse estudo conclui a meta M1.
+
+Com relação à meta M2, utilizando a metodologia proposta aqui, nós analisamos um caso da flutuação da ponte SA com polarização $k=0.5$ e altura $70.0$\,\AA, como mostrado na Fig.\,\ref{figFluctuationPressure}(c). Nessa figura, cada perfil foi calculado utilizando a média de $0.1$\,ns de simulação, e o gradiente de cores magenta--azul representa a evolução temporal, onde azul é o inicio da simulação e o magenta o final. 
+A Figura\,\ref{figFluctuationPressure}(d) mostra como o raio do pescoço, e os raios da bases inferior e superior variam com o tempo. 
+Pode-se observar que os raios da base inferior e superior estão anti-correlacionados.
+Além dessas variáveis, nesse projeto também iremos avaliar a flutuação de  $\theta_{\rm c}$, $H$ e $z_{\rm 0}$. A forma de analisar essas séries temporais serão determinadas no decorrer do projeto.
+
+% Esse estudo da meta M2 conclui a atividade M2 do projeto FAPESP/SHELL 2017/11631-2.}
+
+\begin{figure}[] 
+	\centerline{\includegraphics[width=16cm]{ResultadoPreliminar.pdf}}
+	\caption{As Figuras (a) e (b) mostram as medidas da pressão de Laplace das pontes SA, para as diferentes superfícies de $\beta$-cristobalita, em função da altura. Os pontos representados por círculos e quadrados são, respectivamente, as medidas da pressão de Laplace utilizando a Eq.\,\ref{pressure} e a Eq.\,\ref{eqYL}. As linhas tracejadas são as previsões da TC macroscópica\,\cite{Alencar2006,Almeida2018}. A Figura (a) foi publicada recentemente na Ref.\,\cite{Almeida2018}. (c) Perfis inteiros da ponte SA aderia à placa de $\beta$-cristobalita com $k=0.5$ e distância $70.0$\,\AA~ obtidos pela média de $0.1$\,ns das configurações das moléculas de água. O gradiente de cores azul--magenta indica a evolução temporal: azul é o inicio da simulação e  magenta o final. (d) Série temporal dos raios das bases inferior e superior, e do pescoço da ponte SA obtidos dos dados mostrados na Fig. (c). Podemos observar que o raio do pescoço permanece constante, e os raios das bases superior e inferior flutuam de maneira anti-correlacionada.
+		\label{figFluctuationPressure}}
+\end{figure}
+
+\section{Cronograma do trabalho}
+
+O cronograma das metas a serem realizadas estão esquematizadas na Fig.\,\ref{cronograma}.
+Como proposto no projeto (vinculado ao projeto temático vigente FAPESP/SHELL 2017/11631-2), estudaremos pontes capilares nanométrica composta por moléculas de água do modelo SPC/E por meio de simulações de DM com o objetivo de utilizar-las como um mecanismo para coleta de energia a partir das flutuações térmicas.
+
+Inicialmente focaremos nas metas M1 e M2. A meta M1 já esta $75$\% concluída com a publicação da Ref.\,\cite{Almeida2018}. Atualmente estamos trabalhando no estudo do diagrama de fase na região $10\leq h_{\rm S}\leq50$\,\AA. Para realizar esses estudos, estamos executando as simulações para superfícies de $\beta$-cristobalita com polaridades $k$ compreendidas entre $0.0\leq k\leq 0.5$, ver Fig.\,\ref{FigBridgeHarvest}(b). Adicionalmente, estamos executando uma simulação para $k=0.346$, que produz pontes SA com ângulo de contato $\theta = 90^{\circ}$, que ainda não foram analisadas. Estimamos que será necessário mais dois meses para concluir as simulações restantes e outros três meses para a conclusão da escrita do artigo.
+
+Com relação à meta M2, nós iniciaremos o estudo das flutuações com os dados já obtidos durante a meta M1. Depois iremos focar na flutuação durante a ruptura em que a altura da ponte SA será alterada em passos de $1$\,\AA~da última altura estável $h_{\rm S}$ até a altura $h_{\rm S} +5$\,\AA. Pretendemos executar simulações com tempos superiores a $20$\,ns, e com pontes SA com volumes menores a fim de obter desempenho computacional. Essas estimativas de tempo e volume ainda serão definidas no andamento do projeto. Como parte das simulações ja estão concluídas, as simulações adicionais serão executadas para melhorar a estatística dos dados. Assim, pretendemos ter o artigo explicando as flutuações das pontes capilares no final do último mês do projeto. Como conclusão desse trabalho, saberemos as melhores condições de volume e molhabilidade para que haja flutuação máxima, e consequentemente utilizar essa ideia para coleta de energia.
+
+A meta M3 será definida no decorrer do projeto.
+
+\begin{figure}[htb]
+\begin{center}
+\includegraphics[width=0.8\columnwidth]{cronograma4.png}
+\end{center}
+\caption{Cronograma das metas M1--M3 a serem realizadas, indicando o período do estagio BEPE que será detalhado em um projeto separado. }
+\label{cronograma}
+\end{figure}
+
+\section{Disseminação e avaliação}
+Com trabalho realizado pretendemos publicar três artigos: um sobre as propriedades da ponte SA quando a distância entre as placas é diminuída, outro sobre as flutuações da ponte SA e outro sobre a ponte capilar aderida ao material dielétrico.
+Pretendemos também apresentar nossos trabalhos na forma de poster e apresentação oral nos congressos Encontro Nacional de Física da Matéria Condensada, Encontro Nacional de Física Estatística, e outro internacional. 
+
+
+\section{Outros apoios}
+\noindent
+Nosso projeto conta com o apoio das seguintes instituições:\\
+$1$) Departamento de Física Geral do IFUSP: espaço físico e processamento computacional;\\
+$2$) FAPESP: processamento computacional, projeto numero $2014/22102-2$; \\
+$3$) FAPESP/SHELL 2017/11631-2: processamento computacional, projeto numero; \\
+$4$) Yeshiva University: processamento computacional;\\
+$5$) {\it City University of New York - Brooklyn College}: processamento computacional.\\
+
+
+
+\bibliographystyle{unsrt}
+%\addcontentsline{toc}{chapter}{ReferÃªncias BibliogrÃ¡ficas}
+%\nocite{*}
+\bibliography{references_tese,referencesShellLabm2}
+\end{document}
+
+
+
