@@ -1,0 +1,1723 @@
+%\pdfminorversion=7 %video 
+\documentclass[8pt]{beamer} 
+%\usetheme{Copenhagen}
+\usetheme{Darmstadt}
+%\setbeamerfont*{subsection in head/foot}{size=\footnotesize}   		
+%\setbeamerfont*{subsection in head/foot}{size=\footnotesize}   		
+\usepackage{caption}
+\usepackage{pifont}
+\usepackage{subcaption}
+\usepackage[utf8]{inputenc}
+\usepackage{pxfonts}
+\usepackage{txfonts}
+\usepackage{color}
+\usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage{graphicx}
+\usepackage{rotating}
+\usepackage{mwe,lmodern}
+\usepackage{multimedia}
+\usepackage{multirow}
+%\usepackage{flashmovie} %video
+\setbeamertemplate{footline}[frame number] %numerar slides
+\beamertemplatenavigationsymbolsempty % desativar botoes de navegacao
+\newcommand{\angstrom}{\mbox{\normalfont\AA}}
+\usepackage{appendixnumberbeamer}
+
+
+\let\ctg\centering
+\title[]{\Huge Gotas e pontes capilares na escala nanométrica}
+\author{\\Alexandre Barros de Almeida\\
+       \vspace{0.3cm}					
+      Orientador: Prof. Adriano M. Alencar\\ 
+						} 
+\institute{
+\begin{minipage}{0.2\textwidth}
+	\begin{center}
+	\includegraphics[width=0.7\linewidth]{ifusp-logo-bw.pdf}
+	\end{center} 
+\end{minipage}
+\begin{minipage}{0.49\textwidth}
+	\begin{center}
+		Instituto de Física  \\ \small{UNIVERSIDADE DE SÃO PAULO}\\
+	\end{center} 
+\end{minipage}
+\begin{minipage}{0.2\textwidth}
+	\begin{center}
+		\includegraphics[width=0.7\linewidth]{usp_pro_cultura.pdf}\\
+	\end{center} 
+\end{minipage}
+} 
+
+
+\date{2017}
+
+\graphicspath{{./figuras/}} 
+
+\begin{document}
+\frame{\titlepage}
+
+\subsection{}
+
+\begin{frame}
+\frametitle{Sumário}
+	\begin{itemize}
+		\item \huge Introdução
+		\begin{itemize}
+			\item \Large Definição de capilaridade, exemplos e nosso trabalho
+		\end{itemize}
+		\item Metodologia
+		\begin{itemize}
+			\item \Large Teoria capilar macroscópica das interfaces com diferentes geometrias
+			\item Modelo atomístico e dinâmica molecular					
+			\item Modelo gás de rede e Monte Carlo
+		\end{itemize}
+		\item Resultados
+		\begin{itemize}
+			\item \Large Gotas e pontes capilares
+			\item Ruptura das pontes capilares
+			\item Flutuações de gotas
+		\end{itemize}
+		\item Conclusões
+	\end{itemize}
+\end{frame}
+
+\subsection{}
+
+
+
+\section{Introdução}
+\subsection{Definição de capilaridade.}
+\begin{frame}
+\frametitle{A {\bf capilaridade} ocorre devido às forças de {\bf coesão} e {\bf adesão} entre a superfície de um líquido e de um outro meio, e se evidencia quando esse líquido fica sujeito a uma {\bf condição de confinamento}.}
+	\begin{minipage}{0.48\textwidth}
+		\begin{center}
+			\large {\bf Forças de coesão e adesão.}\\
+			\vspace{0.7cm}
+			\includegraphics[width=0.5\linewidth]{capilaridade.pdf}\\
+%			\includegraphics[width=0.5\linewidth]{capilaridadeHg.pdf}\\	
+			 Preenchimento capilar.			
+		\end{center}
+	\end{minipage}
+	\begin{minipage}{0.48\textwidth}
+		\includegraphics<2>[width=1.2\linewidth]{exemplosGotaPontes2.pdf}
+	\end{minipage}
+\end{frame}
+
+
+\subsection{Exemplos da capilaridade nas escalas macro e micrométrica.}
+
+\begin{frame}
+\frametitle{As pontes capilares são encontradas nas mais diversas situações.}
+
+	\begin{center}
+		\includegraphics[width=0.5\linewidth]{exemplosPontes.pdf}
+	\end{center}
+
+	\begin{minipage}{0.32\textwidth}
+		\begin{center}
+			\includegraphics[width=0.6\linewidth]{castelodeareia.pdf}
+		\end{center}
+	\end{minipage}
+%	\begin{minipage}{0.32\textwidth}
+%		\begin{center}
+%			\includegraphics[width=0.5\linewidth]{inseto2.pdf}
+%		\end{center}
+%	\end{minipage}
+	\begin{minipage}{0.32\textwidth}
+		\begin{center}
+			\includegraphics[width=0.65\linewidth]{inseto.pdf}\\
+			\includegraphics[width=0.65\linewidth]{inseto3.png}
+		\end{center}
+	\end{minipage}
+	\begin{minipage}{0.32\textwidth}
+		\begin{center}
+			\includegraphics[width=0.55\linewidth]{sintering3.pdf}
+		\end{center}
+	\end{minipage}	
+	
+	\begin{minipage}{0.32\textwidth}
+		\begin{center}
+			{\tiny [Hornbaker, Nature (1997)]}
+		\end{center}	
+	\end{minipage}
+%	\begin{minipage}{0.32\textwidth}
+%		\begin{center}
+%			{\tiny [Eisner, P. Natl. Acad. Sci. USA. ($2000$)]}
+%		\end{center}
+%	\end{minipage}
+	\begin{minipage}{0.32\textwidth}
+		\begin{center}
+			{\tiny [Hu, Nature ($2003$)]}
+		\end{center}	
+	\end{minipage}
+	\begin{minipage}{0.32\textwidth}
+		\begin{center}
+			\tiny{[Huppmann, Acta Metallurgica ($1975$)]}
+		\end{center}
+	\end{minipage}
+
+
+%	\begin{minipage}{0.32\textwidth}
+%		\begin{center}
+%			\includegraphics[width=0.7\linewidth]{bico_passaro.pdf}
+%		\end{center}
+%	\end{minipage}
+%
+%	\begin{minipage}{0.32\textwidth}
+%		\begin{center}
+%			\includegraphics[width=0.7\linewidth]{microgravidade.pdf}
+%		\end{center}
+%	\end{minipage}
+%	\begin{minipage}{0.32\textwidth}
+%		\begin{center}
+%			\tiny{[Prakash, Science ($2008$)]}
+%		\end{center}	
+%	\end{minipage}
+%	\begin{minipage}{0.32\textwidth}
+%		\begin{center}
+%			\tiny{[Da Riva, Naturwissenschaften ($1987$)]}
+%		\end{center}	
+%	\end{minipage}
+\end{frame}
+
+
+
+\begin{frame}
+	\frametitle{Capilaridade nos trabalhos do \includegraphics[width=1.5cm]{labm2logo.pdf}.}
+	\begin{block}{\only<1>{Microfluídos: Estudo da \textbf{formação de emulsões}.} \only<2->{Microreologia celular: \textbf{micropipeta de aspiração} para medir tensão superficial e propriedades mecânicas.}}
+	  \only<1>{	
+		\begin{center}
+       			\includegraphics[width=0.55\linewidth]{microfluido.jpg}
+		\end{center}
+		}
+	  \only<2->{
+		\begin{center}
+       			\includegraphics[width=0.6\linewidth]{agregadoCell.pdf}\\
+				\tiny{ [Guevorkian, Phys. Rev. Lett ($2010$)]}
+		\end{center}
+		}		
+	\end{block}
+	\begin{block}<3->{Fisiologia pulmonar: emissão do \textbf{ruído de crepitação} durante a inspiração e expiração devido à formação e ruptura de pontes capilares.}
+		\begin{minipage}{0.2\textwidth}
+              		\includegraphics<3>[width=1\linewidth]{/figuraLung/lungbridge.pdf}
+              		\includegraphics<4>[width=1\linewidth]{/figuraLung/lungbridge.pdf}              		
+              		\includegraphics<5->[width=1\linewidth]{/figuraLung/lungdroplets.pdf}              		
+		\end{minipage}
+		\begin{minipage}{0.78\textwidth}
+			\begin{minipage}{0.5\textwidth}
+				\begin{itemize}
+					\item<4-> Inspiração $\rightarrow$ Expansão do pulmões $\rightarrow$ Ruptura $\rightarrow$ Ruído de crepitação;
+					\item<6-> Expiração $\rightarrow$ Compressão dos pulmões $\rightarrow$ Formação $\rightarrow$ Ruído de crepitação.
+				\end{itemize}
+			\end{minipage}
+			\begin{minipage}{0.49\textwidth}
+       	       		\includegraphics<7>[width=1.05\linewidth]{histereseApresentacaoTese.pdf}
+       	       		\only<8>{
+       	       			{\bf Estágio de doutorado sanduíche na \textit{\textbf{Yeshiva University}}:}
+       	       			\begin{itemize}
+       	       				\item Método de \textit{Umbrella};
+       	       				\item Outras geometrias;
+       	       				\item Inicio dos estudos com dinâmica molecular.
+       	       			\end{itemize}  		
+       	       		}	
+			\end{minipage}
+		\end{minipage}
+	\end{block}
+
+\end{frame}
+
+\subsection{Exemplos da capilaridade na escala nanométrica.}
+
+\begin{frame}
+	\frametitle{Em um ambiente com umidade, \textbf{moléculas de água podem condensar} na ponta do Microscópio de Força Atômica (MFA) \textbf{formando uma ponte capilar}.}
+	\vspace{-0.3cm}
+		\begin{center}
+			\includegraphics[width=1.0\linewidth]{ponte_MFA2.pdf}
+			
+				\tiny{[Weeks, Langmuir ($2005$)]}
+		\end{center}
+	\begin{minipage}{0.47\textwidth}
+		\begin{center}
+			\uncover<3->{
+			\includegraphics[width=0.9\linewidth]{Urtizberea2015.pdf}\\
+			\hspace{0.5cm}\tiny{[Urtizberea, Nanoscale ($2015$)]}\\
+			\vspace{0.3cm}
+			}
+		\end{center}
+	\end{minipage}
+	\begin{minipage}{0.5\textwidth}
+		\begin{block}<2->{Ponte capilar $\rightarrow$ Força de adesão capilar}
+			\begin{itemize}
+			    \item<3-> Transporte de tinta através da ponte líquida durante o processo de nanolitografia ``Dip-Pen'';
+			    \item<4-> Mudanças na força capilar podem ocasionar instabilidade e perda de controle ao se fazer imagens com MFA;
+			    \item<5-> As amostras podem ser deformadas ou movidas devido à força de adesão capilar;
+			\end{itemize}
+		\end{block}
+	\end{minipage}
+\end{frame}
+
+\begin{frame}
+\frametitle{Estudo da capilaridade na escala nanométrica com \textbf{simulações}.}
+	\begin{minipage}{0.49\textwidth}
+		\begin{center}
+			{\bf Grande Canônico Monte Carlo com TFD:}		
+		
+			\includegraphics[width=0.9\linewidth]{liteMCGR.pdf}
+
+			{\tiny [Men, J. Chem. Phys. ($2009$)]}
+		\end{center}
+	\end{minipage}
+	\begin{minipage}{0.49\textwidth}
+		\vspace{0.8cm} 
+		\begin{center}
+			{\bf Dinâmica Molecular:}
+		
+			\includegraphics[width=0.8\linewidth]{liteDM2.pdf}
+		
+			{\tiny [Cheng, PRE ($2014$)]}
+
+			\vspace{0.4cm} 
+			\includegraphics[width=0.9\linewidth]{liteDM.pdf}
+
+			{\tiny [Cheng, Langmuir ($2016$)]}
+		\end{center}
+	\end{minipage}
+\end{frame}
+
+\subsection{Nosso trabalho}
+\begin{frame}
+\frametitle{Avaliar os {\bf fundamentos da teoria capilar (TC) macroscópica} em fenômenos capilares da escala nanométrica.}
+
+\begin{block}{{\bf Primeira etapa:} estudo de quatro geometrias}
+	\begin{minipage}{0.15\textwidth}
+		\includegraphics[width=1.2\linewidth]{exemplosEtapa1.pdf}
+	\end{minipage}
+	\begin{minipage}{0.84\textwidth}
+		\begin{itemize}
+			\item Simulação atomística e dinâmica molecular (DM);
+			\item Avaliar o ângulo de contato $\theta_{\rm c}$;
+			\item Avaliar a energia livre $\mathcal F = \gamma_{\rm LS}A_{\rm LS} + \gamma_{\rm LG}A_{\rm LG} + \gamma_{\rm SG}A_{\rm SG}$.
+		\end{itemize}
+	\end{minipage}
+\end{block}
+
+\begin{block}{{\bf Segunda etapa:} estudar o diagrama de fase ($h$, $\theta_{\rm c}$) das pontes SA.}
+	\begin{minipage}{0.19\textwidth}
+		\includegraphics[width=1.1\linewidth]{exemplosEtapa2.pdf}
+	\end{minipage}
+	\begin{minipage}{0.8\textwidth}
+		\begin{itemize}
+			\item Na região de estabilidade, repetir os mesmos procedimentos da {\bf primeira etapa};
+			\item Estudar o processo de ruptura.
+%			\item Na região de instabilidade $h>h_{\rm max}$, avaliar a formação de uma ou duas gotas com relação a $\theta_{\rm c}=31^\circ$.
+		\end{itemize}
+	\end{minipage}
+\end{block}
+
+\begin{block}{{\bf Terceira etapa:} estudar a flutuação do centro de massa de gotas.}
+	\begin{minipage}{0.19\textwidth}
+			\includegraphics[width=0.8\linewidth]{exemplosEtapa3.pdf}
+	\end{minipage}
+	\begin{minipage}{0.8\textwidth}
+		\begin{itemize}
+%			\item Comparar com as flutuações dos centros de massa das gotas simuladas com gás de rede e modelo atomístico;
+			\item Avaliar a flutuação com o cálculo do expoente de Hurst.
+		\end{itemize}
+	\end{minipage}
+\end{block}
+
+%%%%%%%%%%%%\vspace{-0.25cm}
+%%%%%%%%%%%%\begin{block}<6->{Outros estudos}
+%%%%%%%%%%%%Tensão de linha, pressão de Laplace no interior de gotas, e pontes SA no modelo gás de rede. 
+%%%%%%%%%%%%\end{block}
+\end{frame}
+
+\section{Metodologia}
+\subsection{Conceitos básicos da teoria capilar macroscópica.}
+\begin{frame}
+\frametitle{Equação de Young, curvatura média e equação de Young-Laplace.}
+		\begin{minipage}{0.69\textwidth}
+			\centering
+			\hspace{0.2cm}\textbf{Equação de Young:}\\
+				$\cos\theta_{\rm c} = \frac{\gamma_{\rm SG} - \gamma_{\rm LS}}{\gamma}$\\
+				\vspace{0.1cm}
+				$\cos\theta_{\rm c} = \frac{\gamma_{\rm SG} - \gamma_{\rm LS}}{\gamma} - \frac{\color{red}{\kappa}}{\gamma}\frac{1}{r_{\rm B}}$\\
+				\vspace{0.1cm}
+				$\cos\theta_{\rm c} = \cos\theta_{\rm \infty} - \frac{\color{red}{\kappa}}{\gamma}\frac{1}{r_{\rm B}}$\\
+		\end{minipage}
+		\vspace{0.25cm}
+		\begin{minipage}{0.3\textwidth}
+				\begin{center}
+					\includegraphics[width=1.2\linewidth]{line_tension.pdf}\\
+				\end{center}
+		\end{minipage}
+		\begin{minipage}{0.69\textwidth}
+			\centering
+			\textbf{Curvatura média (H):}
+			$$H=\frac{1}{2}(\frac{1}{R_{\rm 1}}+\frac{1}{R_{\rm 2}})$$	
+		\end{minipage}
+		\begin{minipage}{0.3\textwidth}
+				\begin{flushright}
+					\includegraphics[width=0.84\linewidth]{curvatura.pdf}\\
+				\end{flushright}
+		\end{minipage}
+		\begin{minipage}{0.69\textwidth}
+			\centering
+			\hspace{0.2cm}\textbf{Equação de Young-Laplace:}
+			$$ \frac{\Delta P}{\gamma} = \frac{2}{R}$$
+			$$ \frac{\Delta P}{\gamma} = 2 H = \frac{1}{R_{\rm 1}} + \frac{1}{R_{\rm 2}}$$
+		\end{minipage}
+		\begin{minipage}{0.3\textwidth}
+				\begin{flushright}
+					\includegraphics[width=0.9\linewidth]{laplace.pdf}\\
+				\end{flushright}
+		\end{minipage}
+\end{frame}
+
+\subsection{Gotas e pontes capilares com simetria axial e translacional.}
+\begin{frame}
+\frametitle{\textbf{Perfis teóricos} $\mathbf{r(z)}$ das superfícies que descrevem interfaces em equilíbrio.}
+	\vspace{-0.2cm}
+	\begin{block}{ Gotas SA e ST, e pontes ST:}
+		\begin{minipage}{0.2\textwidth}
+			\begin{center}
+				\includegraphics[width=0.8\linewidth]{AS-droplet.pdf}\\
+				{\bf \small  Gota SA}\\
+				\includegraphics[width=0.8\linewidth]{TS-droplet.pdf}\\
+				{\bf \small  Gota ST}\\
+			\end{center}
+		\end{minipage}
+		\begin{minipage}{0.3\textwidth}
+			\uncover<2->{$$F_{\rm z}(z) = F_{\rm \gamma}(z) + F_{\rm P}(z) = 0$$}
+			\uncover<2->{$$2\pi r\gamma\cos\xi - P_{\rm ex}r^{\rm 2}\pi + P_{\rm in}\pi r^{\rm 2} = 0$$
+			             $$r(z)^2 + (z - z_c)^2 = R^2$$
+			             $$\theta_{\rm c} = 90 + \frac{180}{\pi}\arcsin \left ( \frac{z_c}{R} \right )$$
+			            }
+		\end{minipage}
+		\hspace{1cm}
+		\begin{minipage}{0.35\textwidth}
+			\centering
+			\uncover<3->{\includegraphics[width=0.7\linewidth]{TS-bridge.pdf}\\
+		        {\bf \small  Ponte ST}}
+		        \uncover<3->{
+					$$F_{\rm z}(0) = F_{\rm z}(z)$$
+					$$ z^2 + (r - r_c)^2 = R_2^2$$
+					$$ r_c = r_0 - R_2$$
+			}
+		\end{minipage}
+	\end{block}	
+	\vspace{-0.2cm}
+	\begin{block}<4->{Ponte SA:}
+		\begin{minipage}{0.2\textwidth}
+			\includegraphics[width=0.9\linewidth]{AS-bridge.pdf}\\
+		\end{minipage}
+		\begin{minipage}{0.79\textwidth}
+			\uncover<4->{\centering \small $F_{\rm z}(0) = F_{\rm z}(z)$\\}
+		    \uncover<4->{\centering \small $- \gamma 2\pi r_{\rm 0} + (\pi r_{\rm 0}^{\rm 2}) P_{\rm in} - (\pi r_{\rm 0}^{\rm 2}) P_{\rm ex} +\gamma 2\pi r\cos\xi - (\pi r^{\rm 2}) P_{\rm in} + (\pi r^{\rm 2}) P_{\rm ex} = 0$\\}
+			\uncover<4->{\centering \small $\frac{{\rm d}z}{{\rm d}r} = \pm \frac{\left | H(r^{\rm 2} - r_{\rm 0}^{\rm 2}) + r_{\rm 0} \right |}{\sqrt{r^{\rm 2} -[H(r^{\rm 2} - r_{\rm 0}^{\rm 2}) + r_{\rm 0}]^{\rm 2}}}$}
+		\end{minipage}
+	\end{block}	
+\end{frame}
+
+\begin{frame}
+\frametitle{\textbf{Grandezas medidas} com o perfil teórico $r(z)$ das pontes SA e ST:}
+	\begin{block}{Ponte SA}
+		\begin{minipage}{0.2\textwidth}
+			\includegraphics[width=0.9\linewidth]{AS-bridge.pdf}\\
+		\end{minipage}
+		\begin{minipage}{0.79\textwidth}
+		\only<2>{
+		{\bf Ângulo de contato $\theta_{\rm c}$}
+				\begin{itemize}
+					\item Superfície hidrofílica
+					$$\theta_{\rm c}  = \frac{180^{\rm o}}{\pi}\arctan\left ( \frac{{\rm d}z}{{\rm d}r} \Big|_{r_{\rm B}}  \right )$$
+					\item Superfície hidrofóbica
+					$$\theta_{\rm c}  = 180^{\rm o} - \frac{180^{\rm o}}{\pi}\arctan\left ( \frac{{\rm d}z}{{\rm d}r} \Big|_{r_{\rm B}}  \right )$$
+				\end{itemize}
+			}
+		\only<3>{
+		{\bf Força de adesão capilar $F_{\rm{z,base}}$}
+		$$F_{\rm z}(z) = F_{\rm \gamma}(z) + F_{\rm P}(z)$$
+		$$F_{\rm{z,base}}= 2\pi\gamma r_{\rm B}\sin\theta_{\rm c} -2\pi \gamma H r_{\rm B}^{\rm 2}$$
+			}
+		\only<4>{
+		{\bf Força na região do pescoço $F_{\rm{z,p\text{ç}o}}$}
+		$$F_{\rm{z,p\text{ç}o}}=2\pi\gamma \mathcal C = 2\pi\gamma(r_{\rm 0} - Hr_{\rm 0}^{\rm 2})$$
+			}
+		\only<5>{
+		{\bf Pressão de Laplace $P_{\rm L}$ e $P_{\rm L_{YL}}$}
+		$$P_{\rm L} =  \frac{F_{\rm \gamma} - F_{\rm{z,base}} }{A_{\rm B}}= \frac{ 2\pi\gamma r_{\rm B}\sin\theta_{\rm c} - F_{\rm{z,base}}}{\pi r_{\rm B}^{\rm 2}}$$
+		$$P_{\rm L_{YL}}=\Delta P = 2\gamma H$$
+			}
+		\only<6>{
+		{\bf Cálculo da tensão superficial da interface líquido-gás $\gamma$}
+		$$F_{\rm{z,base}}=F_{\rm{z,p\text{ç}o}}$$
+		$$F_{\rm{z,base}}= 2\pi\gamma \mathcal C = 2\pi\gamma(r_{\rm 0} - Hr_{\rm 0}^{\rm 2})$$
+			}
+		\end{minipage}
+	\end{block}	
+	\begin{block}{Ponte ST}
+		\begin{minipage}{0.2\textwidth}
+			\begin{center}
+				\includegraphics[width=1\linewidth]{TS-bridge.pdf}\\
+			\end{center}
+		\end{minipage}
+		\begin{minipage}{0.79\textwidth}
+		\only<2>{
+		{\bf Ângulo de contato $\theta_{\rm c}$}
+				\begin{itemize}
+					\item Superfícies hidrofílica e hidrofóbica
+					 $$\theta_{\rm c} = 90^{\rm o} + \frac{180^{\rm o}}{\pi}\arcsin \left ( \frac{h/2}{R_{\rm 2}} \right )$$
+				\end{itemize}
+			}
+		\only<3>{
+		{\bf Força de adesão capilar $F_{\rm{z,base}}$}
+		$$F_{\rm z}(z) = F_{\rm \gamma}(z) + F_{\rm P}(z)$$
+		$$F_{\rm{z,base}} = 2 D\gamma\sin\theta_{\rm c} - 4\gamma H D r_{\rm B}$$
+			}
+		\only<4>{
+		{\bf Força na região do pescoço $F_{\rm{z,p\text{ç}o}}$}
+		$$F_{\rm{z,p\text{ç}o}} = 2 \gamma \mathcal C = 2 \gamma D - 4\gamma H D r_{\rm 0}$$
+			}
+		\only<5>{
+		{\bf Pressão de Laplace $P_{\rm L}$ e $P_{\rm L_{YL}}$}
+		$$P_{\rm L} = \frac{F_{\rm \gamma} - F_{\rm{z,base}} }{A_{\rm B}}= \frac{2\gamma D\sin\theta_{\rm c} - F_{\rm z,base}}{2 r_{\rm B} D}$$
+		$$P_{\rm L_{YL}}=\Delta P = 2\gamma H$$
+			}
+		\only<6>{
+		{\bf Cálculo da tensão superficial da interface líquido-gás $\gamma$}
+		$$F_{\rm{z,base}}=F_{\rm{z,p\text{ç}o}}$$
+		$$F_{\rm{z,base}}= 2 \gamma \mathcal C = 2 \gamma D - 4\gamma H D r_{\rm 0}$$
+			}
+		\end{minipage}
+	\end{block}	
+\end{frame}
+
+
+\subsection{Teoria capilar macroscópica para as pontes SA simétricas e assimétricas.}
+\begin{frame}
+\frametitle<1->{\textbf{Solução analítica} da ponte SA.}
+	\begin{block}<1->{Energia livre da superfície $\mathcal F(h)$} %{Energia total $\mathcal E_{\rm tot}$ e energia livre da superfície $\mathcal F$}
+	   %\only<4->{$$\mathcal E_{\rm tot}(h) = \mathcal F(h) + \mathcal E_{\rm bulk}(h)$$}
+	   \only<1->{$$\mathcal F(h) = \gamma A_{\rm R}(h) + \gamma_{\rm LS}A_{\rm B}(h) + \gamma_{\rm GS}(A_{\rm T} - A_{\rm B}(h)) + c$$}
+	   \only<1->{$$c=- \gamma_{\rm GS}A_{\rm T}$$}
+	   \only<1->{$$\mathcal F(h) = \gamma (A_{\rm R}(h) - \cos\theta_{\rm c} A_{\rm B}(h))$$}
+	   \only<3->{$$\mathcal F(h) = \gamma\pi \left \{2\int^{\rm h/2}_{\rm -h/2} r(z) \sqrt{1+\left (\frac{{\rm d}r(z)}{{\rm d}z} \right )^{\rm 2}}{ \rm d}z + \cos\theta_{\rm c}(r(h/2)^{\rm 2} + r(-h/2)^{\rm 2}) \right \}$$}
+	\end{block}
+	\begin{minipage}{0.35\textwidth}
+		\begin{flushleft}
+			\uncover<1->{\includegraphics[width=0.8\linewidth]{AS-bridge.pdf}\\}
+		\end{flushleft}
+	\end{minipage}
+	\begin{minipage}{0.64\textwidth}
+		\begin{block}<2->{Área das interfaces líquido-gás $A_{\rm R}(h)$ e líquido-sólido $A_{\rm B}(h)$}
+			$$A_{\rm B}(h) = \pi (r(h/2)^{\rm 2} + r(-h/2)^{\rm 2})$$
+			$$A_{\rm R}(h) = \int^{\rm h/2}_{\rm -h/2} 2 \pi r(z) \sqrt{1+ \left (\frac{{\rm d}r(z)}{{\rm d}z} \right )^{\rm 2}}{\rm d}z$$
+		\end{block}
+		\end{minipage}
+\end{frame}
+
+\begin{frame}
+\frametitle{\textbf{Minimização} do funcional $\mathcal F - 2\gamma H \Omega$ $\rightarrow$ perfil analítico $r(z)$ da ponte SA.}
+	%\uncover<2->{$$\mathcal H = 2 \pi \gamma \frac{r(z)}{\sqrt{1+\left (\frac{{\rm d}r(z)}{{\rm d}z}\right )^{\rm 2}}}-2\gamma H\pi r(z)^{\rm 2} = F{}'_{\rm z,base}$$}
+	\vspace{-0.2cm}
+	\begin{block}<2->{\textbf{Superfícies hidrofílicas} $\theta_{\rm c}<\pi/2$:}
+		$$ z(r) = \pm s\int_{\rm A}^{\rm r}\frac{{\rm d}x(AB + x^{\rm 2})}{\sqrt{(B^{\rm 2}-x^{\rm 2})(x^{\rm 2}-A^{\rm 2})}} +z{}'_{\rm 0}$$
+		%\only<1>{$$ z(r) = \pm s\int_{\rm A}^{\rm r}\frac{{\rm d}x(AB + x^{\rm 2})}{\sqrt{(B^{\rm 2}-x^{\rm 2})(x^{\rm 2}-A^{\rm 2})}} +z{}'_{\rm 0}$$}
+		%\only<2>{$$u(a,\zeta)= \frac{z(r)}{\chi} = \int_{\rm a}^{\rm \zeta}\frac{{\rm d}x(ab + x^{\rm 2})}{\sqrt{(b^{\rm 2}-x^{\rm 2})(x^{\rm 2}-a^{\rm 2})}}$$}
+	\end{block}
+	\vspace{-0.2cm}
+	\begin{block}<2->{\textbf{Superfícies hidrofóbicas} $\theta_{\rm c}>\pi/2$:}
+		$$z(r) = \pm \int_{\rm r}^{\rm B}\frac{{\rm d}x(AB + x^{\rm 2})}{\sqrt{(B^{\rm 2}-x^{\rm 2})(x^{\rm 2}-A^{\rm 2})}} +z{}'_{\rm 0}$$
+		%\only<1>{$$z(r) = \pm \int_{\rm r}^{\rm B}\frac{{\rm d}x(AB + x^{\rm 2})}{\sqrt{(B^{\rm 2}-x^{\rm 2})(x^{\rm 2}-A^{\rm 2})}} +z{}'_{\rm 0}$$}
+		%\only<2>{$$u(b,\zeta) = s\frac{z(r)}{\chi} = \pm s\int_{\rm \zeta}^{\rm b}\frac{{\rm d}x(ab + x^{\rm 2})}{\sqrt{(b^{\rm 2}-x^{\rm 2})(x^{\rm 2}-a^{\rm 2})}}$$}
+	\end{block}
+	\vspace{-0.2cm}
+	\begin{block}<3->{Raios mínimo $A$ e máximo $B$ do perfil $r(z)$:}
+		%$$a = A/\chi~~~~~~~~~~~b = B/\chi$$
+		$$AB = \frac{C}{H}~~~~~~~~~A^{\rm 2} + B^{\rm 2} = \frac{1}{H^{\rm 2}} - 2\frac{C}{H}~~~~~~~~~C=\frac{F{}'_{\rm z,base}}{2\pi \gamma}$$
+	\end{block}
+	\vspace{-0.2cm}
+	\begin{block}<4->{\only<5->{Estabilidade do perfil $r(z)$: \textbf{Assimétrico ($z{}'_{\rm 0}$)} e \textbf{Simétrico ($z{}'_{\rm 0}=0$)}} \only<4>{Perfil $r(z)$ da ponte SA estável determinado a partir de $F_{\rm z}(0) = F_{\rm z}(z)$:} }
+		\only<4>{$$\frac{{\rm d}z}{{\rm d}r} = \pm \frac{\left | H(r^{\rm 2} - r_{\rm 0}^{\rm 2}) + r_{\rm 0} \right |}{\sqrt{r^{\rm 2} -[H(r^{\rm 2} - r_{\rm 0}^{\rm 2}) + r_{\rm 0}]^{\rm 2}}}$$}
+	    \only<5->{
+		\begin{minipage}{0.3\textwidth}
+			\includegraphics[width=1.1\linewidth]{perfilSimetria.pdf}
+		\end{minipage}
+		\begin{minipage}{0.69\textwidth}
+			\begin{itemize}
+				\item<6-> Simétrico   $\rightarrow$ Estável ($r{}''(z)\neq 0$, $\partial\Omega/\partial H < 0$)
+				\item<7-> Assimétrico $\rightarrow$ Instável ($r{}''(z) = 0$) 
+				\item<8-> Ruptura dependendo de $\theta_{\rm c}$:\\
+					 -Simétrica ($h_{\rm max,s}$)   $\rightarrow$  $\partial\Omega/\partial H = 0$\\
+                     -Assimétrica ($h_{\rm max,a}$) $\rightarrow$  $r{}''(h/2)=r{}''(-h/2)= 0$
+			\end{itemize}
+		\end{minipage}
+		}
+	\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{\textbf{Diagrama de fase ($\mathbf{\boldsymbol{\theta_{\rm c}},h}$)} e \textbf{solução analítica} da ponte SA.}
+	\begin{minipage}{0.6\textwidth}
+		\begin{center}
+			\hspace{1cm} {Diagrama de fase ($h,\theta_{\rm c}$):}		
+			\includegraphics[width=1.1\linewidth]{diagraFase.pdf}
+		\end{center}
+	\end{minipage}
+    ~~~~~~~~~
+	\begin{minipage}{0.31\textwidth}
+		\begin{block}{\small Grandezas calculadas analiticamente ($\Omega$, $\theta_{\rm c}$ e $h$):}
+			\begin{itemize}
+				\item \small Energia livre $\mathcal F{}' (h)$
+				\item Forças $F{}'_{\rm base,z}$
+				\item Pressão de Laplace $P{}'_{\rm L}$
+				\item Raio do pescoço $r{}'_{\rm 0}$
+			\end{itemize}
+		\end{block}
+	\end{minipage}
+\end{frame}
+
+
+\subsection{Modelo atomístico para estudar gotas e pontes SA e ST.}
+
+\begin{frame}
+	\frametitle{\textbf{Dinâmica molecular} utilizando os modelos das placas de $\beta$-cristobalita e da molécula de água SPC/E.}
+		\vspace{-0.15cm}
+		\begin{block}{Placa de $\beta$-cristobalita hidroxilizada}
+				\begin{minipage}{0.22\textwidth}
+						\includegraphics[width=1.2\linewidth]{schemeWall.pdf}
+				\end{minipage}
+				\begin{minipage}{0.21\textwidth}
+				    \uncover<2->{
+				    \begin{center}
+					\resizebox{0.7\textwidth}{!}{ %
+							\begin{tabular}{cc}
+								\multicolumn{2}{c}{{\bf Distância (nm)}}\\
+								\hline Si-O & $0.151$ \\ 
+								       O-O  & $0.247$ \\ 
+									   O-H	 & $0.1$   \\ 
+									   Si-H & $0.296$ \\ 
+							\end{tabular}
+						} %
+					\vspace{0.25cm}
+					
+					\resizebox{0.7\textwidth}{!}{ %
+							\begin{tabular}{c}
+								\multicolumn{1}{c}{{\bf Ângulo Si-O-H ($^{\rm o}$)}}\\
+						        \hline $109.27$ \\ 
+							\end{tabular}
+						} %
+				   \end{center}
+				   }	
+				   	
+  
+				\end{minipage}
+				\begin{minipage}{0.265\textwidth}
+				    \uncover<2->{ 
+					\resizebox{1.0\textwidth}{!}{ %
+					\begin{tabular}{cccc}
+				         &  $q_{\rm 0}$\,(e)    &  $\sigma$\,(nm)          &	$\varepsilon$\,($\frac{Kcal}{mol}$) \\
+					  \hline O  & $-0.7100$ & $0.3154$ & $0.1550$  \\ 
+					  Si & $0.3100$  & $0.3795$ & $0.1275$  \\ 
+					  H  & $0.4000$  & $0.0000$ & $0.0000$  \\ 
+					\end{tabular} 			
+				    } %
+				    }
+   				 	\begin{itemize}
+   				 		\item<2-> \scriptsize Quatro camadas de SiO$_2$ reproduzindo a face (111) da cristobalita;
+   				     	\item<2-> \scriptsize Si e O fixos;
+   				 		\item<2-> \scriptsize H pode se mover em um circulo;
+   				 	\end{itemize} 	
+				 \end{minipage}
+				 \begin{minipage}{0.265\textwidth}
+   				 	\begin{itemize}				
+						\item<2-> \scriptsize Somente os átomos Si, O, e H da primeira camada ({\color{red} grupo silanol}) da placa possem interação Coulombiana com as moléculas de H$_2$O;
+						\item<2-> \scriptsize Alterando a polaridade $k$ das placas, implica em alterar $\theta_{\rm c}$:\\
+						$\overrightarrow{p} = k\times \overrightarrow{p}_{0}$\\
+						$\overrightarrow{p}_0 = \overrightarrow{p}_{SiO} + \overrightarrow{p}_{OH}$\\
+						\item<2-> \scriptsize Para $k=0$ não há átomos de H aderidos.
+					\end{itemize} 	
+				\end{minipage}
+		\end{block}
+		\vspace{-0.15cm}
+		\begin{minipage}{0.165\textwidth}
+			\begin{block}<3->{Água SPC/E}
+				\begin{center}
+					\includegraphics[width=0.6\linewidth]{water.pdf}\\
+				\end{center}
+				\scriptsize Modelo rígido\\ 
+				\scriptsize	Três sítios\\		
+				\scriptsize $\sigma_{OO} = 3.166$ \AA\\
+				\scriptsize $\varepsilon_{OO} = 0.1553$ $\frac{Kcal}{mol}$\\
+				\scriptsize $q_O = -0.8476$ e \\
+				\scriptsize $q_H = +0.4238$ e \\
+			\end{block}
+		\end{minipage}
+		~~
+		\begin{minipage}{0.79\textwidth}
+				\begin{block}<4->{Dinâmica molecular}
+			    	\begin{minipage}{0.4\textwidth}
+						\begin{center}
+					    	\includegraphics<4->[width=0.7\linewidth]{LAMMPS.png}
+						\end{center}
+				    \end{minipage}
+					\begin{minipage}{0.55\textwidth}
+						\begin{center}
+					    	\includegraphics<4->[width=0.5\linewidth]{asdropletk002.png}
+						\end{center}
+					\end{minipage}	
+					\begin{itemize}
+						%\item<15-> \scriptsize {\bf Raio de corte:} $r_{\rm corte}=10$\,\AA
+						\item<4-> \scriptsize {\bf Método PPPM:} $\vec{f}_{\rm \mu} \approx \sum\vec{f}_{\rm pp}(r_{\rm \mu\nu})+ \sum\vec{f}_{\rm pm}(r_{\rm \mu\nu}).$
+						\item<4-> \scriptsize {\bf Algoritmo de Verlet:} $\vec{r}_{\rm \mu}(t+\delta t) \approx 2\vec{r}_{\rm \mu}(t) - \vec{r}_{\rm \mu}(t - \delta t) + \frac{\vec{f}_\mu(t)}{2m}\delta t^{\rm 2}$
+						\item<4-> \scriptsize {\bf Termostato de Nos\'{e}-Hoover:}\hspace{-0.05cm} Considera o banho térmico como uma parte integrante do sistema, $s$ e $\dot{s}$
+						\item<4-> \scriptsize {\bf Algoritmo SHAKE:} Vínculo nas distâncias das ligações O-H 	
+					\end{itemize}		
+				\end{block}
+		\end{minipage}		
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{\textbf{Cálculo dos perfis} $\mathbf{\boldsymbol{r_{\rm p}}(z)}$ das gotas e pontes SA e ST utilizando as \textbf{configurações} geradas na DM, e \textbf{ajuste do perfil teórico $\mathbf{r(z)}$} obtido da TC.}
+	\vspace{-0.1cm}
+	\begin{minipage}{0.4\textwidth}
+		\begin{center}
+            \only<-8>{Gotas e pontes SA}	
+            \only<9->{Gotas e pontes ST}		
+            \vspace{0.2cm}
+			\includegraphics<1>[width=0.65\linewidth]{slab1.pdf}
+			\includegraphics<2>[width=0.65\linewidth]{slab2.pdf}
+			\includegraphics<3>[width=0.65\linewidth]{slab3.pdf}
+			\includegraphics<4>[width=0.65\linewidth]{slab4.pdf}
+			\includegraphics<5>[width=0.65\linewidth]{slab5.pdf}
+			\includegraphics<6>[width=0.65\linewidth]{slab5.pdf}
+			\includegraphics<7>[width=0.65\linewidth]{slab5.pdf}									
+			\includegraphics<8>[width=0.65\linewidth]{slab5.pdf}			
+			\includegraphics<9->[width=0.65\linewidth]{slabTS.pdf}
+		\end{center}
+	\end{minipage}
+	\begin{minipage}{0.59\textwidth}
+		\begin{block}<6->{Após as médias das configurações}
+  		   \begin{itemize}
+			\item<6-> Densidade média $\rho_{\rm c}(r)$ para cada caixa;
+			\item<7-> Sabendo $\rho_{\rm c}(r) = 0.2$g/cm$^3$, determina-se o perfil $r_{\rm p}(z)$;
+			\item<8-> Média de $r_{\rm p}(z)$ entre $z>0$ e $z<0$.
+		   \end{itemize}			
+		\end{block}
+	\end{minipage}
+	\vspace{-0.4cm}
+	\begin{block}<10->{Ajuste do perfil teórico $r(z)$ ao perfil $r_{\rm p}(z)$:}
+	  \begin{minipage}{0.5\textwidth}
+			 \includegraphics[width=0.85\linewidth]{Ajuste.pdf}
+	  \end{minipage}
+	  \begin{minipage}{0.44\textwidth}
+	  		\begin{itemize}
+	  			\item $(R,z_{\rm c})\rightarrow$ gotas SA e ST; 
+	  			\item $(H(r_{\rm 0},R_{\rm 2}),r_{\rm 0})\rightarrow$ pontes SA;
+	  			\item $(R_2,r_{\rm c})\rightarrow$ pontes ST
+	  		\end{itemize}
+			$$d_{\rm i} =\sqrt{(r_{\rm t,i} - r_{\rm p,i})^{\rm 2} +(z_{\rm t,i} - z_{\rm i})^{\rm 2}}$$
+			$$\epsilon = \sqrt{\frac{1}{N_{\rm p}} \sum_{i=1}^{\rm N_{\rm p}} d_{\rm i}^{\rm 2}}$$
+	  \end{minipage}
+      \begin{itemize}
+	  	\item \small Cálculo numérico das áreas das interfaces líquido-gás $A_{\rm R}$ e sólido-líquido $A_{\rm B}$ e dos volume $\Omega$:
+	  \end{itemize}
+	\end{block}
+\end{frame}
+
+
+\subsection{Modelo gás de rede}
+\begin{frame}
+\frametitle<1->{Estudo das interfaces das gotas SA e livres.}
+		\vspace{-0.2cm}		
+		\begin{minipage}{0.47\textwidth}
+			\begin{block}<1->{Ponte SA aderida a dois planos.}
+				\begin{center}
+					\includegraphics[width=1.0\linewidth]{plano_up.pdf}
+				\end{center}		
+			\end{block}
+		\end{minipage}
+		~~~~	
+		\begin{minipage}{0.47\textwidth}
+			\begin{block}<1->{Ponte SA aderida a dois hemisférios.}
+				\begin{center}
+				       \includegraphics[width=1.0\linewidth]{esferas_up.pdf}\\
+				\end{center}
+			\end{block}
+		\end{minipage}
+		\vspace{-0.2cm}		
+		\begin{block}<2->{}
+			\begin{minipage}{0.45\textwidth}
+			    \uncover<2->{
+				$$\mathcal H_{\rm GR}  =\frac{J}{2} \sum_{1}^{V}E_{\rm m}$$
+				$$	E_{\rm \mu} = \sum_{k=1}^{26}J_{\rm i(\mu)j(\nu)}$$
+				$$(i,j)= s,l,g $$
+				}	
+			\end{minipage}		
+			\begin{minipage}{0.5\textwidth}
+					\begin{itemize}
+					    \item<3->  Método de Monte Carlo com algoritmo de Metropolis;
+						\item<3->  Dinâmica de Kawasaki;
+						\item<3->  Ângulo de contato ($\theta_c\rightarrow J_{ls}$);
+						\begin{flushleft}
+							\begin{center}
+							\includegraphics[width=0.8\linewidth]{interacaoSL.pdf}\\
+							{\footnotesize [Alencar, PRE ($2006$)]}
+							\end{center}
+						\end{flushleft}
+					\end{itemize}
+			\end{minipage}
+		\end{block}		
+\end{frame}
+
+\begin{frame}
+\frametitle{Outros métodos.}
+	\vspace{-0.2cm}	
+	\begin{block}<1->{Método Kirkwood-Buff (KB) para o \textbf{cálculo da tensão superficial $\boldsymbol{\gamma}$}.}
+		\begin{minipage}{0.4\textwidth}
+			\begin{center}
+				\includegraphics[width=0.5\linewidth]{metodoKB.pdf}
+			\end{center}
+		\end{minipage}
+		\begin{minipage}{0.59\textwidth}
+			$$\gamma = \frac{L_{\rm z}}{4} \langle 2 P_{\rm zz}  - P_{\rm xx} -P_{\rm yy} \rangle$$
+			\small $P_{\rm xx}$ e $P_{\rm yy}$ são as componentes paralelas e $P_{\rm zz}$ é a componente perpendicular dos tensores de pressão.
+		\end{minipage}
+	\end{block}
+
+	\begin{block}<2->{\textbf{Cálculo do expoente de Hurst $\boldsymbol{\lambda}$} da flutuação do centro de massa CM das gotas, e avaliar as componentes na coordenada $z$ e no plano $xy$.}
+		\vspace{-0.2cm}	
+		\begin{minipage}{0.5\textwidth}
+				\begin{center}
+					\includegraphics<2->[width=1\linewidth]{expHurst.pdf}
+				\end{center}
+			\end{minipage}
+			\begin{minipage}{0.49\textwidth}
+				\begin{center}
+					\includegraphics<2->[width=0.45\linewidth]{exemplosEtapa3.pdf}								
+				\end{center}		
+					\uncover<2->{
+					$$B(T_{\rm S}) = CM_{\rm z}(t) - CM_{\rm z}(t +T_{\rm S})$$
+					$$\left \langle B(T_{\rm S})^{\rm 2} \right \rangle \propto T_{\rm S}^{\rm 2 \lambda}$$			 
+					}
+				\vspace{-0.2cm}	
+				\begin{itemize}
+				 	\item<2-> \small $\lambda = 1/2$ $\rightarrow$ movimento Browniano;
+				 	\item<2-> \small $\lambda < 1/2$ $\rightarrow$ movimento anti-persistente;
+				 	\item<2-> \small $\lambda > 1/2$ $\rightarrow$ movimento persistente;
+				 	\item<2-> \small $\lambda = 0$   $\rightarrow$ movimento confinado.
+				\end{itemize}	
+			\end{minipage}
+	\end{block}
+\end{frame}
+
+\subsection{}
+\begin{frame}
+\frametitle<1->{Procedimentos da execução das simulações}
+\vspace{-0.25cm}
+\begin{block}<1->{{\bf Primeira etapa:} Capilaridade das gotas e pontes SA e ST.}
+	\begin{minipage}{0.15\textwidth}
+		\includegraphics[width=1.2\linewidth]{exemplosEtapa1.pdf}
+	\end{minipage}
+	\begin{minipage}{0.43\textwidth}
+		\only<1>{
+		\begin{itemize}
+			\item \small $L = 140$\AA;
+			\item \small $T=300$\,K;
+			\item \small $\delta t = 1.0$\,fs;
+			\item \small $r_{\rm corte} = 10$\,\AA;
+			\item \small Acurácia PPPM: $1\times10^{\rm -5}$;
+			\item \small Polaridade: $0.0< k < 0.6$.
+		\end{itemize}
+		}
+		\only<2>{
+		\begin{itemize}
+			\item \small $\rho=1$\,g/cm$^{\rm 3}$;
+			\item \small $T=300$\,K.
+		\end{itemize}	
+		}	
+	    \only<3->{
+	    \hspace{1cm} {\bf \small Simulações:}
+	    \begin{itemize}
+	    	\item \small $\Delta t = 5$\,ns: uma configuração\\ a cada $1$ps;
+	    	\item \small Média: $2000$ configurações.
+	    \end{itemize}
+	    }
+	\end{minipage}	
+	\begin{minipage}{0.4\textwidth}
+		\only<1>{
+		\begin{itemize}
+			\item \small Outros parâmetros:
+		\end{itemize}
+		\begin{flushleft}
+			\resizebox{1\textwidth}{!}{ %
+			\begin{tabular}{cccccc}
+					    & \multicolumn{2}{c}{{\bf pontes}}   &    & {\bf gotas}   &    \\
+			            & SA       &        ST   & SAp       & SAg       & ST          \\ 
+			            \cline{2-6}
+				N       &$3375$    &    $9897$   & $3375$    & $6750$    & $9897$      \\ 
+				L(\AA ) &$140$     &    $140$    & $140$     & $280$     & $140$       \\ 
+				h(\AA ) &$50$      &    $50$     & ---       & ---       & ---         \\ 
+			\end{tabular} 		
+			} %	
+		\end{flushleft}
+		    }
+		\only<2>{
+			\begin{center}
+			    \includegraphics[width=1\columnwidth]{creatingConfig.pdf}
+			\end{center}
+		}
+		\only<3->{
+	    {\bf \small Pontes SA e ST:}
+		\small Cálculo das forças (Coulomb e LJ) resultantes $\vec{F}_{\rm placa,i}$ nas placas ($i=1,2$) a cada $1$\,ps:\\
+		\begin{center}
+		$\vec{F}_{\rm placa,i} = \sum_{\rm \mu\in  placa,i}\vec{f}_{\rm \mu}$
+		\end{center}
+
+		}
+	\end{minipage}		
+\end{block}
+
+\vspace{-0.25cm}
+\begin{block}<4->{{\bf Segunda etapa:} Capilaridade das pontes SA avaliando o diagrama de fase ($\theta_{\rm c},h$).}
+	\begin{minipage}{0.19\textwidth}
+		\includegraphics[width=1.1\linewidth]{exemplosEtapa2.pdf}
+	\end{minipage}
+	\begin{minipage}{0.8\textwidth}
+		\only<4>{
+		\begin{itemize}
+			\item \small Mesmos parâmetros da {\bf primeira etapa};
+			\item \small Polaridade: $0.0 < k < 0.6$, e $k=0.65$, $0.66$, $0.67$;
+			\item \small $h \rightarrow h{}'=h+5$\,\AA; $\vec{r}_{\rm placa, i} \rightarrow \vec{r}_{\rm placa, 1} \pm 0.01\hat{k}$\,\AA, durante $250$\,fs;
+			\item \small Para $h=55$\,\AA~ executamos $\Delta t_{\rm sim}=5$\,ns, e $h>55$\,\AA~ executamos $\Delta t_{\rm sim}=3$\,ns.
+		\end{itemize}
+		}
+		\only<5->{
+		\begin{itemize}
+			\item \small $h_{\rm S}$: altura em que a ponte SA é estável; 
+			\item \small Primeira altura crítica: $h_{\rm C{}'} \equiv h_{\rm S} + 5$\,\AA;
+			\item \small Segunda altura crítica $h_{\rm C}$: $h= h_S + 2.5$\,\AA;
+			\item \small Se a ponte SA não romper em $\Delta t_{\rm sim}=20$\,ns:  $h = (h_{S} +2.5) + 1.25$\,\AA~e a simulação é executada até a ponte SA se romper.
+		\end{itemize}
+		}		
+	\end{minipage}
+\end{block}
+
+\vspace{-0.25cm}
+\begin{block}<6->{{\bf Terceira etapa:} Estudar a flutuação das interfaces na escala nanométrica}
+	\begin{minipage}{0.19\textwidth}
+			\includegraphics[width=0.8\linewidth]{exemplosEtapa3.pdf}
+	\end{minipage}
+	\begin{minipage}{0.8\textwidth}
+		\begin{minipage}{0.8\textwidth}
+			\begin{itemize}
+				\item  DM e MC, sendo $10000$ e $20000$ configurações, respectivamente.
+				\item  $N=2575$.
+			\end{itemize}		
+		\end{minipage}		
+		\begin{minipage}{0.8\textwidth}
+		\end{minipage}		
+	\end{minipage}
+\end{block}
+\end{frame}
+
+\section{Resultados da $1.^{\rm a}$ etapa}
+
+\subsection{Perfil das gotas e pontes SA e ST.}
+\begin{frame}
+\frametitle<1->{\textbf{Ajustes dos perfis teóricos $\mathbf{r(z)}$} aos perfis $r_{\rm p}(z)$ obtidos da simulação de DM do modelo atomístico.}
+		\begin{minipage}{0.49\textwidth}
+			\includegraphics<1->[width=1.0\columnwidth]{/resultados_DM1/AllSnapshots.pdf}
+		\end{minipage}
+		\begin{minipage}{0.49\textwidth}
+			\only<1>{
+				\begin{center}
+						\textbf{\small Exemplos de $\rho_{c}(r)$}
+						\includegraphics[width=0.86\columnwidth]{/resultados_DM1/densDropletAS.pdf}\\
+						\includegraphics[width=0.86\columnwidth]{/resultados_DM1/densPonteAS.pdf}	
+				\end{center}
+				}		
+			\only<2>{
+				\begin{center}
+						\textbf{\small $r(z)$ (linhas contínuas)~~~~~$r_{\rm p}(z)$ (círculos)}
+						\includegraphics[width=0.86\columnwidth]{/resultados_DM1/gotasSAapresen.pdf}\\
+						\includegraphics[width=0.86\columnwidth]{/resultados_DM1/gotasSTapresen.pdf}   
+				\end{center}				
+				}
+			\only<3>{
+				\begin{center}
+						\textbf{\small $r(z)$ (linhas contínuas)~~~~~$r_{\rm p}(z)$ (círculos)}
+						\includegraphics[width=0.86\columnwidth]{/resultados_DM1/profile-ASbridges.pdf}\\   
+						\includegraphics[width=0.86\columnwidth]{/resultados_DM1/profile-TSbridges.pdf} 
+				\end{center}				
+				}				
+		\end{minipage}		
+\end{frame}
+
+\begin{frame}
+	\frametitle{Variação do \textbf{ângulo de contato $\boldsymbol{\theta_{\rm c}}$} em função da polaridade $k$ das placas.}
+	\begin{minipage}{0.69\textwidth}
+		\begin{center}
+		\includegraphics<1->[width=0.95\columnwidth]{/resultados_DM1/LastFigsPaper1/refigurespaper1/fig5a.pdf}
+%%%%		\only<4>{\includegraphics[width=0.95\columnwidth]{/resultados_DM1/LastFigsPaper1/refigurespaper1/fig5b.pdf}}
+		\end{center}
+%%%%		\vspace{0.6cm}		
+%%%%		\only<4->{
+%%%%			\begin{center}
+%%%%				\vspace{0.1cm}
+%%%%				(----) $\cos\Theta(k) \approx -0.29 - 0.29 \times k + 2.98\times k^2$\\
+%%%%			\end{center}
+%%%%			}
+	\end{minipage}
+	\begin{minipage}{0.3\textwidth}
+		\only<1->{
+		\begin{center}
+			{\small \bf Grupo silanol:}\\
+			\includegraphics[width=0.4\linewidth]{silanol.pdf}
+		\end{center}
+		$$\overrightarrow{p} = k\times \overrightarrow{p}_{0}$$ 
+		$$\overrightarrow{p}_0 = \overrightarrow{p}_{SiO} + \overrightarrow{p}_{OH}$$ 
+		}
+		\vspace{0.5cm}	
+	    \only<1->{
+		\begin{itemize}
+			\item $k > 0.35$: Superfície hidrofílica;
+			\item $k < 0.35$: Superfície hidrofóbica.
+		\end{itemize}
+		}		
+		
+	\end{minipage}
+\end{frame}
+
+\subsection{Forças nas pontes SA e ST}
+
+\begin{frame}
+	\frametitle<1->{Cálculos das \textbf{tensões superficiais} $\boldsymbol{\gamma}$ \textbf{e de linha} $\boldsymbol{\kappa}$ do modelo de água SPC/E.}
+	\begin{minipage}{0.48\textwidth}
+		\begin{block}<1->{$\gamma$ a partir de  $F_{\rm z,placa}$:}
+			\begin{center}
+				\includegraphics[width=1.0\linewidth]{/resultados_DM1/LastFigsPaper1/refigurespaper1/fig6.pdf}
+			\end{center}
+			\begin{itemize}
+					\item<1-> \textbf{Ponte SA:}\\
+					$F = 2\pi\gamma_{\rm LG} C ~~~~~ C = r_0 -  H r_0^2$
+ 					\item<1-> \textbf{Ponte ST:}\\
+					$F = 2\gamma_{\rm LG} C ~~~~~ C = D - 2 H D r_0$
+					\item<2-> $\gamma = 0.054 \pm0.001\,N/m$  						
+			\end{itemize}
+		\end{block}
+	\end{minipage}
+	~~
+	\begin{minipage}{0.48\textwidth}
+			\begin{block}<3->{Método Kirkwood-Buff:}
+			\begin{center}
+				 {\small $50\times50\times140$\,\AA$^{\rm 3}$~~~~~~~$66\times66\times160$\,\AA$^{\rm 3}$}\\
+				\includegraphics[width=0.445\columnwidth]{/resultados_DM1/slab2.png}
+				~~
+				\includegraphics[width=0.4\columnwidth]{/resultados_DM1/STrect2.png}  \\
+			\end{center}
+			%\begin{center}
+			%	\resizebox{0.6\textwidth}{!}{ %
+				   $$\gamma = \frac{L_{\rm z}}{4} \langle 2 P_{\rm zz}  - P_{\rm xx} -P_{\rm yy} \rangle $$
+			%	} %   
+			%\end{center}
+			\uncover<3->{
+			\begin{center}
+			   \resizebox{0.8\textwidth}{!}{ %
+				\begin{tabular}{ccc}
+			                                                 & $50\times50\times140$\,\AA$^{\rm 3}$ & $66\times66\times160$\,\AA$^{\rm 3}$\\
+					\cline{2-3}
+					$\left \langle P_{\rm xx} \right \rangle$ & $ -2.8\pm1.3$\,atm   &  $-0.3\pm0.7$\,atm \\
+					$\left \langle P_{\rm yy} \right \rangle$ & $-81.7\pm1.7$\,atm   &  $-69.6\pm0.8$\,atm \\
+					$\left \langle P_{\rm zz} \right \rangle$ & $-81.9\pm1.4$\,atm   &  $-69.2\pm0.8$\,atm \\
+							$\gamma$                          & $0.056\pm0.001$\,N/m &  $0.0560\pm0.0007$\,N/m\\
+				\end{tabular}
+			   } %
+			\end{center}
+			}
+		\end{block}
+		\begin{block}<4->{\small Tensão de linha $\kappa$:}
+			{\small Devido ao pequeno número de pontos, não foram encontrados efeitos da tensão de linha no ângulo de contato $\theta_{\rm c}$.}
+		\end{block}
+	\end{minipage}
+\end{frame}
+
+\begin{frame}
+	\frametitle{\textbf{Medida da componente $\mathbf{z}$ das forças} das pontes SA e ST aderidas às placas de $\beta$-cristobalita com diferentes $\theta_{\rm C}$ e $k$.}
+	\begin{center}	
+		\includegraphics[width=0.49\columnwidth]{/resultados_DM1/LastFigsPaper1/refigurespaper1/fig7a.pdf}~~   
+		\includegraphics[width=0.49\columnwidth]{/resultados_DM1/LastFigsPaper1/refigurespaper1/fig7b.pdf}\\
+	\end{center}
+	\vspace{0.5cm}
+	\begin{minipage}{0.49\textwidth}
+		\begin{center}
+		  \textbf{Ponte SA:}\\
+		  $$F_{z,base} = 2\pi r_B\gamma\sin\theta_{\rm c} - 2\gamma H\pi r^2_{\rm B}$$
+		  $$F_{z,p\text{ç}o} = 2\pi\gamma \mathcal C = 2\pi\gamma r_0 - 2\pi\gamma H r_0^2$$
+		\end{center}
+	\end{minipage}
+	\begin{minipage}{0.49\textwidth}
+		\begin{center}
+		  \textbf{Ponte ST:}\\
+		  $$F_{z,base} = 2 D\gamma\sin\theta_{\rm c} - 4\gamma H D r_B$$
+		  $$F_{z,p\text{ç}o} = 2 \gamma \mathcal C = 2 \gamma D - 4\gamma H D r_0$$
+		\end{center}
+	\end{minipage}
+\end{frame}
+
+\begin{frame}
+	\frametitle{\textbf{Medidas das pressões de Laplace} das pontes SA e ST aderidas às placas de $\beta$-cristobalita com diferentes $\theta_{\rm c}$ e $k$.}
+	\begin{center}
+		\includegraphics[width=0.49\columnwidth]{/resultados_DM1/LastFigsPaper1/refigurespaper1/fig8a.pdf}~~
+		\includegraphics[width=0.49\columnwidth]{/resultados_DM1/LastFigsPaper1/refigurespaper1/fig8b.pdf}\\
+	\end{center}
+	\vspace{0.5cm}
+ 	\begin{minipage}{0.3\textwidth}
+ 		\begin{center}
+ 		  \textbf{Eq. Young-Laplace}
+ 		\end{center}	
+			$$ P_{\rm L_{YL}} = 2 \gamma H$$
+	\end{minipage}
+	\begin{minipage}{0.35\textwidth}
+		\begin{center}
+		  \textbf{Ponte SA}
+		\end{center}
+          $$P_{\rm L} = \frac{2\pi\gamma r_B\sin\theta_{\rm c} - F_{\rm z,placa}}{\pi r_B^2} $$
+	\end{minipage}
+	\begin{minipage}{0.325\textwidth}
+		\begin{center}
+		  \textbf{Ponte ST}
+		\end{center}
+	      $$P_{\rm L} = \frac{2\gamma D\sin\theta_{\rm c} - F_{\rm z,placa}}{2 r_B D} $$		
+	\end{minipage}
+\end{frame}
+
+\section{Resultados da $2.^{\rm a}$ etapa}
+
+\subsection{Perfis, forças de adesão capilar, pressão de Laplace e tensão superficial das pontes SA nas alturas estáveis.}
+
+
+
+\begin{frame}
+\frametitle{\textbf{Ajuste dos perfis teóricos $\mathbf{r(z)}$} aos perfis $r_{\rm p}(z)$ obtidos da simulação de DM do modelo atomístico.}
+	\begin{center}
+		\textbf{\small $r(z)$ (linhas contínuas)~~~~~$r_{\rm p}(z)$ (círculos)}
+        \includegraphics[width=1.0\columnwidth]{./figuras/resultados_DM2/profileFitting/profiles.pdf}   
+	\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{Análise de $\boldsymbol{\theta_{\rm c}}$ \textbf{em função da altura} $\mathbf{h}$ e da polaridade $k$.}
+	\begin{minipage}{0.69\textwidth}
+  	  \begin{center}
+		\includegraphics<1>[width=0.95\columnwidth]{./figuras/resultados_DM2/ThetaXheightFinal.pdf}
+		\includegraphics<2->[width=0.95\columnwidth]{./figuras/resultados_DM2/ThetaXkFinal.pdf}
+%%%	   \includegraphics<5>[width=0.95\columnwidth]{./figuras/resultados_DM2/cosThetaXkFinal.pdf}
+	  \end{center}
+	\end{minipage}
+	\begin{minipage}{0.3\textwidth}
+		\only<1->{
+		\begin{center}
+		    {\small \bf Grupo silanol}\\
+			\includegraphics[width=0.4\linewidth]{silanol.pdf}
+		\end{center}
+		$$\overrightarrow{p} = k\times \overrightarrow{p}_{0}$$ 
+		$$\overrightarrow{p}_0 = \overrightarrow{p}_{SiO} + \overrightarrow{p}_{OH}$$ 
+		}
+		\vspace{0.5cm}	
+	    \only<1->{
+		\begin{itemize}
+			\item $k > 0.35$: Superfície hidrofílica;
+			\item $k < 0.35$: Superfície hidrofóbica.
+		\end{itemize}
+		}		
+	\end{minipage}
+\end{frame}
+
+\begin{frame}
+\frametitle{Cálculo das \textbf{áreas das interfaces} líquido-sólido $A_{\rm B}$ e líquido-gás $A_{\rm R}$, e do\textbf{ volume} $\Omega$ das pontes SA. }
+	\begin{center}
+		\includegraphics<1->[width=0.48\columnwidth]{./figuras/resultados_DM2/AreaLsXheightFinal.pdf}~~
+		\includegraphics<1->[width=0.48\columnwidth]{./figuras/resultados_DM2/AreaLGXheightFinal.pdf}\\
+	\end{center}
+	\begin{minipage}{0.49\textwidth}
+        \includegraphics<1->[width=0.96\columnwidth]{./figuras/resultados_DM2/VolumeXheightFinal.pdf}
+	\end{minipage}
+	\begin{minipage}{0.49\textwidth}
+		\vspace{-0.5cm}
+		\begin{block}<2->{\small Parâmetros ($\theta_{\rm c}$, $\Omega$, $h$) para o cálculo das grandezas analíticas:}
+			\begin{minipage}{0.49\textwidth}
+				 \begin{center}
+			      \resizebox{0.9\textwidth}{!}{ %		
+					\begin{tabular}{ccc}
+					   $k$ & $\theta_{\rm c}$($^{\rm o}$) & $\Omega$(\AA$^{\rm 3}$) \\
+					\hline
+					$0$    & $105.6$  &     $118264.8$  \\ 
+					$0.1$  & $104.8$  &     $120076.0$  \\
+					$0.2$  & $100.8$  &     $119603.8$  \\
+					$0.3$  & $94.3 $  &     $118866.0$  \\
+					$0.4$  & $84.4 $  &     $116493.9$  \\
+					$0.5$  & $70.8 $  &     $119066.1$  \\
+					$0.6$  & $50.4 $  &     $121256.0$  \\
+					$0.65$ & $32.8 $  &     $122326.4$  \\
+					$0.66$ & $28.3 $  &     $125617.5$  \\
+					$0.67$ & $25.8 $  &     $127405.2$  \\
+					\end{tabular}
+				  } %					  
+				 \footnotesize $\langle\Omega\rangle = 120898\pm3875$\,\AA$^{\rm 3}$ $\rightarrow3.2\%$
+				 \end{center}
+		  \end{minipage}
+			\begin{minipage}{0.49\textwidth}
+				$$\mathcal F{}'(h)$$
+				$$F{}'_{\rm base,z}$$
+				$$P{}'_{\rm L} $$
+				$$r{}'_{\rm 0}$$ 
+			\end{minipage}
+	    \end{block}
+	\end{minipage}
+\end{frame}
+
+\begin{frame}
+\frametitle{\textbf{Tensão superfial} $\boldsymbol{\gamma}$, \textbf{forças de adesão capilar $\boldsymbol{F_{z,base}}$}, \textbf{energia livre da superfície} $\boldsymbol{\mathcal F(h)}$ e \textbf{pressão de Laplace} das pontes SA.}
+	\vspace{-0.2cm}
+	\begin{center}
+		\visible<1->{\includegraphics[width=0.47\columnwidth]{./figuras/resultados_DM2/forceLAMMPSxC2Final.pdf}}~~   
+		\visible<2->{\includegraphics[width=0.47\columnwidth]{./figuras/resultados_DM2/forceXHeight2Final.pdf}}\\
+	    \visible<3->{\includegraphics[width=0.47\columnwidth]{./figuras/resultados_DM2/energiasComp.pdf}}~~
+      	\visible<4->{\includegraphics[width=0.47\columnwidth]{./figuras/resultados_DM2/pressureXheight3Final.pdf}}
+	\end{center}
+\end{frame}
+
+\subsection{Ruptura e estabilidade das pontes SA nas alturas instáveis}
+
+\begin{frame}
+\frametitle{\textbf{Perfis inteiros $\boldsymbol{r_{\rm p}(z)}$} das pontes SA na altura $h_{\rm C'}=h_{\rm S}+5$\,\AA\,\, calculados com $0.1$\,ns de configurações de moléculas de H$_2$O.}
+	\pause
+	\begin{center}	
+  	   \includegraphics[width=1.0\columnwidth]{./figuras/resultados_DM2/fluctuation1/fluctuation1.pdf}\\	
+  	   \vspace{0.1cm}
+  	   \pause 
+  	   \includegraphics[width=0.8\columnwidth]{./figuras/barColor.pdf}     	   
+	\end{center}	
+\end{frame}
+
+\begin{frame}
+\frametitle{\textbf{Configuração das moléculas de água} no instante de ruptura $\tau_{\rm R}$ das pontes SA na altura $h_{\rm C'}=h_{\rm S}+5$\,\AA.}
+	\begin{center}
+  	   \includegraphics[width=1.0\columnwidth]{./figuras/resultados_DM2/snapshot/rupture1/AllSnap1.pdf}   
+	\end{center}
+	\begin{center}
+      \resizebox{0.9\textwidth}{!}{ %	
+		\begin{tabular}{ccccccccccc}
+					             & \multicolumn{10}{c}{{\bf Polaridade (k)}}\\
+                                 &       $0$ & $0.1$   & $0.2$   & $0.3$  & $0.4$  & $0.5$  & $0.6$  & $0.65$ & $0.66$ & $0.67$ \\ 
+    \cline{2-11}
+    $\theta_{\rm c}$[$^{\rm o}$] &   $105.6$ & $104.8$ & $100.8$ & $94.3$ & $84.4$ & $70.8$ & $50.4$ & $32.8$ & $28.3$ & $25.8$ \\ 
+    $\tau_{\rm R}$ (ps)          &    $1234$ & $1332$  & $881$   & $2094$ & $2514$ & $1402$ & $262$  & $334$  & $3341$ & $2159$ \\ 
+		\end{tabular} 
+		} %
+	\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{\textbf{Perfis inteiros $\boldsymbol{r_{\rm p}(z)}$} das pontes SA na altura $h_{\rm C}=h_{\rm S}+2.5$\,\AA\,\, calculados com $0.1$\,ns de configurações de moléculas de H$_2$O.}
+	\begin{center}
+  	   \only<1>{\includegraphics[width=1.0\columnwidth]{./figuras/resultados_DM2/fluctuation2/fluctuation2.pdf}}	
+  	   \only<2>{\includegraphics[width=1.0\columnwidth]{./figuras/resultados_DM2/fluctuation2/fluctuation2-2.pdf}}	
+
+  	   \vspace{0.1cm}
+  	   \includegraphics[width=0.8\columnwidth]{./figuras/barColor.pdf}     	   
+	\end{center}	
+\end{frame}
+
+
+\begin{frame}
+\frametitle{\textbf{Configuração das moléculas de água} no instante de ruptura $\tau_{\rm R}$ das pontes SA na altura $h_{\rm C}=h_{\rm S}+2.5$\,\AA.}
+	\begin{center}
+  	   \includegraphics[width=1.0\columnwidth]{./figuras/resultados_DM2/snapshot/rupture2/AllSnap2.pdf}   
+	\end{center}
+	\begin{center}
+      \resizebox{0.9\textwidth}{!}{ %	
+		\begin{tabular}{ccccccccccc}
+					             & \multicolumn{10}{c}{{\bf Polaridade (k)}}\\
+                                 &       $0$ & $0.1$   & $0.2$   & $0.3$  & $0.4$  & $0.5$  & $0.6$  & $0.65$ & $0.66$ & $0.67$ \\ 
+    \cline{2-11}
+    $\theta_{\rm c}$[$^{\rm o}$] &   $105.6$ & $104.8$ & $100.8$ & $94.3$ & $84.4$ & $70.8$ & $50.4$ & $32.8$ & $28.3$ & $ 25.8$ \\ 
+    $\tau_{\rm R}$ (ps)          &    $1575$ & $  367$  & $ 717$ & $ 889$ & $7284$ & $4915$ & $500 $ & $5687$ & $--- $ & $18617$ \\ 
+		\end{tabular}    
+		} %
+	\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{\textbf{Proporção dos volumes das gotas SA} formadas após a ruptura das pontes SA no instante $\tau_{\rm R}$ para as altura críticas $h_{\rm C}$ e $h_{\rm C{}'}$.}
+	\begin{center}
+		\includegraphics<1>[width=0.8\columnwidth]{./figuras/ruptureBox/ruptureBox.pdf}
+		\includegraphics<2->[width=0.7\columnwidth]{./figuras/resultados_DM2/AsymmetryParameterNumWater2Final.pdf}
+	\end{center}
+	\begin{minipage}{0.39\textwidth}
+		\only<1->{$$\frac{\Delta N_{\rm g}}{N} =\frac{N_{\rm maior} - N_{\rm menor}}{N}$$}
+	\end{minipage}
+	\begin{minipage}{0.6\textwidth}
+		\begin{itemize}
+			\item<1-> \footnotesize $\frac{\Delta N_{\rm g}}{N} = 0$: duas gotas com volume $\Omega/2$ 
+			\item<1-> \footnotesize $0 < \frac{\Delta N_{\rm g}}{N} < 1$: duas gotas com volumes $\neq$
+			\item<1-> \footnotesize $\frac{\Delta N_{\rm g}}{N} = 1$: uma gota com volume $\Omega$								
+		\end{itemize}
+	\end{minipage}			
+\end{frame}
+
+\begin{frame}
+\frametitle{\textbf{Comparação das alturas de rupturas} $h_{\rm C}$ e $h_{\rm C{}'}$ com as previsões teóricas da TC macroscópica $h_{\rm max,a}$ e $h_{\rm max,s}$.}
+          \begin{center}
+		     \includegraphics<1>[width=0.97\columnwidth]{./figuras/resultados_DM2/criticalHeightXthetaFinal4.pdf}		  
+		     \includegraphics<2>[width=0.97\columnwidth]{./figuras/resultados_DM2/criticalHeightXthetaFinal4a.pdf}		  
+		     \includegraphics<3>[width=0.97\columnwidth]{./figuras/resultados_DM2/criticalHeightXthetaFinal4b.pdf}		  \includegraphics<4>[width=0.97\columnwidth]{./figuras/resultados_DM2/criticalHeightXthetaFinal4c.pdf}		  \includegraphics<5>[width=0.97\columnwidth]{./figuras/resultados_DM2/criticalHeightXthetaFinal4d.pdf}
+	      \end{center}	
+\end{frame}
+
+\subsection{Flutuações}
+
+\begin{frame}
+\frametitle{\textbf{Flutuações no raio $\boldsymbol{r_{\rm 0}}$ e altura $\boldsymbol{z_{\rm 0}}$ do pescoço} da ponte SA avaliadas pelas médias dos perfis inteiros $r_{\rm p}(z)$ de $0.1$\,ns.}
+\vspace{-0.25cm}
+	\begin{center}
+		\visible<1->{\includegraphics[width=0.3\columnwidth]{./figuras/perfilSimetria2.pdf}}\\
+		\visible<2->{\includegraphics[width=0.45\columnwidth]{./figuras/resultados_DM2/fluctuationRadiusNeckFinal.pdf}}~~
+		\visible<2->{\includegraphics[width=0.5038\columnwidth]{./figuras/resultados_DM2/fluctuationHeightNeckFinal.pdf}}\\
+	\end{center}
+\end{frame}
+
+\section{Resultados da $3.^{\rm a}$ etapa}
+
+\subsection{Flutuação das gotas livres.}
+\begin{frame}
+\frametitle{\textbf{Cálculo do expoente de Hurst $\boldsymbol{\lambda}$} da série temporal gerada do centro de massa das \textbf{gotas livres} simuladas com DM e MC.}
+	\pause
+	\begin{minipage}{0.7\textwidth}
+   	  \begin{center}
+   	    \includegraphics[width=0.24\columnwidth]{./figuras/resultados_outros/dropletDM.png}~~~
+   	    \includegraphics[width=0.2478\columnwidth]{./figuras/resultados_outros/dropletMC-v3.pdf}\\
+        \includegraphics[width=0.9\columnwidth]{./figuras/resultados_outros/DropletHurstMCK0K1xy-z-500-v3.pdf}
+   	  \end{center} 
+	\end{minipage}
+	\begin{minipage}{0.29\textwidth}
+		$$CM_{\rm z}(t)~\rm{e}~CM_{\rm xy}(t)$$
+		$$\left \langle B(T_{\rm S})^{\rm 2} \right \rangle \propto T_{\rm S}^{\rm 2 \lambda}$$				
+		\begin{itemize}
+			\item $\lambda=0.51$
+			\item \small Movimento Browniano
+		\end{itemize}
+	\end{minipage}		
+\end{frame}
+
+\subsection{Flutuação de gotas SA}
+
+\begin{frame}
+\frametitle{\textbf{Cálculo do expoente de Hurst $\boldsymbol{\lambda}$} da série temporal gerada do centro de massa das \textbf{gotas SA} simuladas com DM e MC.}
+	 \begin{center}
+	  		\includegraphics<2->[width=0.229\columnwidth]{./figuras/resultados_outros/ASdropletMC-v3.pdf}~~~
+	  		\includegraphics<2->[width=0.2\columnwidth]{./figuras/resultados_outros/ASdropletDM.png}\\
+   	 \end{center} 	  		
+	 \begin{minipage}{0.32\textwidth}
+  	 	\begin{center}
+	  	 	\only<3->{\textbf{MC}}
+  	 	\end{center}	 
+	 \end{minipage}	   	  
+  	 \begin{minipage}{0.32\textwidth}   	  
+  	 	\begin{center}
+	  	 	\only<4->{\textbf{DM}}
+  	 	\end{center}
+	 \end{minipage}	   	     	  
+  	 \begin{minipage}{0.32\textwidth}
+   	    \begin{center}
+  	 	   	\only<5->{\textbf{DM}}
+  	 	\end{center}   	    	 	
+	 \end{minipage}	
+	 %\vspace{-0.5cm}   	  
+%	 \begin{center}	 	  		
+%   	 \end{center} 
+ 	 \begin{minipage}{0.32\textwidth}
+	        \only<3->{\includegraphics[width=1\columnwidth]{./figuras/resultados_outros/ASdropletHurstMCK1DM-z-xy-v3.pdf}} 	 
+ 	 \end{minipage}	   	  
+ 	 \begin{minipage}{0.32\textwidth}
+	        \only<4->{\includegraphics[width=1\columnwidth]{./figuras/resultados_outros/ASdropletHurstMCK1DM-z-v3.pdf}} 	 
+ 	 \end{minipage}	   	  
+ 	 \begin{minipage}{0.32\textwidth}
+	        \only<5->{\includegraphics[width=1\columnwidth]{./figuras/resultados_outros/ASdropletHurstMCK1DM-xy-v3.pdf}}
+ 	 \end{minipage}
+ 	 	   	   	  	 
+ 	 \begin{minipage}{0.32\textwidth}
+	 \hfill
+	 \end{minipage}	   	  
+  	 \begin{minipage}{0.32\textwidth}   	  
+  	 	\begin{center}
+	  	 	\only<4->{\textbf{$CM_{\rm z}(t)$}}
+  	 	\end{center}
+	 \end{minipage}	   	     	  
+  	 \begin{minipage}{0.32\textwidth}
+   	    \begin{center}
+  	 	   	\only<5->{\textbf{$CM_{\rm xy}(t)$}}
+  	 	\end{center}   	  
+	 \end{minipage}	   	  
+	  \begin{minipage}{0.32\textwidth}
+	   \only<3->{
+	   \begin{center}
+	      \resizebox{0.8\textwidth}{!}{ %
+		    \begin{tabular}{ccc}
+		             & $\lambda$  & Movimento  \\
+		       \hline 
+		                         $xy$  & $0.53$ &  Browniano\\ 
+		        \multirow{2}{*}{$z$}   & $0.38$ &  Anti-persistente\\ 
+   		                               & $0$    &  Confinado\\ 
+		    \end{tabular} 
+	      } %
+	  \end{center}
+	  }
+     \end{minipage}
+  	 \begin{minipage}{0.32\textwidth}
+%  	 	\begin{center}
+%	        \footnotesize  $\Delta B^{\rm 2}[\angstrom^{\rm 2}] =  \Delta B^{\rm 2}[a^{\rm 2}]1.51\left [ \frac{\angstrom^{\rm 2}}{a^{\rm 2}} \right ] + 5.5 [\angstrom^{\rm 2}]$\\ 
+%   		  	\small  $T_{\rm S}[\rm{ps}] =  T_{\rm S}[\tau_{\rm MC}]0.9\left [ \frac{\rm{ps}}{\tau_{\rm MC}} \right ] + 0.8 [\rm{ps}]$
+%  	 	\end{center}
+		\only<4->{
+	   \begin{center}
+	      \resizebox{0.8\textwidth}{!}{ %
+		    \begin{tabular}{ccc}
+		             & $\lambda$  & Movimento  \\
+		       \hline 
+		          \multirow{2}{*}{$z$}   & $0.67$    &  Persistente\\ 
+		                                 & $0.01$    &  Confinado\\ 
+		    \end{tabular} 
+	      } %
+	  \end{center}
+	   }
+	 \end{minipage}	
+  	 \begin{minipage}{0.32\textwidth}
+  	   \only<5->{
+	   \begin{center}
+	      \resizebox{0.8\textwidth}{!}{ %
+		    \begin{tabular}{ccc}
+		             & $\lambda$  & Movimento  \\
+		       \hline 
+		          \multirow{2}{*}{$xy$}   & $0.85$    &  Persistente\\ 
+		                                 & $0.31$    &  Anti-persistente\\ 
+		    \end{tabular} 
+	      } %
+	  \end{center}
+	  }
+	 \end{minipage}	
+\end{frame}
+
+
+
+\section{Conclusões}
+\begin{frame}
+\frametitle{Conclusões}
+	\vspace{-0.3cm}
+	\begin{block}<1->{{\bf Primeira e segunda etapas:} Capilaridade das gotas e pontes SA e ST.}
+ 		\begin{itemize}
+			\item<2-> A TC prediz o perfil das pontes e gotas SA e ST;
+			\item<2-> O ângulo de contato independe da geometria estudada;
+			\item<2-> Cálculo de $\gamma$ ($F=2\pi\gamma \mathcal C$ e $F=2\gamma \mathcal C$) compatível com a literatura;
+			\item<2-> A TC prediz as forças resultantes medidas nas placas de $\beta$-cristobalita e a pressão de Laplace ($\Delta P = \gamma_{LG}2 H$).
+			\item<2-> Conhecendo $\Omega$, $\theta_{\rm c}$ e $h$, a solução analítica da ponte SA prevê as propriedades dessa na escala nanométrica;
+			\item<2-> As alturas críticas da ruptura $h_{\rm C'}$ e $h_{\rm C}$ são condizentes com as previsões teóricas $h_{\rm max,a}$ e $h_{\rm max,s}$;			
+			\item<3-> \textbf{A TC macroscópica pode ser aplicada para estudar outros sistemas com volumes superiores a $\mathbf{100}$\,nm$\boldsymbol{^3}$.}
+			\item<4-> Observação das flutuações que não são descritas pela TC macroscópica, mas são naturais da escala nanométrica do problema.
+		\end{itemize}
+	\end{block}
+
+	\begin{block}<5->{{\bf Terceira etapa:} Flutuação das interfaces das gotas na escala nanométrica}
+ 		\begin{itemize}		
+			\item<5-> O cálculo do expoente de Hurst mostrou que o movimento das gotas livres e gotas SA possui diferentes regimes; 
+			\item<5-> A análise da série temporal do CM da ponte SA pode ser uma alternativa para avaliar a ruptura dessa.
+		\end{itemize}			
+	\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Considerações Finais}
+		\vspace{-0.3cm}
+		\begin{block}{Trabalhos publicados e submetidos}
+			\begin{center}
+				\includegraphics[width=0.7\columnwidth]{./artigos3.pdf}
+			\end{center}
+		\end{block}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Considerações Finais}
+		\begin{block}{Trabalho atual I}
+			\begin{center}
+				\includegraphics[width=0.8\columnwidth]{./artigosFuturos1.pdf}
+			\end{center}
+		\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Considerações Finais}
+		\begin{block}{Trabalho atual II}
+			\begin{center}
+				\includegraphics[width=0.8\columnwidth]{./artigosFuturos2-crop.pdf}
+			\end{center}
+		\end{block}
+\end{frame}
+
+
+
+\begin{frame}
+	\frametitle{Agradecimentos}
+		\begin{minipage}{0.49\textwidth}
+			\begin{center}
+				\includegraphics[width=0.7\linewidth]{labm2Vertical.png}
+                \begin{itemize}
+					\item Prof. Dr. Adriano Alencar
+				\end{itemize}							
+			\end{center}
+		\end{minipage}
+		\begin{minipage}{0.49\textwidth}
+			\begin{itemize}
+				\item<2-> Prof. Dr. Sergey Buldyrev
+				\item<2-> Yeshiva University\\
+				\hspace{1cm}\includegraphics<2->[width=0.4\linewidth]{Yeshiva_University.pdf}
+				\item<2-> Prof. Dr. Nicolas Giovambattista				
+			\end{itemize}			
+		\end{minipage}
+		\begin{center}
+			\only<3->{\includegraphics[width=0.5\linewidth]{agradecimentos.png}\\}
+			\vspace{0.5cm}
+			\only<4->{\textbf{\LARGE OBRIGADO!!!}}
+		\end{center}
+\end{frame}
+
+\appendix
+
+\section{}
+
+\begin{frame}
+\frametitle{\textbf{Medidas das forças resultantes sobre cada placa} $\boldsymbol{\vec{F}_{\rm placa,i}}$ após a movimentação das placas de $\beta$-cristobalita.}	
+	\begin{center}
+		\includegraphics[width=0.8\columnwidth]{/resultados_DM2/termalization/forceTermalization.pdf}
+	\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{Considerações Finais II}
+		\begin{center}
+			{\bf A TC macroscópica pode ser aplicada para estudar outros sistemas com volumes superiores a $100$\,nm$^3$.}
+		\end{center}
+		\begin{block}<2->{Perspectivas futuras}
+			\includegraphics[width=0.33\columnwidth]{./pressureXheightPosDoc.pdf}
+			\includegraphics[width=0.33\columnwidth]{./forceXHeight2.pdf}
+			\includegraphics[width=0.33\columnwidth]{./energiasComp2.pdf}\\
+			\begin{minipage}{0.64\textwidth}
+				\begin{itemize}
+					\item<2-> \small Limite da aplicação da TC macroscópica para $h<50$\,\AA; 	
+					\item<3-> Flutuações nas proximidades da ruptura;
+					\item<4-> Experimentos com pontes capilares.
+				\end{itemize}
+			\end{minipage}			
+			\begin{minipage}{0.35\textwidth}
+				\only<5->{
+				    \begin{center}
+				    	\textbf{\small Ruptura de uma ponte capilar de glicerol:}
+						\href{run:rupturaPonteLiquida12.avi}{\includegraphics[width=0.8\linewidth]{/video/frames/ruptura-1.png}} 
+					\end{center}
+				}	
+	        \end{minipage}
+		\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Comparação entre as forças de adesão capilar e as componentes dessa: simulação, ajuste e analítico}
+	\begin{center}
+		\includegraphics[width=0.45\columnwidth]{./figuras/resultados_DM2/forceLAMMPSxC2Final.pdf}~~   
+		\includegraphics[width=0.45\columnwidth]{./figuras/resultados_DM2/forceXHeight2Final.pdf}\\
+		\includegraphics[width=0.45\columnwidth]{./figuras/resultados_DM2/SurfaceTensionForceFinal.pdf}~~
+		\includegraphics[width=0.45\columnwidth]{./figuras/resultados_DM2/laplaceForce3Final.pdf}\\
+	\end{center}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Comparação da tensão superficial $\gamma$ com outros trabalhos da literatura}
+		\includegraphics[width=1.0\columnwidth]{./figuras/resultados_DM2/gammaXkTeseFinal2.pdf}   
+\end{frame}
+
+\begin{frame}
+	\frametitle{Flutuações nos raios das bases das pontes SA}
+		\includegraphics[width=0.46\columnwidth]{./figuras/resultados_DM2/fluctuationBaseRadiusFinal.pdf}
+		\includegraphics[width=0.46\columnwidth]{./figuras/resultados_DM2/fluctuationAllRadiusFinal.pdf}
+\end{frame}
+
+\begin{frame}
+\frametitle{Cálculo da tensão de linha $\kappa$ utilizando os dados das gotas e pontes SA no estudo da {\bf primeira etapa}}
+		$$\cos\theta_{\rm c} = \cos\theta_{\rm \infty} - \frac{\kappa}{\gamma}\frac{1}{r_{\rm B}}$$
+		$$\cos\theta_{\rm c} = \frac{\gamma_{\rm SG} - \gamma_{\rm LS}}{\gamma}$$ 
+		\begin{center}
+			\includegraphics[width=0.75\columnwidth]{/resultados_DM1/LineTension2.pdf}
+		\end{center}	
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Cálculo da pressão de Laplace no interior de gotas SA e ST utilizando os dados no estudo da {\bf primeira etapa}}	
+	\begin{equation*}
+		\begin{array}{ll}
+		{\rm gota~SA}~~~~~~~~~~~~ \Omega &= \int_{\rm 0}^{\rm h} \pi r(z)^{\rm 2}\rm{d}z = \frac{\pi R(\theta_{\rm c})^{\rm 3}}{3}\left ( 2 - 3\cos\theta_{\rm c} + \cos^{\rm 3}\theta_{\rm c} \right )\\
+			                             & \\
+		{\rm gota~ST}~~~~~~~~~~~~ \Omega &= 2L\int_{\rm 0}^{\rm h} r(z)\rm{d}z =  2R(\theta_{\rm c})^{\rm 2} L\left ( \frac{\pi}{2} - \cos\theta_{\rm c}\sin\theta_{\rm c} -\arcsin(\cos\theta_{\rm c})  \right )\\
+			                             & \\			
+			~~~~~~~~~~~~~~~~~~~~~~~    h &= R - z_{\rm c}\\
+			                             & \\			
+	    ~~~~~~~~~~~~~~~~~~~~~~~ \Delta P &= \gamma\frac{2}{R(\theta_{\rm c})} \\			
+		\end{array}
+	\end{equation*}	
+
+		\begin{center}
+			\includegraphics[width=0.49\columnwidth]{/resultados_outros/RxTheta.pdf}
+			\includegraphics[width=0.49\columnwidth]{/resultados_outros/pressureXca-droplets.pdf}
+		\end{center}		
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Pontes SA simuladas com o modelo gás de rede e aderidas a duas placas planas I:}
+	\begin{center}
+	     \includegraphics[width=0.45\columnwidth]{/resultados_GR/freeEnergiNor.pdf}
+	     \includegraphics[width=0.45\columnwidth]{/resultados_GR/NormAreaLGXh.pdf}\\
+	     \includegraphics[width=0.45\columnwidth]{/resultados_GR/NormAreaLSXh.pdf}   
+	     \includegraphics[width=0.45\columnwidth]{/resultados_GR/VolumeXh.pdf}
+	\end{center}		
+\end{frame}
+
+\begin{frame}
+\frametitle{Pontes SA simuladas com o modelo gás de rede e aderidas a duas placas planas II:}
+	\begin{center}
+		\includegraphics[width=0.45\columnwidth]{/resultados_GR/fitting-rhoXz-halfProfile-plates-bb-6-zALL-TESE.pdf}
+        \includegraphics[width=0.45\columnwidth]{/resultados_GR/fitting-rhoXz-halfProfile-plates-bb0-zALL-TESE.pdf}\\
+        \includegraphics[width=0.45\columnwidth]{/resultados_GR/fitting-rhoXz-halfProfile-plates-bb4-zALL-TESE.pdf}	
+        \includegraphics[width=0.45\columnwidth]{/resultados_GR/fitting-rhoXz-halfProfile-plates-bb7-zALL-TESE.pdf}
+	\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{Pontes SA simuladas com o modelo gás de rede e aderidas a duas placas planas III:}
+	\begin{center}
+		\includegraphics[width=0.45\columnwidth]{/resultados_GR/ThetaXh.pdf}
+  		\includegraphics[width=0.45\columnwidth]{/resultados_GR/HXh.pdf}
+	\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{Pontes SA simuladas com o modelo gás de rede e aderidas a duas placas planas IV:}
+	\begin{center}
+	\small  $\mathcal E_{\rm tot}(h) = \gamma_{\rm LG}\xi(h) + \mathcal E_{\rm bulk}(h)~~~~~~~~~~~~~~~~~~\xi(h) = A_R(h) + \cos\theta_{\rm C}A_B(h)$\\
+	\end{center}
+	\begin{center}
+        \includegraphics[width=0.45\columnwidth]{/resultados_GR/gammaLG1.pdf}
+        \includegraphics[width=0.45\columnwidth]{/resultados_GR/bulkEnergy.pdf}\\
+      	\includegraphics[width=0.45\columnwidth]{/resultados_GR/freeEnergiNorV_diff.pdf}
+      	\includegraphics[width=0.45\columnwidth]{/resultados_GR/ForceXh-3.pdf}
+	\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{A rugosidade dos hemisférios altera o ângulo de contato das pontes SA.}
+		\begin{center}
+	        \includegraphics[width=0.3\columnwidth]{./resultados_DR_diffGeo/rhoXz-spheres-bb-6-TESE.pdf}
+			\includegraphics[width=0.3\columnwidth]{./resultados_DR_diffGeo/rhoXz-spheres-bb0-TESE.pdf}
+			\includegraphics[width=0.3\columnwidth]{./resultados_DR_diffGeo/rhoXz-spheres-bb7-TESE.pdf}
+		\end{center}
+\end{frame}
+
+
+\subsection{Ajuste do perfil teórico $r(z)$.}
+\begin{frame}
+\frametitle{Ajustar os conjuntos de parâmetros  para determinar o perfil teórico $r(z)$ a partir do perfil da simulação $r_{\rm p}(z)$ I.}
+	\vspace{-0.25cm}
+	\begin{block}{	\small {\bf Parâmetros:} $(R,z_{\rm c})\rightarrow$ gotas SA e ST; $(H(r_{\rm 0},R_{\rm 2}),r_{\rm 0})\rightarrow$ pontes SA;  $(R,r_{\rm c})\rightarrow$ pontes ST}
+		\begin{minipage}{0.45\textwidth}
+			\only{\includegraphics[width=1.\linewidth]{Ajuste.pdf}}
+		\end{minipage}	
+		\begin{minipage}{0.54\textwidth}
+				\begin{enumerate}
+					\item[(i)]  \small  Criar um perfil teste $r_{\rm t}(z_{\rm t})$ descrito pelos parâmetros de teste $R_{\rm t}$, $r_{\rm 0, t}$, $R_{\rm 2,t}$, $z_{\rm c,t}$ e $r_{\rm c,t}$;
+					\item[(ii)] \small  Determinar a distância $d_{\rm i}$ entre os pontos $(r{}_{\rm p,i}, z_{\rm i})$ e $(r_{\rm t,i},z_{\rm t,i})$, 
+					$d_{\rm i} =\sqrt{(r_{\rm t,i} - r_{\rm p,i})^{\rm 2} +(z_{\rm t,i} - z_{\rm i})^{\rm 2}}$;
+					\item[(iii)] \small Determinar o erro $\epsilon$ do ajuste:\\
+						$\epsilon = \sqrt{\frac{1}{N_{\rm p}} \sum_{i=1}^{\rm N_{\rm p}} d_{\rm i}^{\rm 2}}$\\
+					\item[(iv)] Alterar $R_{\rm t}$, $r_{\rm 0,t}$, $R_{\rm 2,t}$, $z_{\rm c,t}$ e $r_{\rm c,t}$ de $0.1$\AA. 
+				\end{enumerate}
+		\end{minipage}
+		\uncover{Repetir os passos (i)--(iv) até varrer todos os intervalos estabelecidos previamente para os parâmetros de teste.}
+	\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Ajustar os conjuntos de parâmetros  para determinar o perfil teórico $r(z)$ a partir do perfil da simulação $r_{\rm p}(z)$ II.}
+	\vspace{-0.4cm}
+	\begin{block}{Cálculo numérico das áreas e dos volumes:}
+		\begin{minipage}{0.45\textwidth}
+				$$A_{\rm B} = 2\pi r_{\rm N_{\rm p,a} -1}^{\rm 2},$$
+				$$A_{\rm R}=\sum_{\rm i=0}^{\rm i = N_{\rm p,a}-1}A_{\rm i}~,~~~~~~~~~~~\Omega=\sum_{\rm i=0}^{\rm i = N_{\rm p,a} -1}\Omega_{\rm i}$$
+		\end{minipage}
+		\begin{minipage}{0.45\textwidth}
+			\begin{flushright}
+				\includegraphics[width=0.8\linewidth]{CalculoNumerico.pdf}
+			\end{flushright}
+		\end{minipage}
+	\end{block}		
+	\vspace{-0.4cm}
+	\begin{block}{Cálculo da área da interface líquido-sólido $A_{\rm B}$}
+		\begin{center}
+				$A_{\rm B} = 2\pi r_{\rm N_{\rm p,a} -1}^{\rm 2}$
+		\end{center}
+	\end{block}	
+	\vspace{-0.4cm}	
+	\begin{block}{Cálculo da área da interface líquido-gás $A_{\rm R}$}
+		\begin{minipage}{0.3\textwidth}
+			\begin{center}
+				 $A_{\rm R}=\sum_{\rm i=0}^{\rm i = N_{\rm p,a}-1}A_{\rm i}$
+			\end{center}
+		\end{minipage}
+		\begin{minipage}{0.69\textwidth}
+			\begin{center}
+				 $A_{\rm i} \approx \pi \sqrt{g^{\rm 2} + 1} \left [  g \left (z_{\rm i+1}^{\rm 2} - z_{\rm i}^{\rm 2} \right ) +2 l\left ( z_{\rm i+1} - z_{\rm i} \right ) \right ]$
+			\end{center}
+		\end{minipage}
+    \end{block}		
+    	\vspace{-0.4cm}
+		\begin{block}{Cálculo do Volume $\Omega$}
+			\begin{minipage}{0.3\textwidth}
+					\begin{center}
+						 $\Omega=\sum_{\rm i=0}^{\rm i = N_{\rm p,a} -1}\Omega_{\rm i}$
+					\end{center}
+		    \end{minipage}
+			\begin{minipage}{0.69\textwidth}
+					\begin{center}
+				 		$\Omega_{\rm i} \approx \pi  \left ( \frac{g^{\rm 2}}{3}  \left [ z_{\rm i+1}^{\rm 3} - z_{\rm i}^{\rm 3}  \right ] + gl\left [ z_{\rm i+1}^{\rm 2} - z_{\rm i}^{\rm 2} \right ] +  l^{\rm 2}\left [ z_{\rm i+1} - z_{\rm i}  \right ]   \right )$
+					\end{center}
+			\end{minipage}
+	    \end{block}		
+    	\vspace{-0.4cm}
+		\begin{block}{Coeficientes ângular $g$ e linear $l$}
+			\begin{minipage}{0.49\textwidth}
+				\begin{center}
+					$g = \frac{\left ( r_{\rm i+1} - r_{\rm i} \right )}{\left ( z_{\rm i+1} - z_{\rm i} \right )}$			
+				\end{center}
+			\end{minipage}
+			\begin{minipage}{0.49\textwidth}
+				\begin{center}
+	   			    $l = \frac{\left ( r_{\rm i}z_{\rm i+1} - r_{\rm i+1}z_{\rm i} \right )}{\left ( z_{\rm i+1} - z_{\rm i} \right )}$
+				\end{center}
+			\end{minipage}
+	    \end{block}		
+\end{frame}
+
+\end{document}	
